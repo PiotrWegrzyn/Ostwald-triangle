@@ -3,6 +3,7 @@ from math import cos, sin, radians
 import kivy
 from kivy.app import App
 from kivy.core.window import Window
+from kivy.graphics.context_instructions import Color
 from kivy.graphics.instructions import InstructionGroup
 from kivy.graphics.vertex_instructions import Rectangle, Line
 from kivy.properties import OptionProperty, NumericProperty, ListProperty, \
@@ -10,34 +11,15 @@ from kivy.properties import OptionProperty, NumericProperty, ListProperty, \
 from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 
-from geometry.point import Point
-from geometry.line import Line as GeoLine
 from graph import Graph
 
 kivy.require('1.9.0')
 
-Builder.load_string('''
-<LinePlayground>:
-
-    canvas:
-        Color:
-            rgba: 0, 0, 0, 1
-        Line:
-            points: self.axis_points
-            width: 2
-            
-    GridLayout:
-        cols: 2
-        size_hint: 1, None
-        height: 44 * 5
-   
-
-''')
-
 
 class Drawer:
-    def __init__(self, graph):
+    def __init__(self, graph, canvas):
         self.graph = graph
+        self.canvas = canvas
 
     def sketch_lines_from_top(self, instructions, angle, width, distance, offset_x=0, offset_y=0):
         for i in range(1, int(self.graph.width/distance)):
@@ -61,18 +43,35 @@ class Drawer:
                     width=width)
             )
 
-    def lines_between_2_lines(self, canvas, line1, line2, amount_of_lines, line_width):
+    def lines_between_2_lines(self, line1, line2, amount_of_lines, line_width, color=(0, 0, 0)):
         instructions = InstructionGroup()
+        self.set_color(instructions, color)
         line1_points = line1.get_equally_split_points(amount_of_lines)
         line2_points = line2.get_equally_split_points(amount_of_lines)
         for start, end in zip(line1_points, line2_points):
             instructions.add(
                 Line(points=[(start.x, start.y), (end.x, end.y)], width=line_width)
             )
-        canvas.add(instructions)
+        self.canvas.add(instructions)
+
+    def draw_line(self, line, line_width=1, color=(0, 0, 0)):
+        instructions = InstructionGroup()
+        self.set_color(instructions, color)
+        instructions.add(
+            Line(points=[(line.start.x, line.start.y), (line.end.x, line.end.y)], width=line_width)
+        )
+        self.canvas.add(instructions)
+
+    @staticmethod
+    def create_color(rgb):
+        return Color(rgb[0], rgb[1], rgb[2])
+
+    def set_color(self, instructions, color):
+        color = self.create_color(color)
+        instructions.add(color)
 
 
-class LinePlayground(FloatLayout):
+class OstwaldTriangleVisualization(FloatLayout):
 
     close = BooleanProperty(False)
     points = ListProperty([])
@@ -93,19 +92,21 @@ class LinePlayground(FloatLayout):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         Window.clearcolor = (1, 1, 1, 1)
-        self.axis_points.append((self.graph.left, self.graph.top))
-        self.axis_points.append((self.graph.left, self.graph.bot))
-        self.axis_points.append((self.graph.right, self.graph.bot))
+        Window.size = (1150, 700)
+        Window.top = 75
+        Window.left = 200
 
-        drawer = Drawer(self.graph)
+        drawer = Drawer(self.graph, self.canvas)
+        drawer.draw_line(self.graph.line_co, 1)
+        drawer.draw_line(self.graph.line_co2, 2)
+        drawer.draw_line(self.graph.line_o2, 2)
 
-        l2 = GeoLine(self.graph.left+50, self.graph.bot-100, self.graph.right, self.graph.bot)
-        drawer.lines_between_2_lines(self.canvas, self.graph.line_co2, l2, 15, 1.5)
+        drawer.lines_between_2_lines(self.graph.line_co2, self.graph.line_co, 15, 1.5)
 
 
 class TestLineApp(App):
     def build(self):
-        return LinePlayground()
+        return OstwaldTriangleVisualization()
 
 
 if __name__ == '__main__':
