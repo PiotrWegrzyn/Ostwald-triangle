@@ -11,6 +11,7 @@ from kivy.properties import OptionProperty, NumericProperty, ListProperty, \
 from kivy.uix.floatlayout import FloatLayout
 from kivy.lang import Builder
 
+import geometry
 from graph import Graph
 
 kivy.require('1.9.0')
@@ -44,15 +45,10 @@ class Drawer:
             )
 
     def lines_between_2_lines(self, line1, line2, amount_of_lines, line_width, color=(0, 0, 0)):
-        instructions = InstructionGroup()
-        self.set_color(instructions, color)
         line1_points = line1.get_equally_split_points(amount_of_lines)
         line2_points = line2.get_equally_split_points(amount_of_lines)
         for start, end in zip(line1_points, line2_points):
-            instructions.add(
-                Line(points=[(start.x, start.y), (end.x, end.y)], width=line_width)
-            )
-        self.canvas.add(instructions)
+                self.draw_line(geometry.Line(start, end), line_width, color)
 
     def draw_line(self, line, line_width=1, color=(0, 0, 0)):
         instructions = InstructionGroup()
@@ -97,11 +93,20 @@ class OstwaldTriangleVisualization(FloatLayout):
         Window.left = 200
 
         drawer = Drawer(self.graph, self.canvas)
-        drawer.draw_line(self.graph.line_co, 1)
-        drawer.draw_line(self.graph.line_co2, 2)
-        drawer.draw_line(self.graph.line_o2, 2)
+        drawer.draw_line(self.graph.lines["co2"], 2)
+        drawer.draw_line(self.graph.lines["co"], 1.5)
+        drawer.draw_line(self.graph.lines["o2"], 1.5)
+        drawer.draw_line(self.graph.lines["coefficient"], 1.5)
+        drawer.draw_line(self.graph.lines["bot"], 2)
+        drawer.draw_line(self.graph.lines["diagonal"], 2)
 
-        drawer.lines_between_2_lines(self.graph.line_co2, self.graph.line_co, 15, 1.5)
+        drawer.lines_between_2_lines(self.graph.lines["co2"], self.graph.lines["co"], 15, 1)
+        drawer.lines_between_2_lines(self.graph.lines['o2'], self.graph.lines["diagonal"], 15, 1)
+        drawer.lines_between_2_lines(self.graph.lines['diagonal'], self.graph.lines["bot"], 15, 1.5)
+        drawer.lines_between_2_lines(self.graph.lines['co2'], self.graph.lines["diagonal"], 15, 1.5)
+
+
+        drawer.lines_between_2_lines( self.graph.lines["coefficient"], 15, 1)
 
 
 class TestLineApp(App):

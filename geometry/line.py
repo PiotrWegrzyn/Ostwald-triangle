@@ -15,7 +15,10 @@ class Line:
             self.__init_from_4_numbers(args)
         else:
             raise ValueError("Requires 2 Points or 4 Integers or Point, angle, length as arguments.")
-        self.calculate_length()
+        self._calculate_length()
+
+    def __eq__(self, other):
+        return self.start == other.start and self.end == other.end
 
     def __init_from_2_points(self, args):
         if isinstance(args[0], Point) and isinstance(args[1], Point):
@@ -40,7 +43,7 @@ class Line:
         self.start = Point(args[0], args[1])
         self.end = Point(args[2], args[3])
 
-    def calculate_length(self):
+    def _calculate_length(self):
         self.dx = self.end.x - self.start.x
         self.dy = self.end.y - self.start.y
         self.length = (self.dx ** 2 + self.dy ** 2) ** 0.5
@@ -58,3 +61,11 @@ class Line:
             )
         return list_of_points
 
+    def get_middle(self):
+        return Point(self.start.x + self.dx/2, self.start.y + self.dx/2)
+
+    def split(self, number_of_lines):
+        if number_of_lines < 1:
+            raise ValueError("Minimum 1 line required")
+        points = self.get_equally_split_points(number_of_lines+1)
+        return [Line(points[i], points[i+1]) for i in range(number_of_lines)]

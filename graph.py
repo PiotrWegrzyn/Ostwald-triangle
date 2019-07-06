@@ -11,6 +11,12 @@ class Graph:
         self.left = 100
         self.right = 500
         self.width = self.right - self.left
-        self.line_co2 = Line(self.left, self.top, self.left, self.bot)
-        self.line_co = Line(Point(self.right, self.bot), 360-(90+45), self.height)
-        self.line_o2 = Line(self.left, self.bot, self.right, self.bot)
+        self.lines = {
+            "co2": Line(self.left, self.top, self.left, self.bot),
+            "co": Line(Point(self.right, self.bot), 360 - (90 + 45), self.height),
+            "o2": Line(self.left, self.top, self.right, self.top),
+            "coefficient": Line(Point(self.right, self.bot), 360 - (90 + 60), self.height),
+            "bot": Line(self.left, self.bot, self.right, self.bot),
+            "diagonal": Line(self.left, self.top, self.right, self.bot)
+        }
+

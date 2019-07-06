@@ -7,6 +7,21 @@ from geometry.point import Point
 
 class TestLineClass(unittest.TestCase):
 
+    def test_equality_correct_data(self):
+        a = Point(0, 0)
+        b = Point(3, 4)
+        line1 = Line(a, b)
+        line2 = Line(a, b)
+        self.assertEqual(line1, line2)
+
+    def test_equality_incorrect_data(self):
+        a = Point(0, 0)
+        b = Point(3, 4)
+        line1 = Line(a, b)
+        c = Point(1, 1)
+        line2 = Line(a, c)
+        self.assertNotEqual(line1, line2)
+
     def test_init_with_points(self):
         a = Point(0, 0)
         b = Point(3, 4)
@@ -41,10 +56,8 @@ class TestLineClass(unittest.TestCase):
         b = Point(0, 10)
         line = Line(a, b)
         points = line.get_equally_split_points(3)
-        points_x = [p.x for p in points]
-        points_y = [p.y for p in points]
-        self.assertEqual(points_x, [a.x, Point(0, 5).x, b.x])
-        self.assertEqual(points_y, [a.y, Point(0, 5).y, b.y])
+
+        self.assertEqual(points, [a, Point(0, 5), b])
 
     def test_equally_split_points_with_less_than_2_points(self):
         a = Point(0, 0)
@@ -59,6 +72,36 @@ class TestLineClass(unittest.TestCase):
         line = Line(a, b)
         with self.assertRaises(ValueError):
             line.get_equally_split_points(1)
+
+    def test_get_middle(self):
+        a = Point(0, 0)
+        b = Point(10, 10)
+        line = Line(a, b)
+        middle = line.get_middle()
+        self.assertEqual(Point(5, 5), middle)
+
+    def test_split_correct_amount_of_lines(self):
+        a = Point(0, 0)
+        b = Point(0, 10)
+        line = Line(a, b)
+        desired_amount_of_lines = 4
+        split_lines = line.split(desired_amount_of_lines)
+        self.assertEqual(desired_amount_of_lines, len(split_lines))
+
+    def test_split_correct_point_coords(self):
+        a = Point(0, 0)
+        b = Point(0, 10)
+        line = Line(a, b)
+        desired_amount_of_lines = 4
+        split_lines = line.split(desired_amount_of_lines)
+        self.assertEqual(Line(Point(0, 2.5), Point(0, 5)), split_lines[1])
+
+    def test_split_less_than_1(self):
+        a = Point(0, 0)
+        b = Point(10, 10)
+        line = Line(a, b)
+        middle = line.get_middle()
+        self.assertEqual((5, 5), (middle.x, middle.y))
 
 
 if __name__ == '__main__':
