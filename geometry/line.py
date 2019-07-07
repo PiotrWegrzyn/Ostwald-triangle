@@ -18,7 +18,7 @@ class Line:
         else:
             raise ValueError("Requires 2 Points or 4 Integers or Point, angle, length as arguments.")
         self.vector = Vector(self.start, self.end)
-        self._set_length()
+        self.length = Point.distance(self.start, self.end)
 
     def __eq__(self, other):
         return self.start == other.start and self.end == other.end
@@ -45,9 +45,6 @@ class Line:
     def __init_from_4_numbers(self, args):
         self.start = Point(args[0], args[1])
         self.end = Point(args[2], args[3])
-
-    def _set_length(self):
-        self.length = self.vector.length
 
     def get_split_points(self, number_of_points, proportions=None):
         if number_of_points < 2:
@@ -98,3 +95,4 @@ class Line:
             pivot += prop
             point_proportions.append(pivot / total)
         return point_proportions
+
