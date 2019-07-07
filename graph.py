@@ -12,7 +12,7 @@ class Graph:
         self.right = 500
         self.width = self.right - self.left
         self.lines = {
-            "co2": Line(self.left, self.top, self.left, self.bot),
+            "co2": Line(self.left, self.bot, self.left, self.top),
             "co": Line(Point(self.right, self.bot), 360 - (90 + 45), self.height),
             "o2": Line(self.left, self.top, self.right, self.top),
             "coefficient": Line(Point(self.right, self.bot), 360 - (90 + 60), self.height),

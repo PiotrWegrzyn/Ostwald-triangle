@@ -45,8 +45,8 @@ class Drawer:
             )
 
     def lines_between_2_lines(self, line1, line2, amount_of_lines, line_width, color=(0, 0, 0)):
-        line1_points = line1.get_equally_split_points(amount_of_lines)
-        line2_points = line2.get_equally_split_points(amount_of_lines)
+        line1_points = line1.get_split_points(amount_of_lines)
+        line2_points = line2.get_split_points(amount_of_lines)
         for start, end in zip(line1_points, line2_points):
                 self.draw_line(geometry.Line(start, end), line_width, color)
 
@@ -92,21 +92,24 @@ class OstwaldTriangleVisualization(FloatLayout):
         Window.top = 75
         Window.left = 200
 
-        drawer = Drawer(self.graph, self.canvas)
-        drawer.draw_line(self.graph.lines["co2"], 2)
-        drawer.draw_line(self.graph.lines["co"], 1.5)
-        drawer.draw_line(self.graph.lines["o2"], 1.5)
-        drawer.draw_line(self.graph.lines["coefficient"], 1.5)
-        drawer.draw_line(self.graph.lines["bot"], 2)
-        drawer.draw_line(self.graph.lines["diagonal"], 2)
+        self.drawer = Drawer(self.graph, self.canvas)
+        self.drawer.draw_line(self.graph.lines["co2"], 2)
+        self.drawer.draw_line(self.graph.lines["co"], 1.5)
+        self.drawer.draw_line(self.graph.lines["o2"], 1.5)
+        self.drawer.draw_line(self.graph.lines["coefficient"], 1.5)
+        self.drawer.draw_line(self.graph.lines["bot"], 2)
+        self.drawer.draw_line(self.graph.lines["diagonal"], 2)
 
-        drawer.lines_between_2_lines(self.graph.lines["co2"], self.graph.lines["co"], 15, 1)
-        drawer.lines_between_2_lines(self.graph.lines['o2'], self.graph.lines["diagonal"], 15, 1)
-        drawer.lines_between_2_lines(self.graph.lines['diagonal'], self.graph.lines["bot"], 15, 1.5)
-        drawer.lines_between_2_lines(self.graph.lines['co2'], self.graph.lines["diagonal"], 15, 1.5)
+        # self.drawer.lines_between_2_lines(self.graph.lines['diagonal'], self.graph.lines["bot"], 15, 1.5)
+        # self.drawer.lines_between_2_lines(self.graph.lines['co2'], self.graph.lines["diagonal"].reversed(), 15, 1.5)
+        # self.drawer.lines_between_2_lines(self.graph.lines["co2"], self.graph.lines["co"].reversed(), 15, 1)
+        # self.drawer.lines_between_2_lines(self.graph.lines['o2'], self.graph.lines["diagonal"], 15, 1)
 
+        split_coefficient = self.graph.lines["coefficient"].reversed().split(2, [self.graph.lines['co2'].length,
+                                                                                 self.graph.lines['diagonal'].length])
+        self.drawer.lines_between_2_lines(split_coefficient[0], self.graph.lines['co2'], 6, 1)
+        self.drawer.lines_between_2_lines(split_coefficient[1], self.graph.lines['diagonal'], 9,1)
 
-        drawer.lines_between_2_lines( self.graph.lines["coefficient"], 15, 1)
 
 
 class TestLineApp(App):

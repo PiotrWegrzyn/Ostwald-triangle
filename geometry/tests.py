@@ -55,23 +55,30 @@ class TestLineClass(unittest.TestCase):
         a = Point(0, 0)
         b = Point(0, 10)
         line = Line(a, b)
-        points = line.get_equally_split_points(3)
+        points = line.get_split_points(3)
 
         self.assertEqual(points, [a, Point(0, 5), b])
+
+    def test_proportions_split_points(self):
+        a = Point(0, 0)
+        b = Point(0, 10)
+        line = Line(a, b)
+        points = line.get_split_points(3, [0, 0.4, 1])
+        self.assertEqual(points, [a, Point(0, 4), b])
 
     def test_equally_split_points_with_less_than_2_points(self):
         a = Point(0, 0)
         b = Point(0, 10)
         line = Line(a, b)
         with self.assertRaises(ValueError):
-            line.get_equally_split_points(0)
+            line.get_split_points(0)
 
     def test_equally_split_points_with_division_by_0(self):
         a = Point(0, 0)
         b = Point(0, 10)
         line = Line(a, b)
         with self.assertRaises(ValueError):
-            line.get_equally_split_points(1)
+            line.get_split_points(1)
 
     def test_get_middle(self):
         a = Point(0, 0)
@@ -96,12 +103,27 @@ class TestLineClass(unittest.TestCase):
         split_lines = line.split(desired_amount_of_lines)
         self.assertEqual(Line(Point(0, 2.5), Point(0, 5)), split_lines[1])
 
+    def test_split_proportions(self):
+        a = Point(0, 0)
+        b = Point(0, 10)
+        line = Line(a, b)
+        desired_amount_of_lines = 4
+        split_lines = line.split(desired_amount_of_lines, [6,2,1,1])
+        self.assertEqual(Line(Point(0, 8), Point(0, 9)), split_lines[2])
+
     def test_split_less_than_1(self):
         a = Point(0, 0)
         b = Point(10, 10)
         line = Line(a, b)
-        middle = line.get_middle()
-        self.assertEqual((5, 5), (middle.x, middle.y))
+        with self.assertRaises(ValueError):
+            line.split(0)
+
+    def test_reverse(self):
+        a = Point(0, 0)
+        b = Point(10, 10)
+        line = Line(a, b)
+        line_reversed = Line(b, a)
+        self.assertEqual(line_reversed, line.reversed())
 
 
 if __name__ == '__main__':
