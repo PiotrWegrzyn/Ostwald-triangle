@@ -1,6 +1,8 @@
 from geometry.point import Point
 from math import cos, sin, radians
 
+from geometry.vector import Vector
+
 
 class Line:
     start = None
@@ -15,7 +17,8 @@ class Line:
             self.__init_from_4_numbers(args)
         else:
             raise ValueError("Requires 2 Points or 4 Integers or Point, angle, length as arguments.")
-        self._calculate_length()
+        self.vector = Vector(self.start, self.end)
+        self._set_length()
 
     def __eq__(self, other):
         return self.start == other.start and self.end == other.end
@@ -43,29 +46,37 @@ class Line:
         self.start = Point(args[0], args[1])
         self.end = Point(args[2], args[3])
 
-    def _calculate_length(self):
-        self.dx = self.end.x - self.start.x
-        self.dy = self.end.y - self.start.y
-        self.length = (self.dx ** 2 + self.dy ** 2) ** 0.5
+    def _set_length(self):
+        self.length = self.vector.length
 
-    def get_equally_split_points(self, number_of_points):
+    def get_split_points(self, number_of_points, proportions=None):
         if number_of_points < 2:
             raise ValueError("Minimum 2 points required")
+        if proportions and (len(proportions) is not number_of_points):
+            raise ValueError("Wrong amount of proportions")
         list_of_points = []
         for i in range(number_of_points):
+            if proportions:
+                change_x = self.vector.dx * proportions[i]
+                change_y = self.vector.dy * proportions[i]
+            else:
+                change_x = self.vector.dx / (number_of_points - 1) * i
+                change_y = self.vector.dy / (number_of_points - 1) * i
             list_of_points.append(
                 Point(
-                    self.start.x + (self.dx / (number_of_points-1)) * i,
-                    self.start.y + (self.dy / (number_of_points-1)) * i
+                    self.start.x + change_x,
+                    self.start.y + change_y
                 )
             )
         return list_of_points
 
     def get_middle(self):
-        return Point(self.start.x + self.dx/2, self.start.y + self.dx/2)
+        return Point(self.start.x + self.vector.dx/2, self.start.y + self.vector.dx/2)
 
-    def split(self, number_of_lines):
+    def split(self, number_of_lines, proportions=None):
         if number_of_lines < 1:
             raise ValueError("Minimum 1 line required")
-        points = self.get_equally_split_points(number_of_lines+1)
+        if proportions:
+            proportions = self._convert_to_point_proportions(proportions)
+        points = self.get_split_points(number_of_lines + 1, proportions)
         return [Line(points[i], points[i+1]) for i in range(number_of_lines)]
