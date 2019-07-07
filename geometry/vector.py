@@ -1,8 +1,9 @@
+from geometry.lineinferface import LineInterface
 from geometry.point import Point
 from math import cos, sin, radians
 
 
-class Vector:
+class Vector(LineInterface):
     start = None
     end = None
 
@@ -18,8 +19,6 @@ class Vector:
 
         self.dx = self.end.x - self.start.x
         self.dy = self.end.y - self.start.y
-        self.dx_abs = abs(self.dx)
-        self.dy_abs = abs(self.dy)
         self.length = Point.distance(self.start, self.end)
 
     def __eq__(self, other):
@@ -50,7 +49,7 @@ class Vector:
         self.end = Point(args[2], args[3])
 
     def get_split_points(self, number_of_points, proportions=None):
-        if number_of_points < 2:
+        if number_of_points < 2 and not proportions:
             raise ValueError("Minimum 2 points required")
         if proportions and (len(proportions) is not number_of_points):
             raise ValueError("Wrong amount of proportions")
@@ -70,7 +69,7 @@ class Vector:
             )
         return list_of_points
 
-    def get_middle(self):
+    def get_geometric_center(self):
         return Point(self.start.x + self.dx/2, self.start.y + self.dx/2)
 
     def split(self, number_of_lines, proportions=None):
