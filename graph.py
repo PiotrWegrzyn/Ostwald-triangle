@@ -14,14 +14,14 @@ class LineInfo:
 class Graph:
 
     def __init__(self, maxco2, maxo2, maxco):
-        self.top = 650
-        self.bot = 350
+        self.top = 690
+        self.bot = 240
         self.height = self.top - self.bot
         self.left = 100
         self.right = 800
         self.width = self.right - self.left
 
-        self.co_line_angle = 60
+        self.co_line_angle = 45
         self.coefficient_line_angle = 20
         coefficient_line_len = self.width * cos(radians(self.coefficient_line_angle))
 
