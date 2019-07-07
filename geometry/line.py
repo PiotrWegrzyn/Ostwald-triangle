@@ -81,12 +81,6 @@ class Line:
     def reversed(self):
         return Line(self.end, self.start)
 
-    def split_wages(self, number_of_lines, wages):
-        if number_of_lines < 1:
-            raise ValueError("Minimum 1 line required")
-        points = self.get_split_points(number_of_lines + 1)
-        return [Line(points[i], points[i+1]) for i in range(number_of_lines)]
-
     def _convert_to_point_proportions(self, proportions):
         point_proportions = [0]
         total = sum(proportions)
