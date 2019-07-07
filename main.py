@@ -21,10 +21,10 @@ class Drawer:
         self.graph = graph
         self.canvas = canvas
 
-    def sketch_lines_from_top(self, instructions, angle, width, distance, offset_x=0, offset_y=0):
+    def sketch_vectors_from_top(self, instructions, angle, width, distance, offset_x=0, offset_y=0):
         for i in range(1, int(self.graph.width/distance)):
             instructions.add(
-                Line(
+                vector(
                     points=[
                         (self.graph.left + distance * i + offset_x, self.graph.top),
                         (self.graph.left + distance * i + sin(radians(angle))*self.graph.width+offset_x, self.graph.bot+offset_y)
@@ -32,10 +32,10 @@ class Drawer:
                     width=width)
             )
 
-    def sketch_lines_from_left(self, instructions, angle, width, distance, offset_x=0, offset_y=0):
+    def sketch_vectors_from_left(self, instructions, angle, width, distance, offset_x=0, offset_y=0):
         for i in range(1, int(self.graph.height/distance)):
             instructions.add(
-                Line(
+                vector(
                     points=[
                         (self.graph.left + offset_x, self.graph.bot + distance * i),
                         (self.graph.left + distance * i + sin(radians(angle))*self.graph.width+offset_x, self.graph.bot+offset_y)
@@ -43,17 +43,17 @@ class Drawer:
                     width=width)
             )
 
-    def lines_between_2_lines(self, line1, line2, amount_of_lines, line_width, color=(0, 0, 0)):
-        line1_points = line1.get_split_points(amount_of_lines)
-        line2_points = line2.get_split_points(amount_of_lines)
-        for start, end in zip(line1_points, line2_points):
-                self.draw_line(geometry.LineSegment(start, end), line_width, color)
+    def vectors_between_2_vectors(self, vector1, vector2, amount_of_vectors, vector_width, color=(0, 0, 0)):
+        vector1_points = vector1.get_split_points(amount_of_vectors)
+        vector2_points = vector2.get_split_points(amount_of_vectors)
+        for start, end in zip(vector1_points, vector2_points):
+                self.draw_vector(geometry.Vector(start, end), vector_width, color)
 
-    def draw_line(self, line, line_width=1, color=(0, 0, 0)):
+    def draw_vector(self, vector, vector_width=1, color=(0, 0, 0)):
         instructions = InstructionGroup()
         self.set_color(instructions, color)
         instructions.add(
-            Line(points=[(line.start.x, line.start.y), (line.end.x, line.end.y)], width=line_width)
+            Line(points=[(vector.start.x, vector.start.y), (vector.end.x, vector.end.y)], width=vector_width)
         )
         self.canvas.add(instructions)
 
@@ -74,7 +74,7 @@ class OstwaldTriangleVisualization(FloatLayout):
     axis_points = ListProperty([])
     sktech_points = ListProperty([])
 
-    linewidth = NumericProperty(1.0)
+    vectorwidth = NumericProperty(1.0)
     dt = NumericProperty(0)
     dash_length = NumericProperty(1)
     dash_offset = NumericProperty(0)
@@ -92,28 +92,28 @@ class OstwaldTriangleVisualization(FloatLayout):
         Window.left = 200
 
         self.drawer = Drawer(self.graph, self.canvas)
-        self.drawer.draw_line(self.graph.lines["co2"], 2)
-        self.drawer.draw_line(self.graph.lines["co"], 1.5)
-        self.drawer.draw_line(self.graph.lines["o2"], 1.5)
-        self.drawer.draw_line(self.graph.lines["coefficient"], 1.5)
-        self.drawer.draw_line(self.graph.lines["bot"], 2)
-        self.drawer.draw_line(self.graph.lines["diagonal"], 2)
+        self.drawer.draw_vector(self.graph.lines["co2"], 2)
+        self.drawer.draw_vector(self.graph.lines["co"], 1.5)
+        self.drawer.draw_vector(self.graph.lines["o2"], 1.5)
+        self.drawer.draw_vector(self.graph.lines["coefficient"], 1.5)
+        self.drawer.draw_vector(self.graph.lines["bot"], 2)
+        self.drawer.draw_vector(self.graph.lines["diagonal"], 2)
 
-        # self.drawer.lines_between_2_lines(self.graph.lines['diagonal'], self.graph.lines["bot"], 15, 1.5)
-        # self.drawer.lines_between_2_lines(self.graph.lines['co2'], self.graph.lines["diagonal"].reversed(), 15, 1.5)
-        # self.drawer.lines_between_2_lines(self.graph.lines["co2"], self.graph.lines["co"].reversed(), 15, 1)
-        # self.drawer.lines_between_2_lines(self.graph.lines['o2'], self.graph.lines["diagonal"], 15, 1)
+        # self.drawer.vectors_between_2_vectors(self.graph.vectors['diagonal'], self.graph.vectors["bot"], 15, 1.5)
+        # self.drawer.vectors_between_2_vectors(self.graph.vectors['co2'], self.graph.vectors["diagonal"].reversed(), 15, 1.5)
+        # self.drawer.vectors_between_2_vectors(self.graph.vectors["co2"], self.graph.vectors["co"].reversed(), 15, 1)
+        # self.drawer.vectors_between_2_vectors(self.graph.vectors['o2'], self.graph.vectors["diagonal"], 15, 1)
 
         split_coefficient = self.graph.lines["coefficient"].reversed().split(2, [self.graph.lines['co2'].length,
                                                                                  self.graph.lines['diagonal'].length])
-        self.drawer.lines_between_2_lines(split_coefficient[0], self.graph.lines['co2'], 6, 1)
-        self.drawer.lines_between_2_lines(split_coefficient[1], self.graph.lines['diagonal'], 9,1)
+        self.drawer.vectors_between_2_vectors(split_coefficient[0], self.graph.lines['co2'], 6, 1)
+        self.drawer.vectors_between_2_vectors(split_coefficient[1], self.graph.lines['diagonal'], 9,1)
 
 
-class TestLineApp(App):
+class TestvectorApp(App):
     def build(self):
         return OstwaldTriangleVisualization()
 
 
 if __name__ == '__main__':
-    TestLineApp().run()
+    TestvectorApp().run()

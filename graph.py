@@ -1,4 +1,4 @@
-from geometry.linesegment import LineSegment
+from geometry.vector import Vector
 from geometry.point import Point
 
 
@@ -12,11 +12,11 @@ class Graph:
         self.right = 500
         self.width = self.right - self.left
         self.lines = {
-            "co2": LineSegment(self.left, self.bot, self.left, self.top),
-            "co": LineSegment(Point(self.right, self.bot), 360 - (90 + 45), self.height),
-            "o2": LineSegment(self.left, self.top, self.right, self.top),
-            "coefficient": LineSegment(Point(self.right, self.bot), 360 - (90 + 60), self.height),
-            "bot": LineSegment(self.left, self.bot, self.right, self.bot),
-            "diagonal": LineSegment(self.left, self.top, self.right, self.bot)
+            "co2": Vector(self.left, self.bot, self.left, self.top),
+            "co": Vector(Point(self.right, self.bot), 360 - (90 + 45), self.height),
+            "o2": Vector(self.left, self.top, self.right, self.top),
+            "coefficient": Vector(Point(self.right, self.bot), 360 - (90 + 60), self.height),
+            "bot": Vector(self.left, self.bot, self.right, self.bot),
+            "diagonal": Vector(self.left, self.top, self.right, self.bot)
         }
 
