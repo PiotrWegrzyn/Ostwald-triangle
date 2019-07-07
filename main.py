@@ -11,6 +11,7 @@ from kivy.properties import NumericProperty, ListProperty, \
 from kivy.uix.floatlayout import FloatLayout
 
 import geometry
+from geometry import PolygonalChain
 from graph import Graph
 
 kivy.require('1.9.0')
@@ -21,35 +22,13 @@ class Drawer:
         self.graph = graph
         self.canvas = canvas
 
-    def sketch_vectors_from_top(self, instructions, angle, width, distance, offset_x=0, offset_y=0):
-        for i in range(1, int(self.graph.width/distance)):
-            instructions.add(
-                vector(
-                    points=[
-                        (self.graph.left + distance * i + offset_x, self.graph.top),
-                        (self.graph.left + distance * i + sin(radians(angle))*self.graph.width+offset_x, self.graph.bot+offset_y)
-                    ],
-                    width=width)
-            )
+    def lines_between_2_lines(self, line1, line2, amount_of_vectors, vector_width, color=(0, 0, 0), w1=None, w2=None):
+        line1_points = line1.get_split_points(amount_of_vectors, w1)
+        line2_points = line2.get_split_points(amount_of_vectors, w2)
+        for start, end in zip(line1_points, line2_points):
+            self.draw_line(geometry.Vector(start, end), vector_width, color)
 
-    def sketch_vectors_from_left(self, instructions, angle, width, distance, offset_x=0, offset_y=0):
-        for i in range(1, int(self.graph.height/distance)):
-            instructions.add(
-                vector(
-                    points=[
-                        (self.graph.left + offset_x, self.graph.bot + distance * i),
-                        (self.graph.left + distance * i + sin(radians(angle))*self.graph.width+offset_x, self.graph.bot+offset_y)
-                    ],
-                    width=width)
-            )
-
-    def vectors_between_2_vectors(self, vector1, vector2, amount_of_vectors, vector_width, color=(0, 0, 0)):
-        vector1_points = vector1.get_split_points(amount_of_vectors)
-        vector2_points = vector2.get_split_points(amount_of_vectors)
-        for start, end in zip(vector1_points, vector2_points):
-                self.draw_vector(geometry.Vector(start, end), vector_width, color)
-
-    def draw_vector(self, vector, vector_width=1, color=(0, 0, 0)):
+    def draw_line(self, vector, vector_width=1, color=(0, 0, 0)):
         instructions = InstructionGroup()
         self.set_color(instructions, color)
         instructions.add(
@@ -82,7 +61,7 @@ class OstwaldTriangleVisualization(FloatLayout):
 
     _update_points_animation_ev = None
 
-    graph = Graph()
+    graph = Graph(18.9,21,28)
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -92,22 +71,53 @@ class OstwaldTriangleVisualization(FloatLayout):
         Window.left = 200
 
         self.drawer = Drawer(self.graph, self.canvas)
-        self.drawer.draw_vector(self.graph.lines["co2"], 2)
-        self.drawer.draw_vector(self.graph.lines["co"], 1.5)
-        self.drawer.draw_vector(self.graph.lines["o2"], 1.5)
-        self.drawer.draw_vector(self.graph.lines["coefficient"], 1.5)
-        self.drawer.draw_vector(self.graph.lines["bot"], 2)
-        self.drawer.draw_vector(self.graph.lines["diagonal"], 2)
+        self.drawer.draw_line(self.graph.lines["co2"].line, 2)
+        self.drawer.draw_line(self.graph.lines["co"].line, 1.5)
+        self.drawer.draw_line(self.graph.lines["o2"].line, 1.5)
+        self.drawer.draw_line(self.graph.lines["coefficient"].line, 1.5)
+        self.drawer.draw_line(self.graph.lines["bot"].line, 2)
+        self.drawer.draw_line(self.graph.lines["diagonal"].line, 2)
 
-        # self.drawer.vectors_between_2_vectors(self.graph.vectors['diagonal'], self.graph.vectors["bot"], 15, 1.5)
-        # self.drawer.vectors_between_2_vectors(self.graph.vectors['co2'], self.graph.vectors["diagonal"].reversed(), 15, 1.5)
-        # self.drawer.vectors_between_2_vectors(self.graph.vectors["co2"], self.graph.vectors["co"].reversed(), 15, 1)
-        # self.drawer.vectors_between_2_vectors(self.graph.vectors['o2'], self.graph.vectors["diagonal"], 15, 1)
+        self.drawer.lines_between_2_lines(
+            self.graph.lines['co2'].line,
+            self.graph.lines["diagonal"].line.reversed(),
+            self.graph.lines['co2'].number_of_lines,
+            vector_width=1.5
+        )
+        self.drawer.lines_between_2_lines(
+            self.graph.lines['diagonal'].line,
+            self.graph.lines["bot"].line,
+            self.graph.lines['o2'].number_of_lines,
+            vector_width=1.5
+        )
+        self.drawer.lines_between_2_lines(
+            self.graph.lines['o2'].line,
+            self.graph.lines["diagonal"].line,
+            self.graph.lines['o2'].number_of_lines,
+            vector_width=1
+        )
+        self.drawer.lines_between_2_lines(
+            self.graph.lines["co2"].line,
+            self.graph.lines["co"].line.reversed(),
+            self.graph.lines['co'].number_of_lines,
+            vector_width=1
+        )
 
-        split_coefficient = self.graph.lines["coefficient"].reversed().split(2, [self.graph.lines['co2'].length,
-                                                                                 self.graph.lines['diagonal'].length])
-        self.drawer.vectors_between_2_vectors(split_coefficient[0], self.graph.lines['co2'], 6, 1)
-        self.drawer.vectors_between_2_vectors(split_coefficient[1], self.graph.lines['diagonal'], 9,1)
+        pc = PolygonalChain([self.graph.lines['co2'].line, self.graph.lines['diagonal'].line])
+        wages = self.wages_for_coefficient_lines()
+        self.drawer.lines_between_2_lines(self.graph.lines['coefficient'].line.reversed(), pc, len(wages), 1, w2=wages)
+
+    def wages_for_coefficient_lines(self):
+        center = self.graph.lines['co2'].line.length / (self.graph.lines['co2'].line.length + self.graph.lines['diagonal'].line.length)
+        scaled_center = int(center * 1000)
+        step = int(scaled_center /self.graph.lines['co2'].number_of_lines)
+        wages = [0] \
+                + [s / 1000 for s in range(step, scaled_center, step)] \
+                + [center] \
+                + [s / 1000 for s in range(scaled_center + step, 1000, step)] \
+                + [1]
+
+        return wages
 
 
 class TestvectorApp(App):
