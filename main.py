@@ -1,15 +1,14 @@
-from math import cos, sin, radians
+from math import sin, radians
 
 import kivy
 from kivy.app import App
 from kivy.core.window import Window
 from kivy.graphics.context_instructions import Color
 from kivy.graphics.instructions import InstructionGroup
-from kivy.graphics.vertex_instructions import Rectangle, Line
-from kivy.properties import OptionProperty, NumericProperty, ListProperty, \
+from kivy.graphics.vertex_instructions import Line
+from kivy.properties import NumericProperty, ListProperty, \
     BooleanProperty
 from kivy.uix.floatlayout import FloatLayout
-from kivy.lang import Builder
 
 import geometry
 from graph import Graph
@@ -48,7 +47,7 @@ class Drawer:
         line1_points = line1.get_split_points(amount_of_lines)
         line2_points = line2.get_split_points(amount_of_lines)
         for start, end in zip(line1_points, line2_points):
-                self.draw_line(geometry.Line(start, end), line_width, color)
+                self.draw_line(geometry.LineSegment(start, end), line_width, color)
 
     def draw_line(self, line, line_width=1, color=(0, 0, 0)):
         instructions = InstructionGroup()
@@ -109,7 +108,6 @@ class OstwaldTriangleVisualization(FloatLayout):
                                                                                  self.graph.lines['diagonal'].length])
         self.drawer.lines_between_2_lines(split_coefficient[0], self.graph.lines['co2'], 6, 1)
         self.drawer.lines_between_2_lines(split_coefficient[1], self.graph.lines['diagonal'], 9,1)
-
 
 
 class TestLineApp(App):

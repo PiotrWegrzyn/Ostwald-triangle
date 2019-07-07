@@ -7,4 +7,6 @@ class Vector:
         self.end = end
         self.dx = self.end.x - self.start.x
         self.dy = self.end.y - self.start.y
+        self.dx_abs = abs(self.dx)
+        self.dy_abs = abs(self.dy)
         self.length = Point.distance(start, end)

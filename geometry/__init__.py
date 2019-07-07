@@ -1,3 +1,3 @@
 from .point import Point
-from .line import Vector
-from .line import Line
+from .linesegment import Vector
+from .linesegment import LineSegment

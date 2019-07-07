@@ -4,7 +4,7 @@ from math import cos, sin, radians
 from geometry.vector import Vector
 
 
-class Line:
+class LineSegment:
     start = None
     end = None
 
@@ -76,10 +76,10 @@ class Line:
         if proportions:
             proportions = self._convert_to_point_proportions(proportions)
         points = self.get_split_points(number_of_lines + 1, proportions)
-        return [Line(points[i], points[i+1]) for i in range(number_of_lines)]
+        return [LineSegment(points[i], points[i + 1]) for i in range(number_of_lines)]
 
     def reversed(self):
-        return Line(self.end, self.start)
+        return LineSegment(self.end, self.start)
 
     def _convert_to_point_proportions(self, proportions):
         point_proportions = [0]
