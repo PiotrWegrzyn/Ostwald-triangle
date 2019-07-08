@@ -111,8 +111,8 @@ class OstwaldTriangleVisualization(FloatLayout):
         return distance_from_start / self.graph.lines['coefficient'].line.length
 
     def draw_coefficient_lines(self):
-        scale_density = 0.05
-        amount_of_points = int(scale_density**-1)+1
+        scale = 0.2
+        amount_of_points = int(scale**-1)+1
         coeff_line_split = self.graph.lines['coefficient'].line.split(
             number_of_lines=2,
             proportions=[
@@ -128,14 +128,15 @@ class OstwaldTriangleVisualization(FloatLayout):
         )
         coef_len = int(self.graph.lines['coefficient'].line.length)
         remaining_coef_len = int(coeff_line_split[1].length)
-        step = int(amount_of_points**-1 * coef_len * self.calculate_coefficient_center())
+        step = int(scale * coef_len * self.calculate_coefficient_center())
         wages = [distance / remaining_coef_len for distance in range(0,remaining_coef_len, step)]
         self.drawer.lines_between_2_lines(
             coeff_line_split[1],
             self.graph.lines['co2'].line.reversed(),
             amount_of_vectors=len(wages),
             vector_width=1,
-
+            w1=wages,
+            w2=wages
         )
 
 
