@@ -2,6 +2,9 @@ from math import sin, cos, radians
 
 from geometry.vector import Vector
 from geometry.point import Point
+from math import sin, radians, degrees, acos
+
+from ostwald_triangle_drawer import OstwaldTriangleGraphDrawer
 
 
 class LineInfo:
@@ -11,7 +14,7 @@ class LineInfo:
         self.labels = labels
 
 
-class Graph:
+class OstwaldTriangle:
 
     def __init__(self, maxco2, maxo2, maxco):
         self.top = 690
@@ -34,3 +37,5 @@ class Graph:
             "diagonal": LineInfo(Vector(self.left, self.top, self.right, self.bot))
         }
 
+    def draw(self, canvas):
+        OstwaldTriangleGraphDrawer(canvas).draw(self)
