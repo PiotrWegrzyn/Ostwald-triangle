@@ -1,4 +1,4 @@
-from math import sin, radians, degrees, cos, acos
+from math import sin, radians, degrees, acos
 
 import kivy
 from kivy.app import App
@@ -6,12 +6,9 @@ from kivy.core.window import Window
 from kivy.graphics.context_instructions import Color
 from kivy.graphics.instructions import InstructionGroup
 from kivy.graphics.vertex_instructions import Line
-from kivy.properties import NumericProperty, ListProperty, \
-    BooleanProperty
 from kivy.uix.floatlayout import FloatLayout
 
 import geometry
-from geometry import PolygonalChain
 from graph import Graph
 
 kivy.require('1.9.0')
@@ -47,20 +44,6 @@ class Drawer:
 
 class OstwaldTriangleVisualization(FloatLayout):
 
-    close = BooleanProperty(False)
-    points = ListProperty([])
-    points2 = ListProperty([])
-    axis_points = ListProperty([])
-    sktech_points = ListProperty([])
-
-    vectorwidth = NumericProperty(1.0)
-    dt = NumericProperty(0)
-    dash_length = NumericProperty(1)
-    dash_offset = NumericProperty(0)
-    dashes = ListProperty([])
-
-    _update_points_animation_ev = None
-
     graph = Graph(18.9,21,28)
 
     def __init__(self, **kwargs):
@@ -78,30 +61,30 @@ class OstwaldTriangleVisualization(FloatLayout):
         self.drawer.draw_line(self.graph.lines["bot"].line, 2)
         self.drawer.draw_line(self.graph.lines["diagonal"].line, 2)
 
-        # self.drawer.lines_between_2_lines(
-        #     self.graph.lines['co2'].line,
-        #     self.graph.lines["diagonal"].line.reversed(),
-        #     self.graph.lines['co2'].number_of_lines,
-        #     vector_width=1.5
-        # )
-        # self.drawer.lines_between_2_lines(
-        #     self.graph.lines['diagonal'].line,
-        #     self.graph.lines["bot"].line,
-        #     self.graph.lines['o2'].number_of_lines,
-        #     vector_width=1.5
-        # )
-        # self.drawer.lines_between_2_lines(
-        #     self.graph.lines['o2'].line,
-        #     self.graph.lines["diagonal"].line,
-        #     self.graph.lines['o2'].number_of_lines,
-        #     vector_width=1
-        # )
-        # self.drawer.lines_between_2_lines(
-        #     self.graph.lines["co2"].line,
-        #     self.graph.lines["co"].line.reversed(),
-        #     self.graph.lines['co'].number_of_lines,
-        #     vector_width=1
-        # )
+        self.drawer.lines_between_2_lines(
+            self.graph.lines['co2'].line,
+            self.graph.lines["diagonal"].line.reversed(),
+            self.graph.lines['co2'].number_of_lines,
+            vector_width=1.5
+        )
+        self.drawer.lines_between_2_lines(
+            self.graph.lines['diagonal'].line,
+            self.graph.lines["bot"].line,
+            self.graph.lines['o2'].number_of_lines,
+            vector_width=1.5
+        )
+        self.drawer.lines_between_2_lines(
+            self.graph.lines['o2'].line,
+            self.graph.lines["diagonal"].line,
+            self.graph.lines['o2'].number_of_lines,
+            vector_width=1
+        )
+        self.drawer.lines_between_2_lines(
+            self.graph.lines["co2"].line,
+            self.graph.lines["co"].line.reversed(),
+            self.graph.lines['co'].number_of_lines,
+            vector_width=1
+        )
         self.draw_coefficient_lines()
 
     def calculate_coefficient_center(self):
@@ -111,7 +94,7 @@ class OstwaldTriangleVisualization(FloatLayout):
         return distance_from_start / self.graph.lines['coefficient'].line.length
 
     def draw_coefficient_lines(self):
-        scale = 0.2
+        scale = 0.1
         amount_of_points = int(scale**-1)+1
         coeff_line_split = self.graph.lines['coefficient'].line.split(
             number_of_lines=2,
@@ -140,12 +123,10 @@ class OstwaldTriangleVisualization(FloatLayout):
         )
 
 
-
-
-class TestvectorApp(App):
+class OstwaldTriangle(App):
     def build(self):
         return OstwaldTriangleVisualization()
 
 
 if __name__ == '__main__':
-    TestvectorApp().run()
+    OstwaldTriangle().run()
