@@ -46,14 +46,14 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.draw_line(self.triangle.lines["diagonal"].line, 2)
 
     def draw_coefficient_lines(self):
-        coeff_center = self.calculate_coefficient_center()
+        altitude_drop_ratio = self.coeff_line_altitude_drop_ratio()
         scale = self.triangle.lines['coefficient'].scale
         amount_of_points = int(scale ** -1) + 1
         coeff_line_split = self.triangle.lines['coefficient'].line.split(
             number_of_lines=2,
             proportions=[
-                coeff_center,
-                1 - coeff_center
+                altitude_drop_ratio,
+                1 - altitude_drop_ratio
             ]
         )
         self.lines_between_2_lines(
@@ -73,12 +73,11 @@ class OstwaldTriangleGraphDrawer(Drawer):
         )
 
     def split_remaining_coeff_line(self, remaining_part):
-        coef_len = int(self.triangle.lines['coefficient'].line.length)
-        remaining_coef_len = int(remaining_part.length)
-        step = int(self.triangle.lines['coefficient'].scale * coef_len * self.calculate_coefficient_center())
-        return [distance / remaining_coef_len for distance in range(0, remaining_coef_len, step)]
+        coef_len = self.triangle.lines['coefficient'].line.length
+        step = int(self.triangle.lines['coefficient'].scale * coef_len * self.coeff_line_altitude_drop_ratio())
+        return [distance / remaining_part.length for distance in range(0, int(remaining_part.length), step)]
 
-    def calculate_coefficient_center(self):
+    def coeff_line_altitude_drop_ratio(self):
         cos_alpha = self.triangle.lines['co2'].line.length / self.triangle.lines['diagonal'].line.length
         alpha = degrees(acos(cos_alpha))
         distance_from_start = sin(radians(alpha - self.triangle.coefficient_line_angle)) * self.triangle.lines[
