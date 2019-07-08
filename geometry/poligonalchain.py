@@ -21,7 +21,7 @@ class PolygonalChain(LineInterface):
             raise ValueError("Minimum 2 points required")
         if proportions and (len(proportions) is not number_of_points):
             raise ValueError("Wrong amount of proportions")
-        if sum([1 for p in proportions if p > 1]):
+        if proportions and sum([1 for p in proportions if p > 1]):
             raise ValueError("Proportion cannot be bigger than 1")
         list_of_points = []
         distance_between_points = self.length/(number_of_points-1) # at least 2

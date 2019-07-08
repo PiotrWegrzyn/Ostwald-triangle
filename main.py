@@ -1,4 +1,4 @@
-from math import sin, radians
+from math import sin, radians, degrees, cos, acos
 
 import kivy
 from kivy.app import App
@@ -78,46 +78,67 @@ class OstwaldTriangleVisualization(FloatLayout):
         self.drawer.draw_line(self.graph.lines["bot"].line, 2)
         self.drawer.draw_line(self.graph.lines["diagonal"].line, 2)
 
-        self.drawer.lines_between_2_lines(
-            self.graph.lines['co2'].line,
-            self.graph.lines["diagonal"].line.reversed(),
-            self.graph.lines['co2'].number_of_lines,
-            vector_width=1.5
+        # self.drawer.lines_between_2_lines(
+        #     self.graph.lines['co2'].line,
+        #     self.graph.lines["diagonal"].line.reversed(),
+        #     self.graph.lines['co2'].number_of_lines,
+        #     vector_width=1.5
+        # )
+        # self.drawer.lines_between_2_lines(
+        #     self.graph.lines['diagonal'].line,
+        #     self.graph.lines["bot"].line,
+        #     self.graph.lines['o2'].number_of_lines,
+        #     vector_width=1.5
+        # )
+        # self.drawer.lines_between_2_lines(
+        #     self.graph.lines['o2'].line,
+        #     self.graph.lines["diagonal"].line,
+        #     self.graph.lines['o2'].number_of_lines,
+        #     vector_width=1
+        # )
+        # self.drawer.lines_between_2_lines(
+        #     self.graph.lines["co2"].line,
+        #     self.graph.lines["co"].line.reversed(),
+        #     self.graph.lines['co'].number_of_lines,
+        #     vector_width=1
+        # )
+        self.draw_coefficient_lines()
+
+    def calculate_coefficient_center(self):
+        cosalfa = self.graph.lines['co2'].line.length / self.graph.lines['diagonal'].line.length
+        alfa = degrees(acos(cosalfa))
+        distance_from_start = sin(radians(alfa-self.graph.coefficient_line_angle)) * self.graph.lines['diagonal'].line.length
+        return distance_from_start / self.graph.lines['coefficient'].line.length
+
+    def draw_coefficient_lines(self):
+        scale_density = 0.05
+        amount_of_points = int(scale_density**-1)+1
+        coeff_line_split = self.graph.lines['coefficient'].line.split(
+            number_of_lines=2,
+            proportions=[
+                self.calculate_coefficient_center(),
+                1 - self.calculate_coefficient_center()
+            ]
         )
         self.drawer.lines_between_2_lines(
+            coeff_line_split[0].reversed(),
             self.graph.lines['diagonal'].line,
-            self.graph.lines["bot"].line,
-            self.graph.lines['o2'].number_of_lines,
-            vector_width=1.5
+            amount_of_vectors=amount_of_points,
+            vector_width=1,
         )
+        coef_len = int(self.graph.lines['coefficient'].line.length)
+        remaining_coef_len = int(coeff_line_split[1].length)
+        step = int(amount_of_points**-1 * coef_len * self.calculate_coefficient_center())
+        wages = [distance / remaining_coef_len for distance in range(0,remaining_coef_len, step)]
         self.drawer.lines_between_2_lines(
-            self.graph.lines['o2'].line,
-            self.graph.lines["diagonal"].line,
-            self.graph.lines['o2'].number_of_lines,
-            vector_width=1
-        )
-        self.drawer.lines_between_2_lines(
-            self.graph.lines["co2"].line,
-            self.graph.lines["co"].line.reversed(),
-            self.graph.lines['co'].number_of_lines,
-            vector_width=1
+            coeff_line_split[1],
+            self.graph.lines['co2'].line.reversed(),
+            amount_of_vectors=len(wages),
+            vector_width=1,
+
         )
 
-        pc = PolygonalChain([self.graph.lines['co2'].line, self.graph.lines['diagonal'].line])
-        wages = self.wages_for_coefficient_lines()
-        self.drawer.lines_between_2_lines(self.graph.lines['coefficient'].line.reversed(), pc, len(wages), 1, w2=wages)
 
-    def wages_for_coefficient_lines(self):
-        center = self.graph.lines['co2'].line.length / (self.graph.lines['co2'].line.length + self.graph.lines['diagonal'].line.length)
-        scaled_center = int(center * 1000)
-        step = int(scaled_center /self.graph.lines['co2'].number_of_lines)
-        wages = [0] \
-                + [s / 1000 for s in range(step, scaled_center, step)] \
-                + [center] \
-                + [s / 1000 for s in range(scaled_center + step, 1000, step)] \
-                + [1]
-
-        return wages
 
 
 class TestvectorApp(App):
