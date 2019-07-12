@@ -1,4 +1,4 @@
-from drawer import Drawer
+from drawers.drawer import Drawer
 from math import sin, radians, degrees, acos
 
 
@@ -14,26 +14,26 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.lines_between_2_lines(
             self.triangle.lines['co2'].line,
             self.triangle.lines["diagonal"].line.reversed(),
-            self.triangle.lines['co2'].number_of_lines,
-            vector_width=1.5
+            self.triangle.lines['co2'].points,
+            line_width=1.5
         )
         self.lines_between_2_lines(
             self.triangle.lines['diagonal'].line,
             self.triangle.lines["bot"].line,
-            self.triangle.lines['o2'].number_of_lines,
-            vector_width=1.5
+            self.triangle.lines['o2'].points,
+            line_width=1.5
         )
         self.lines_between_2_lines(
             self.triangle.lines['o2'].line,
             self.triangle.lines["diagonal"].line,
-            self.triangle.lines['o2'].number_of_lines,
-            vector_width=1
+            self.triangle.lines['o2'].points,
+            line_width=1
         )
         self.lines_between_2_lines(
             self.triangle.lines["co2"].line,
             self.triangle.lines["co"].line.reversed(),
-            self.triangle.lines['co'].number_of_lines,
-            vector_width=1
+            self.triangle.lines['co'].points,
+            line_width=1
         )
         self.draw_coefficient_lines()
 
@@ -59,15 +59,15 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.lines_between_2_lines(
             coeff_line_split[0].reversed(),
             self.triangle.lines['diagonal'].line,
-            amount_of_vectors=amount_of_points,
-            vector_width=1,
+            amount_of_lines=amount_of_points,
+            line_width=1,
         )
         wages = self.split_remaining_coeff_line(coeff_line_split[1])
         self.lines_between_2_lines(
             coeff_line_split[1],
             self.triangle.lines['co2'].line.reversed(),
-            amount_of_vectors=len(wages),
-            vector_width=1,
+            amount_of_lines=len(wages),
+            line_width=1,
             w1=wages,
             w2=wages
         )

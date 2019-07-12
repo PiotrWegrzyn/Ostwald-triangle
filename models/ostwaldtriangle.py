@@ -2,15 +2,8 @@ from math import cos, radians
 from geometry.vector import Vector
 from geometry.point import Point
 
-from ostwald_triangle_graph_drawer import OstwaldTriangleGraphDrawer
-
-
-class LineInfo:
-    def __init__(self, line, number_of_lines=0, labels=None, scale=1.0):
-        self.line = line
-        self.number_of_lines = number_of_lines
-        self.labels = labels
-        self.scale = scale
+from drawers.ostwald_triangle_graph_drawer import OstwaldTriangleGraphDrawer
+from models.line_info import LineInfo
 
 
 class OstwaldTriangle:
