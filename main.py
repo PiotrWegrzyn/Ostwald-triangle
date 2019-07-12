@@ -5,13 +5,15 @@ from kivy.core.window import Window
 
 from kivy.uix.floatlayout import FloatLayout
 
-from ostwaldtriangle import OstwaldTriangle
+from models.ostwaldtriangle import OstwaldTriangle
+from models.table import Table
 
 kivy.require('1.9.0')
 
 
 class OstwaldTriangleVisualization(FloatLayout):
     ostwald_triangle_graph = OstwaldTriangle(18.9, 21, 28)
+    table = Table()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -21,11 +23,13 @@ class OstwaldTriangleVisualization(FloatLayout):
         Window.left = 200
 
         self.ostwald_triangle_graph.draw(self.canvas)
+        self.table.draw(self.canvas)
+        self.export_to_png("triangle.png")
 
 
 class OstwaldTriangleAppn(App):
     def build(self):
-        return OstwaldTriangleVisualization()
+        return OstwaldTriangleVisualization(size=(Window.size[0]+200,Window.size[1]))
 
 
 if __name__ == '__main__':
