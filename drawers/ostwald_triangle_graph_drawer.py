@@ -1,6 +1,8 @@
 from drawers.drawer import Drawer
 from math import sin, radians, degrees, acos
 
+from models.line_info import LineInfo
+
 
 class OstwaldTriangleGraphDrawer(Drawer):
     def __init__(self, canvas, triangle):
@@ -38,7 +40,9 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.draw_coefficient_lines()
 
         self.annotate_line("test", self.triangle.lines["o2"].line)
-        self.annotate_line_range(self.triangle.lines["o2"], 1, 5)
+        self.annotate_line_range(self.triangle.lines["o2"], 0, 20)
+        self.annotate_line_range(self.triangle.lines["co"], 0, self.triangle.lines["co"].points, offset_x=12, offset_y= -10)
+        self.annotate_line_range(self.triangle.lines["co2"], 0, self.triangle.lines["co2"].points, offset_x=-20,offset_y=-5)
 
     def draw_graph_base(self):
         self.draw_line(self.triangle.lines["co2"].line, 2)
@@ -65,6 +69,13 @@ class OstwaldTriangleGraphDrawer(Drawer):
             amount_of_lines=amount_of_points,
             line_width=1,
         )
+        self.annotate_line_range(
+            LineInfo(coeff_line_split[0],scale=scale),
+            0,
+            scale*(amount_of_points-1),
+            offset_y=-18
+        )
+
         wages = self.split_remaining_coeff_line(coeff_line_split[1])
         self.lines_between_2_lines(
             coeff_line_split[1],
@@ -73,6 +84,12 @@ class OstwaldTriangleGraphDrawer(Drawer):
             line_width=1,
             w1=wages,
             w2=wages
+        )
+        self.annotate_line_range(
+            LineInfo(coeff_line_split[1], scale=scale),
+            scale*(amount_of_points-1),
+            scale*(amount_of_points-1+len(wages)-1),
+            offset_y=-18
         )
 
     def split_remaining_coeff_line(self, remaining_part):

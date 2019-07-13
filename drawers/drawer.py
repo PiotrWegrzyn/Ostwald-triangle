@@ -23,26 +23,31 @@ class Drawer:
         )
         self.canvas.add(instructions)
 
-    def annotate_line(self, text, line):
-        self.add_annotation(text, (line.get_center().x, line.get_center().y))
+    def annotate_line(self, text, line, **kwargs):
+        placement = kwargs.get("placement", 0.5)
+        offset_x = kwargs.get("offset_x", 0)
+        offset_y = kwargs.get("offset_y", 0)
+        self.add_annotation(text, (line.start.x + line.dx*placement + offset_x, line.start.y + line.dy*placement + offset_y), **kwargs)
 
-    def annotate_line_range(self, line_info, start, stop):
-        line = line_info.line
+    def annotate_line_range(self, line_info, start, stop, **kwargs):
         scale = line_info.scale
-        amount = int((stop-start)/scale)
-        dx = line.dx/amount
-        dy = line.dy/amount
-        for i in range(amount+1):
-            self.add_annotation(self.annotation_format(start + scale * i), (line.start.x + dx * i, line.start.y + dy * i))
+        amount = int((stop-start)/scale)+1
+        values = [start + scale * i for i in range(amount)]
+        placements = [x/(amount-1) for x in range(amount)]
+        self.annotate_line_manually(line_info, values, placements, format="float", **kwargs)
 
-    def add_annotation(self, text, position):
-        self.canvas.add(Annotation(text, position))
+    def annotate_line_manually(self, line_info, values, placements, **kwargs):
+        if len(values) is not len(placements):
+            raise ValueError("Values and placements need to have the same amount of items")
+        for placement in placements:
+            if placement > 1:
+                raise ValueError("Placement value cannot be bigger than 1.")
+        for value, placement in zip(values, placements):
+            kwargs['placement'] = placement
+            self.annotate_line(value, line_info.line, **kwargs)
 
-    def annotation_format(self, annotation):
-        if isinstance(annotation, float):
-            if annotation % 1 == 0:
-                return int(annotation)
-        return annotation
+    def add_annotation(self, text, position, **kwargs):
+        self.canvas.add(Annotation(text, position, **kwargs))
 
     @staticmethod
     def create_color(rgb):
