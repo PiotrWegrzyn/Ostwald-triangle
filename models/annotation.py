@@ -6,11 +6,9 @@ class Annotation(Rectangle):
     def __init__(self, text, pos, *args, **kwargs):
         if kwargs.get("format", None):
             text = self.format(kwargs["format"], text)
-        l = CoreLabel()
-        l.text = str(text)
-        l.refresh()
+
         scale = kwargs.get("scale", 1)
-        kwargs['texture'] = l.texture
+        kwargs['texture'] = self.get_texture(text)
         kwargs['pos'] = pos
         kwargs['size'] = [len(str(text)) * 8 * scale, 15 * scale]
         super().__init__(*args, **kwargs)
@@ -31,3 +29,10 @@ class Annotation(Rectangle):
         if annotation % 1 == 0:
             return int(annotation)
         return annotation
+
+    @staticmethod
+    def get_texture(text):
+        l = CoreLabel()
+        l.text = str(text)
+        l.refresh()
+        return l.texture
