@@ -40,5 +40,5 @@ class PolygonalChain(LineInterface):
     def len_before_vector(self, vector_index):
         return sum(self.vectors[v].length for v in range(vector_index))
 
-    def get_geometric_center(self):
+    def get_center(self):
         return Point(self.start.x + self.dx/2, self.start.y + self.dx/2)

@@ -85,7 +85,7 @@ class TestVectorClass(unittest.TestCase):
         a = Point(0, 0)
         b = Point(10, 10)
         vector = Vector(a, b)
-        middle = vector.get_geometric_center()
+        middle = vector.get_center()
         self.assertEqual(Point(5, 5), middle)
 
     def test_split_correct_amount_of_vectors(self):

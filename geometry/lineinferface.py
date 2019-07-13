@@ -9,6 +9,6 @@ class LineInterface:
     def split(self, number_of_lines, proportions=None):
         raise NotImplemented
 
-    def get_geometric_center(self):
+    def get_center(self):
         raise NotImplemented
 

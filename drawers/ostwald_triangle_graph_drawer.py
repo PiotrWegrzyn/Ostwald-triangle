@@ -37,6 +37,9 @@ class OstwaldTriangleGraphDrawer(Drawer):
         )
         self.draw_coefficient_lines()
 
+        self.annotate_line("test", self.triangle.lines["o2"].line)
+        self.annotate_line_range(self.triangle.lines["o2"], 1, 5)
+
     def draw_graph_base(self):
         self.draw_line(self.triangle.lines["co2"].line, 2)
         self.draw_line(self.triangle.lines["co"].line, 1.5)

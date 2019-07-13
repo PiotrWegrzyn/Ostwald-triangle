@@ -9,7 +9,7 @@ from models.line_info import LineInfo
 class OstwaldTriangle:
 
     def __init__(self, maxco2, maxo2, maxco):
-        self.top = 690
+        self.top = 670
         self.bot = 240
         self.height = self.top - self.bot
         self.left = 100
@@ -21,9 +21,9 @@ class OstwaldTriangle:
         coefficient_line_len = self.width * cos(radians(self.coefficient_line_angle))
 
         self.lines = {
-            "co2": LineInfo(Vector(self.left, self.bot, self.left, self.top), int(maxco2)),
+            "co2": LineInfo(Vector(self.left, self.bot, self.left, self.top), int(maxco2), 0.5),
             "co": LineInfo(Vector(Point(self.right, self.bot), 180 + self.co_line_angle, self.height), int(maxco)),
-            "o2": LineInfo(Vector(self.left, self.top, self.right, self.top), int(maxo2)),
+            "o2": LineInfo(Vector(self.left, self.top, self.right, self.top), int(maxo2), 0.5),
             "coefficient": LineInfo(Vector(Point(self.right, self.bot), 180+self.coefficient_line_angle, coefficient_line_len),scale=0.1),
             "bot": LineInfo(Vector(self.left, self.bot, self.right, self.bot)),
             "diagonal": LineInfo(Vector(self.left, self.top, self.right, self.bot))

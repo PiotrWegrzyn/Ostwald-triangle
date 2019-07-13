@@ -69,7 +69,7 @@ class Vector(LineInterface):
             )
         return list_of_points
 
-    def get_geometric_center(self):
+    def get_center(self):
         return Point(self.start.x + self.dx/2, self.start.y + self.dx/2)
 
     def split(self, number_of_lines, proportions=None):
