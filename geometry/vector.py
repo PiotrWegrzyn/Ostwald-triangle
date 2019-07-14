@@ -1,6 +1,6 @@
 from geometry.lineinferface import LineInterface
 from geometry.point import Point
-from math import cos, sin, radians
+from math import cos, sin, radians, atan2, degrees
 
 
 class Vector(LineInterface):
@@ -20,6 +20,7 @@ class Vector(LineInterface):
         self.dx = self.end.x - self.start.x
         self.dy = self.end.y - self.start.y
         self.length = Point.distance(self.start, self.end)
+        self.angle = degrees(atan2(self.dy, self.dx))
 
     def __eq__(self, other):
         return self.start == other.start and self.end == other.end

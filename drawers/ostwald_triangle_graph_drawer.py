@@ -34,15 +34,50 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.lines_between_2_lines(
             self.triangle.lines["co2"].line,
             self.triangle.lines["co"].line.reversed(),
-            self.triangle.lines['co'].points,
+            self.triangle.lines['co'].points+1,
             line_width=1
         )
         self.draw_coefficient_lines()
 
-        self.annotate_line("test", self.triangle.lines["o2"].line)
+        self.annotate_line(
+            self.triangle.lines["o2"].labels["name"],
+            self.triangle.lines["o2"].line,
+            offset_y=10,
+            scale=1.5
+        )
+        self.annotate_line(
+            self.triangle.lines["co2"].labels["name"],
+            self.triangle.lines["co2"].line,
+            offset_x=-30,
+            offset_y=-self.triangle.lines["co2"].line.dy/4,
+            scale=1.5,
+            angle=self.triangle.lines["co2"].line.angle
+        )
+        self.annotate_line(
+            self.triangle.lines["co"].labels["name"],
+            self.triangle.lines["co"].line,
+            offset_y=-70,
+            scale=1.2,
+            angle=self.triangle.lines["co"].line.reversed().angle
+        )
+        self.annotate_line(
+            self.triangle.lines["coefficient"].labels["name"],
+            self.triangle.lines["coefficient"].line,
+            offset_y=-60,
+            offset_x=-30,
+            scale=1.2,
+            angle=self.triangle.lines["coefficient"].line.reversed().angle
+        )
         self.annotate_line_range(self.triangle.lines["o2"], 0, 20)
-        self.annotate_line_range(self.triangle.lines["co"], 0, self.triangle.lines["co"].points, offset_x=12, offset_y= -10)
-        self.annotate_line_range(self.triangle.lines["co2"], 0, self.triangle.lines["co2"].points, offset_x=-20,offset_y=-5)
+        self.annotate_line_range(self.triangle.lines["co2"], 0, self.triangle.lines["co2"].points, offset_x=-20, offset_y=-5)
+        self.annotate_line_range(
+            self.triangle.lines["co"],
+            0,
+            self.triangle.lines["co"].points,
+            offset_x=12,
+            offset_y=-10,
+            angle=self.triangle.lines["co"].line.reversed().angle
+        )
 
     def draw_graph_base(self):
         self.draw_line(self.triangle.lines["co2"].line, 2)
@@ -70,10 +105,11 @@ class OstwaldTriangleGraphDrawer(Drawer):
             line_width=1,
         )
         self.annotate_line_range(
-            LineInfo(coeff_line_split[0],scale=scale),
+            LineInfo(coeff_line_split[0], scale=scale),
             0,
             scale*(amount_of_points-1),
-            offset_y=-18
+            offset_y=-18,
+            angle=self.triangle.lines["coefficient"].line.reversed().angle
         )
 
         wages = self.split_remaining_coeff_line(coeff_line_split[1])
@@ -85,11 +121,19 @@ class OstwaldTriangleGraphDrawer(Drawer):
             w1=wages,
             w2=wages
         )
+        remaining_part_split = coeff_line_split[1].split(
+            number_of_lines=2,
+            proportions=[
+                wages[-1],
+                1 - wages[-1]
+            ]
+        )
         self.annotate_line_range(
-            LineInfo(coeff_line_split[1], scale=scale),
+            LineInfo(remaining_part_split[0], scale=scale),
             scale*(amount_of_points-1),
             scale*(amount_of_points-1+len(wages)-1),
-            offset_y=-18
+            offset_y=-18,
+            angle=self.triangle.lines["coefficient"].line.reversed().angle
         )
 
     def split_remaining_coeff_line(self, remaining_part):

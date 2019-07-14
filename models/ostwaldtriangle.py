@@ -21,10 +21,29 @@ class OstwaldTriangle:
         coefficient_line_len = self.width * cos(radians(self.coefficient_line_angle))
 
         self.lines = {
-            "co2": LineInfo(Vector(self.left, self.bot, self.left, self.top), int(maxco2)+2, scale=1),
-            "co": LineInfo(Vector(Point(self.right, self.bot), 180 + self.co_line_angle, self.height), int(maxco/2),scale=2), #todo
-            "o2": LineInfo(Vector(self.left, self.top, self.right, self.top), int(maxo2/2)+1, scale=2),
-            "coefficient": LineInfo(Vector(Point(self.right, self.bot), 180+self.coefficient_line_angle, coefficient_line_len),scale=0.2),
+            "co2": LineInfo(
+                Vector(self.left, self.bot, self.left, self.top),
+                points=int(maxco2)+2,
+                scale=1,
+                labels={"name": "Dwutlenek węgla %"}
+            ),
+            "co": LineInfo(
+                Vector(Point(self.right, self.bot), 180 + self.co_line_angle, self.height),
+                points=int(maxco/2),
+                scale=2,
+                labels={"name": "Tlenek węgla %"}
+            ), #todo
+            "o2": LineInfo(
+                Vector(self.left, self.top, self.right, self.top),
+                points=int(maxo2/2)+1,
+                scale=2,
+                labels={"name": "Tlen %"}
+            ),
+            "coefficient": LineInfo(
+                Vector(Point(self.right, self.bot), 180+self.coefficient_line_angle, coefficient_line_len),
+                scale=0.2,
+                labels={"name": "Współczynnik alfa?"} #todo coeff latin smbol
+            ),
             "bot": LineInfo(Vector(self.left, self.bot, self.right, self.bot)),
             "diagonal": LineInfo(Vector(self.left, self.top, self.right, self.bot))
         }

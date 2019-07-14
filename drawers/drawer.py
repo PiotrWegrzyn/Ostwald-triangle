@@ -1,7 +1,10 @@
-from kivy.graphics.context_instructions import Color
+from math import cos, radians, sin
+
+from kivy.graphics.context_instructions import Color, Rotate
 from kivy.graphics.instructions import InstructionGroup
 from kivy.graphics.vertex_instructions import Line, Rectangle
 import geometry
+from geometry import Point
 from models.annotation import Annotation
 
 
@@ -47,7 +50,15 @@ class Drawer:
             self.annotate_line(value, line_info.line, **kwargs)
 
     def add_annotation(self, text, position, **kwargs):
+        angle = kwargs.get("angle", 0)
+        self.canvas.add(Rotate(angle=angle))
+        position = self.rotate_position(position, angle)
         self.canvas.add(Annotation(text, position, **kwargs))
+        self.canvas.add(Rotate(angle=-angle))
+
+    def rotate_position(self, position, angle):
+        rotated_point = Point.rotate(position, -angle)
+        return tuple(rotated_point)
 
     @staticmethod
     def create_color(rgb):
@@ -56,4 +67,6 @@ class Drawer:
     def set_color(self, instructions, color):
         color = self.create_color(color)
         instructions.add(color)
+
+
 

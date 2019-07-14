@@ -6,6 +6,43 @@ from geometry.vector import Vector
 from geometry.point import Point
 
 
+class TestPointClass(unittest.TestCase):
+
+    def test_rotate(self):
+        a = Point(3, 4)
+        rotated_a = Point.rotate(a, 90)
+        self.assertEqual(rotated_a, Point(-4, 3.0000000000000004))
+
+    def test_rotate2(self):
+        a = Point(0, 4)
+        rotated_a = Point.rotate(a, 90)
+        self.assertEqual(rotated_a, Point(-4, 2.4492935982947064e-16))
+
+    def test_rotate3(self):
+        a = Point(1, 1)
+        rotated_a = Point.rotate(a, 90)
+        self.assertEqual(rotated_a, Point(-0.9999999999999999, 1))
+
+    def test_rotate_minus90(self):
+        a = Point(3, 4)
+        rotated_a = Point.rotate(a, -90)
+        self.assertEqual(rotated_a, Point(4, -2.9999999999999996))
+
+    def test_rotate45(self):
+        a = Point(1, 1)
+        rotated_a = Point.rotate(a, 45)
+        self.assertEqual(rotated_a, Point(1.1102230246251565e-16, 1.414213562373095))
+
+    def test_tuple_from_point(self):
+        a = Point(1, 1)
+        t = tuple(a)
+        self.assertEqual(t, (a.x, a.y))
+
+    def test_getitem_0(self):
+        a = Point(0, 1)
+        self.assertEqual(a[1], a.y)
+
+
 class TestVectorClass(unittest.TestCase):
 
     def test_equality_correct_data(self):
@@ -125,6 +162,25 @@ class TestVectorClass(unittest.TestCase):
         vector = Vector(a, b)
         vector_reversed = Vector(b, a)
         self.assertEqual(vector_reversed, vector.reversed())
+
+    def test_angle0(self):
+        a = Point(0, 0)
+        b = Point(10, 0)
+        vector = Vector(a, b)
+        self.assertEqual(0, vector.angle)
+
+    def test_angle45(self):
+        a = Point(0, 0)
+        b = Point(1, 1)
+        vector = Vector(a, b)
+        self.assertEqual(45, vector.angle)
+
+    def test_angle_180(self):
+        a = Point(0, 0)
+        b = Point(-10, 0)
+        vector = Vector(a, b)
+        self.assertEqual(180, vector.angle)
+
 
 
 class TestPolygonalChainClass(unittest.TestCase):
