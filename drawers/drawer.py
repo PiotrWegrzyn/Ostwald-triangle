@@ -26,9 +26,8 @@ class Drawer:
 
     def annotate_line(self, text, line, **kwargs):
         placement = kwargs.get("placement", 0.5)
-        offset_x = kwargs.get("offset_x", 0)
-        offset_y = kwargs.get("offset_y", 0)
-        self.add_annotation(text, (line.start.x + line.dx*placement + offset_x, line.start.y + line.dy*placement + offset_y), **kwargs)
+
+        self.add_annotation(text, (line.start.x + line.dx*placement, line.start.y + line.dy*placement), **kwargs)
 
     def annotate_line_range(self, line_info, start, stop, **kwargs):
         scale = line_info.scale

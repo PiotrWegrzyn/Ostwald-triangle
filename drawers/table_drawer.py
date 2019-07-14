@@ -26,5 +26,7 @@ class TableDrawer(Drawer):
             self.annotate_line_manually(
                 line=Vector(start, end),
                 values=data_row,
-                placements=[0.25, 0.75]
+                placements=[0.25, 0.75],
+                format="float",
+                offset_y=8
             )

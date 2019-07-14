@@ -13,7 +13,7 @@ class Table:
         self.width = self.right - self.left
         self.columns = 2
         self.rows = 15
-        self.data = [[1, 2] for i in range(self.rows)]
+        self.data = [[i*0.1, 1/i*0.1] for i in range(3, 3+self.rows)]
 
         self.lines = {
             "top": LineInfo(Vector(self.left, self.top, self.right, self.top)),

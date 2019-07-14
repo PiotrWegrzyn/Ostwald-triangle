@@ -1,5 +1,5 @@
-from kivy.graphics.vertex_instructions import Rectangle
 from kivy.core.text import Label as CoreLabel
+from kivy.graphics.vertex_instructions import Rectangle
 
 
 class Annotation(Rectangle):
@@ -7,7 +7,10 @@ class Annotation(Rectangle):
         if kwargs.get("format", None):
             text = self.format(text, kwargs.get("format", None))
         scale = kwargs.get("scale", 1)
-        size = [len(str(text)) * 8 * scale, 15 * scale]
+        size = [len(str(text)) * 8 * scale, 16 * scale]
+        offset_x = kwargs.get("offset_x", 0)
+        offset_y = kwargs.get("offset_y", 0)
+        pos = (pos[0]-(size[0]/2)+offset_x, pos[1]-(size[1]/2)+offset_y)
         super().__init__(texture=self.get_texture(text), pos=pos, size=size, *args, **kwargs)
 
     def format(self, text, format):
