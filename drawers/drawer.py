@@ -1,10 +1,8 @@
-from math import cos, radians, sin
-
 from kivy.graphics.context_instructions import Color, Rotate
 from kivy.graphics.instructions import InstructionGroup
-from kivy.graphics.vertex_instructions import Line, Rectangle
-import geometry
-from geometry import Point
+from kivy.graphics.vertex_instructions import Line
+
+from geometry import Point, Vector
 from models.annotation import Annotation
 
 
@@ -16,7 +14,7 @@ class Drawer:
         line1_points = line1.get_split_points(amount_of_lines, w1)
         line2_points = line2.get_split_points(amount_of_lines, w2)
         for start, end in zip(line1_points, line2_points):
-            self.draw_line(geometry.Vector(start, end), line_width, color)
+            self.draw_line(Vector(start, end), line_width, color)
 
     def draw_line(self, line, line_width=1, color=(0, 0, 0)):
         instructions = InstructionGroup()
@@ -37,9 +35,9 @@ class Drawer:
         amount = int((stop-start)/scale)+1
         values = [start + scale * i for i in range(amount)]
         placements = [x/(amount-1) for x in range(amount)]
-        self.annotate_line_manually(line_info, values, placements, format="float", **kwargs)
+        self.annotate_line_manually(line_info.line, values, placements, format="float", **kwargs)
 
-    def annotate_line_manually(self, line_info, values, placements, **kwargs):
+    def annotate_line_manually(self, line, values, placements, **kwargs):
         if len(values) is not len(placements):
             raise ValueError("Values and placements need to have the same amount of items")
         for placement in placements:
@@ -47,7 +45,7 @@ class Drawer:
                 raise ValueError("Placement value cannot be bigger than 1.")
         for value, placement in zip(values, placements):
             kwargs['placement'] = placement
-            self.annotate_line(value, line_info.line, **kwargs)
+            self.annotate_line(value, line, **kwargs)
 
     def add_annotation(self, text, position, **kwargs):
         angle = kwargs.get("angle", 0)

@@ -11,6 +11,9 @@ class Table:
         self.left = 850
         self.right = 950
         self.width = self.right - self.left
+        self.columns = 2
+        self.rows = 15
+        self.data = [[1, 2] for i in range(self.rows)]
 
         self.lines = {
             "top": LineInfo(Vector(self.left, self.top, self.right, self.top)),
