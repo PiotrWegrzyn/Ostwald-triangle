@@ -12,7 +12,7 @@ kivy.require('1.9.0')
 
 
 class OstwaldTriangleVisualization(FloatLayout):
-    ostwald_triangle_graph = OstwaldTriangle(18.9, 21, 28)
+    ostwald_triangle_graph = OstwaldTriangle(18.9, 21, 29.2)
     table = Table()
 
     def __init__(self, **kwargs):

@@ -17,7 +17,8 @@ class OstwaldTriangle:
         self.right = 800
         self.width = self.right - self.left
 
-        self.co_line_angle = 90 - degrees(atan(self.height/self.width))
+        self.co2_diagonal_angle = degrees(atan(self.width/self.height))
+        self.co_line_angle = self.co2_diagonal_angle
         self.coefficient_line_angle = 15
         coefficient_line_len = self.width * cos(radians(self.coefficient_line_angle))
 
@@ -41,7 +42,7 @@ class OstwaldTriangle:
             "coefficient": LineInfo(
                 Vector(Point(self.right, self.bot), 180+self.coefficient_line_angle, coefficient_line_len),
                 series=Series(0, 1.6, 0.1),
-                labels={"name": "Współczynnik alfa?"} #todo coeff latin smbol
+                labels={"name": "Współczynnik Phi"} #todo coeff latin smbol
             ),
             "bot": LineInfo(Vector(self.left, self.bot, self.right, self.bot)),
             "diagonal": LineInfo(Vector(self.left, self.top, self.right, self.bot))
