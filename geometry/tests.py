@@ -2,8 +2,9 @@ import unittest
 from math import atan, degrees
 
 from geometry import PolygonalChain
-from geometry.vector import Vector
 from geometry.point import Point
+from geometry.series import Series
+from geometry.vector import Vector
 
 
 class TestPointClass(unittest.TestCase):
@@ -182,7 +183,6 @@ class TestVectorClass(unittest.TestCase):
         self.assertEqual(180, vector.angle)
 
 
-
 class TestPolygonalChainClass(unittest.TestCase):
     def test_init_start_point(self):
         a = Point(0, 0)
@@ -229,7 +229,6 @@ class TestPolygonalChainClass(unittest.TestCase):
         pc = PolygonalChain([vector1, vector2])
         self.assertEqual(pc.dy, 0)
 
-
     def test_equally_split_points(self):
         a = Point(0, 0)
         b = Point(3, 4)
@@ -256,6 +255,68 @@ class TestPolygonalChainClass(unittest.TestCase):
         vector2 = Vector(b, c)
         pc = PolygonalChain([vector1, vector2])
         self.assertEqual(pc.get_split_points(5,[0,0.4,0.5,0.6,1]), [a, Point(0, 8), b, Point(2, 10), c])
+
+
+class TestSeriesClass(unittest.TestCase):
+    def test_calculate_points(self):
+        a = Series(0, 10)
+        self.assertEqual(11, a.calculate_points())
+
+    def test_calculate_points_scale1(self):
+        a = Series(0, 1, 2)
+        self.assertEqual(2, a.calculate_points())
+
+    def test_calculate_points_scale2(self):
+        a = Series(0, 2, 2)
+        self.assertEqual(2, a.calculate_points())
+
+    def test_calculate_points_scale05(self):
+        a = Series(0, 2, 0.5)
+        self.assertEqual(5, a.calculate_points())
+
+    def test_calculate_points_scale052(self):
+        a = Series(1, 1.5, 0.5)
+        self.assertEqual(2, a.calculate_points())
+
+    def test_calculate_points_scale23(self):
+        a = Series(0, 5, 2)
+        self.assertEqual(4, a.calculate_points())
+
+    def test_calculate_points_scale_not_full_numbers(self):
+        a = Series(0.31, 5.5, 2)
+        self.assertEqual(4, a.calculate_points())
+
+    def test_calculate_full_points_not_full_numbers(self):
+        a = Series(0.31, 5.5, 2)
+        self.assertEqual(3, a.calculate_full_scale_points())
+
+    def test_calculate_points_actual(self):
+        a = Series(0, 18.9, 2)
+        self.assertEqual(11, a.calculate_points())
+
+    def test_calculate_full_scale_points(self):
+        a = Series(1, 1.5, 0.5)
+        self.assertEqual(2, a.calculate_points())
+
+    def test_calculate_full_scale_points_scale2(self):
+        a = Series(0, 5, 2)
+        self.assertEqual(3, a.calculate_full_scale_points())
+
+    def test_calculate_full_scale_points_actual(self):
+        a = Series(0, 18.9, 2)
+        self.assertEqual(10, a.calculate_full_scale_points())
+
+    def test_get_point_wages(self):
+        a = Series(0, 4)
+        self.assertEqual([0, 0.25, 0.5, 0.75, 1], a.get_point_wages())
+
+    def test_get_point_wages_with_trail(self):
+        a = Series(0, 3, 2)
+        self.assertEqual([0, 1/1.5, 1], a.get_point_wages())
+
+    def test_get_point_wages_with_trail2(self):
+        a = Series(0, 1.2, 0.5)
+        self.assertEqual([0, 1/2.4, 2/2.4, 1], a.get_point_wages())
 
 
 if __name__ == '__main__':

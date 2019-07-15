@@ -144,3 +144,4 @@ class OstwaldTriangleGraphDrawer(Drawer):
         distance_from_start = sin(radians(alpha - self.triangle.coefficient_line_angle)) * self.triangle.lines[
             'diagonal'].line.length
         return distance_from_start / self.triangle.lines['coefficient'].line.length
+
