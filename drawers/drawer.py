@@ -29,12 +29,9 @@ class Drawer:
 
         self.add_annotation(text, (line.start.x + line.dx*placement, line.start.y + line.dy*placement), **kwargs)
 
-    def annotate_line_range(self, line_info, start, stop, **kwargs):
-        scale = line_info.scale
-        amount = int((stop-start)/scale)+1
-        values = [start + scale * i for i in range(amount)]
-        placements = [x/(amount-1) for x in range(amount)]
-        self.annotate_line_manually(line_info.line, values, placements, format="float", **kwargs)
+    def annotate_line_with_series(self, line_info, **kwargs):
+        series = line_info.series
+        self.annotate_line_manually(line_info.line, series.get_values(), series.get_point_wages(), format="float", **kwargs)
 
     def annotate_line_manually(self, line, values, placements, **kwargs):
         if len(values) is not len(placements):

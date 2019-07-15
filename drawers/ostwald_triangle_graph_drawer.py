@@ -1,6 +1,7 @@
 from math import sin, radians, degrees, acos
 
 from drawers.drawer import Drawer
+from geometry.series import Series
 from models.line_info import LineInfo
 
 
@@ -17,7 +18,9 @@ class OstwaldTriangleGraphDrawer(Drawer):
             self.triangle.lines['co2'].line,
             self.triangle.lines["diagonal"].line.reversed(),
             self.triangle.lines['co2'].points,
-            line_width=1.5
+            line_width=1.5,
+            w1=self.triangle.lines['co2'].series.get_point_wages(),
+            w2=self.triangle.lines['co2'].series.get_point_wages()
         )
         self.lines_between_2_lines(
             self.triangle.lines['diagonal'].line,
@@ -66,12 +69,10 @@ class OstwaldTriangleGraphDrawer(Drawer):
             scale=1.2,
             angle=self.triangle.lines["coefficient"].line.reversed().angle
         )
-        self.annotate_line_range(self.triangle.lines["o2"], 0, self.triangle.lines["o2"].points-1, offset_y=8)
-        self.annotate_line_range(self.triangle.lines["co2"], 0, self.triangle.lines["co2"].points-1, offset_x=-16)
-        self.annotate_line_range(
+        self.annotate_line_with_series(self.triangle.lines["o2"], offset_y=8)
+        self.annotate_line_with_series(self.triangle.lines["co2"], offset_x=-20)
+        self.annotate_line_with_series(
             self.triangle.lines["co"],
-            0,
-            self.triangle.lines["co"].points,
             offset_y=-8,
             angle=self.triangle.lines["co"].line.reversed().angle
         )
@@ -84,10 +85,8 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.draw_line(self.triangle.lines["bot"].line, 2)
         self.draw_line(self.triangle.lines["diagonal"].line, 2)
 
-    def draw_coefficient_lines(self):
+    def draw_coefficient_lines2(self):
         altitude_drop_ratio = self.coeff_line_altitude_drop_ratio()
-        scale = self.triangle.lines['coefficient'].scale
-        amount_of_points = int(scale ** -1) + 1
         coeff_line_split = self.triangle.lines['coefficient'].line.split(
             number_of_lines=2,
             proportions=[
@@ -95,48 +94,49 @@ class OstwaldTriangleGraphDrawer(Drawer):
                 1 - altitude_drop_ratio
             ]
         )
+        line1 = LineInfo(
+            coeff_line_split[0].reversed(),
+
+        )
+
+    def draw_coefficient_lines(self):
+        altitude_drop_ratio = self.coeff_line_altitude_drop_ratio()
+        main_series = self.triangle.lines['coefficient'].series
+        line1_series = Series(main_series.start, 1, main_series.scale)
+        line2_series = Series(1, 1/altitude_drop_ratio, main_series.scale)
+        coeff_line_split = self.triangle.lines['coefficient'].line.split(
+            number_of_lines=2,
+            proportions=[altitude_drop_ratio, 1 - altitude_drop_ratio]
+        )
         self.lines_between_2_lines(
             coeff_line_split[0].reversed(),
             self.triangle.lines['diagonal'].line,
-            amount_of_lines=amount_of_points,
+            amount_of_lines=line1_series.points,
             line_width=1,
         )
-        self.annotate_line_range(
-            LineInfo(coeff_line_split[0], scale=scale),
-            0,
-            scale*(amount_of_points-1),
+        self.annotate_line_with_series(
+            LineInfo(coeff_line_split[0], series=line1_series),
             offset_y=-8,
-            angle=self.triangle.lines["coefficient"].line.reversed().angle
+            angle=self.triangle.lines["coefficient"].line.reversed().angle,
+            scale=0.7
         )
 
-        wages = self.split_remaining_coeff_line(coeff_line_split[1])
+        remaining_line = LineInfo(coeff_line_split[1], series=line2_series)
+
         self.lines_between_2_lines(
-            coeff_line_split[1],
+            remaining_line.line,
             self.triangle.lines['co2'].line.reversed(),
-            amount_of_lines=len(wages),
+            amount_of_lines=remaining_line.series.points,
             line_width=1,
-            w1=wages,
-            w2=wages
+            w1=remaining_line.series.get_point_wages(),
+            w2=remaining_line.series.get_point_wages()
         )
-        remaining_part_split = coeff_line_split[1].split(
-            number_of_lines=2,
-            proportions=[
-                wages[-1],
-                1 - wages[-1]
-            ]
-        )
-        self.annotate_line_range(
-            LineInfo(remaining_part_split[0], scale=scale),
-            scale*(amount_of_points-1),
-            scale*(amount_of_points-1+len(wages)-1),
+        self.annotate_line_with_series(
+            LineInfo(coeff_line_split[1], series=line2_series),
             offset_y=-8,
-            angle=self.triangle.lines["coefficient"].line.reversed().angle
+            angle=self.triangle.lines["coefficient"].line.reversed().angle,
+            scale=0.7
         )
-
-    def split_remaining_coeff_line(self, remaining_part):
-        coef_len = self.triangle.lines['coefficient'].line.length
-        step = int(self.triangle.lines['coefficient'].scale * coef_len * self.coeff_line_altitude_drop_ratio())
-        return [distance / remaining_part.length for distance in range(0, int(remaining_part.length), step)]
 
     def coeff_line_altitude_drop_ratio(self):
         cos_alpha = self.triangle.lines['co2'].line.length / self.triangle.lines['diagonal'].line.length

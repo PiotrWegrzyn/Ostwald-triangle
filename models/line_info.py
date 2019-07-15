@@ -1,6 +1,9 @@
 class LineInfo:
-    def __init__(self, line, points=0, labels=None, scale=1.0):
+    def __init__(self, line, series=None, points=None, labels=None):
         self.line = line
-        self.points = points
+        self.series = series
+        if series and not points:
+            self.points = len(series.get_point_wages())
+        else:
+            self.points = points
         self.labels = labels
-        self.scale = scale

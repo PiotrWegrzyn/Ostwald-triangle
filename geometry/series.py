@@ -7,11 +7,11 @@ class Series:
         if scale == 0:
             raise ValueError("Scale cannot be 0")
 
-        self._start = start
-        self._end = end
-        self._scale = scale
+        self.start = start
+        self.end = end
+        self.scale = scale
 
-        self.standardized_range = (self._end - self._start) / self._scale
+        self.standardized_range = self.calculate_standardized_range()
         self.points = self.calculate_points()
         self.full_scale_points = self.calculate_full_scale_points()
 
@@ -21,19 +21,25 @@ class Series:
     def calculate_full_scale_points(self):
         return int(self.standardized_range) + 1
 
+    def calculate_standardized_range(self):
+        return (self.end - self.start) / self.scale
+
     def get_point_wages(self):
-        if self._start == self._end:
+        if self.start == self.end:
             return []
         wages = [w/self.standardized_range for w in range(self.full_scale_points)]
         if self.points-self.full_scale_points:
             wages += [1]
         return wages
 
+    def get_values(self):
+        return [wage * (self.end-self.start) + self.start for wage in self.get_point_wages()]
+
     def change_range(self, start=None, end=None):
         if start:
-            self._start = start
+            self.start = start
         if end:
-            self._end = end
+            self.end = end
+        self.standardized_range = self.calculate_standardized_range()
         self.points = self.calculate_points()
         self.full_scale_points = self.calculate_full_scale_points()
-

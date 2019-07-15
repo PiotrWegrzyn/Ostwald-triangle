@@ -262,6 +262,10 @@ class TestSeriesClass(unittest.TestCase):
         a = Series(0, 10)
         self.assertEqual(11, a.calculate_points())
 
+    def test_calculate_points01(self):
+        a = Series(0, 1,0.1)
+        self.assertEqual(11, a.calculate_points())
+
     def test_calculate_points_scale1(self):
         a = Series(0, 1, 2)
         self.assertEqual(2, a.calculate_points())
@@ -317,6 +321,15 @@ class TestSeriesClass(unittest.TestCase):
     def test_get_point_wages_with_trail2(self):
         a = Series(0, 1.2, 0.5)
         self.assertEqual([0, 1/2.4, 2/2.4, 1], a.get_point_wages())
+
+    def test_get_values_with_trail2(self):
+        a = Series(0, 1.2, 0.5)
+        self.assertEqual([0*1.2, (1/2.4)*1.2, (2/2.4)*1.2, 1*1.2], a.get_values())
+
+    def test_change_range_correct_points(self):
+        a = Series(0, 1)
+        a.change_range(10, 12)
+        self.assertEqual(3, a.points)
 
 
 if __name__ == '__main__':
