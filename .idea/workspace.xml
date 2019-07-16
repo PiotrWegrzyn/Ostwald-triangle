@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/thermodynamics/formula_wrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/thermodynamics/test_molmass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,8 +17,10 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563307186899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestLineClass_test_get_middle.coverage" NAME="Unittests for tests.TestLineClass.test_get_middle Coverage Results" MODIFIED="1562438863994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
+    <SUITE FILE_PATH="coverage/OswaldTriangle$test_chempy.coverage" NAME="test_chempy Coverage Results" MODIFIED="1563316955176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1563206139617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_in_tests_py__1_.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1563220189208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
+    <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_in_test_molmass_py.coverage" NAME="Unittests in test_molmass.py Coverage Results" MODIFIED="1563317590606" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
+    <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_in_tests_py__1_.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1563319099858" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1517809466">
@@ -35,57 +40,55 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="Pipfile" value="2" />
-          <entry key="gitignore" value="2" />
+          <entry key="gitignore" value="3" />
           <entry key="jpg" value="1" />
           <entry key="png" value="18" />
-          <entry key="py" value="79" />
+          <entry key="py" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="19" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="79" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Python" value="88" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Python Console" value="686" />
-          <entry key="dummy" value="75" />
-          <entry key="py" value="23307" />
-          <entry key="txt" value="894" />
+          <entry key="dummy" value="112" />
+          <entry key="py" value="25958" />
+          <entry key="txt" value="990" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="969" />
-          <entry key="Python" value="23993" />
+          <entry key="PLAIN_TEXT" value="1102" />
+          <entry key="Python" value="26644" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="269">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1020">
-              <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+            <state relative-caret-position="60">
+              <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="8" selection-end-column="20" />
               <folding>
-                <marker date="1563219743795" expanded="true" signature="415:926" ph="..." />
-                <marker date="1563219743795" expanded="true" signature="953:954" ph="..." />
+                <marker date="1563314962706" expanded="true" signature="230:961" ph="..." />
+                <marker date="1563314962706" expanded="true" signature="988:989" ph="..." />
+                <marker date="1563314962706" expanded="true" signature="1275:1323" ph="..." />
               </folding>
             </state>
           </provider>
@@ -94,8 +97,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thermodynamics/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="49" selection-start-line="49" selection-end-line="49" />
+            <state relative-caret-position="169">
+              <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thermodynamics/formula_wrapper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+              <folding>
+                <marker date="1563319065645" expanded="true" signature="60:61" ph="..." />
+                <marker date="1563319065645" expanded="true" signature="60:65" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/thermodynamics/test_molmass.py">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="123" column="6" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -104,7 +137,10 @@
         <entry file="file://$PROJECT_DIR$/models/ostwaldtriangle.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -114,6 +150,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
               <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -193,11 +232,16 @@
         <option value="$PROJECT_DIR$/geometry/series.py" />
         <option value="$PROJECT_DIR$/drawers/drawer.py" />
         <option value="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" />
-        <option value="$PROJECT_DIR$/thermodynamics/tests.py" />
-        <option value="$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py" />
         <option value="$PROJECT_DIR$/models/table.py" />
         <option value="$PROJECT_DIR$/models/ostwaldtriangle.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/test_chempy.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/test_molmass.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/Formula.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/formula.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/formula_wrapper.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/tests.py" />
       </list>
     </option>
   </component>
@@ -265,13 +309,14 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\Exports" />
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\geometry" />
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\models" />
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\drawers" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -286,7 +331,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.main">
+  <component name="RunManager" selected="Python tests.Unittests in tests.py (1)">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="OswaldTriangle" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -316,6 +361,43 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="test_chempy" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="OswaldTriangle" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thermodynamics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\thermodynamics\test_molmass.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unittests in test_molmass.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="OswaldTriangle" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thermodynamics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/thermodynamics/test_molmass.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <configuration name="Unittests in tests.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
@@ -358,12 +440,33 @@
       <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
+    <configuration name="Unittests in tests.py" type="tests" factoryName="Unittests" temporary="true" nameIsGenerated="true">
+      <module name="OswaldTriangle" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/thermodynamics" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/thermodynamics/tests.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.main" />
       <item itemvalue="Python tests.Unittests in tests.py" />
+      <item itemvalue="Python tests.Unittests in tests.py (1)" />
+      <item itemvalue="Python.test_chempy" />
+      <item itemvalue="Python tests.Unittests in test_molmass.py" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Unittests in tests.py (1)" />
+        <item itemvalue="Python tests.Unittests in test_molmass.py" />
+        <item itemvalue="Python.test_chempy" />
         <item itemvalue="Python.main" />
         <item itemvalue="Python tests.Unittests in tests.py" />
       </list>
@@ -625,38 +728,52 @@
       <option name="project" value="LOCAL" />
       <updated>1563306254570</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="change image generation path">
+      <created>1563307249962</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1563307249962</updated>
+    </task>
+    <task id="LOCAL-00037" summary="drop my own work with chemistry and use chempy">
+      <created>1563310690549</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1563310690549</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 21m 13s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 02m 44s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 21m 30s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 11m 28s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 27m 31s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 11m 39s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 28m 19s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 12m 09s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 31m 13s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 14m 06s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 31m 41s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 16m 04s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 32m 02s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 17m 27s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 40m 29s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 17m 46s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 42m 23s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 18m 03s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Unittests_in_tests_py - 2019.07.15 at 21h 49m 49s.xml">
+    <history-entry file="Unittests_in_tests_py - 2019.07.17 at 01h 18m 20s.xml">
       <configuration name="Unittests in tests.py" configurationId="tests" />
     </history-entry>
   </component>
@@ -664,12 +781,12 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29597315" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29597315" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32340425" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32340425" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39716312" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -678,7 +795,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3286334" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32765958" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32765958" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="13" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -695,8 +812,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change to linesegment" />
-    <MESSAGE value="remove vector and rename line segment to vector" />
     <MESSAGE value="add polygonal chain" />
     <MESSAGE value="add split points poligonalchain" />
     <MESSAGE value="add LineInterface" />
@@ -720,7 +835,9 @@
     <MESSAGE value="Add greek texts" />
     <MESSAGE value="attempt at thermodynamics calculations" />
     <MESSAGE value="change to fullscreen and scale with window size" />
-    <option name="LAST_COMMIT_MESSAGE" value="change to fullscreen and scale with window size" />
+    <MESSAGE value="change image generation path" />
+    <MESSAGE value="drop my own work with chemistry and use chempy" />
+    <option name="LAST_COMMIT_MESSAGE" value="drop my own work with chemistry and use chempy" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -735,11 +852,6 @@
           <url>file://$PROJECT_DIR$/geometry/vector.py</url>
           <line>53</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py</url>
-          <line>26</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -763,13 +875,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/geometry/geometry.py" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="123" column="6" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geometry/lineinferface.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -837,7 +942,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/triangle.png">
+    <entry file="file://$PROJECT_DIR$/Exports/triangle.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/858574757/kivy/graphics/context_instructions.py">
@@ -869,20 +974,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/858574757/builtins.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10140">
-          <caret line="507" column="4" selection-start-line="507" selection-start-column="4" selection-end-line="507" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/unittest/case.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="831" selection-start-line="831" selection-end-line="831" />
+          <folding>
+            <marker date="1563148096095" expanded="true" signature="132:641" ph="..." />
+            <marker date="1563148096095" expanded="true" signature="641:646" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -951,16 +1046,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-374">
           <caret line="258" lean-forward="true" selection-start-line="184" selection-end-line="258" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="51" column="32" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
           <folding>
-            <marker date="1563219743795" expanded="true" signature="415:926" ph="..." />
-            <marker date="1563219743795" expanded="true" signature="953:954" ph="..." />
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1563206029225" expanded="true" signature="8060:8069" ph="..." />
+            <marker date="1563206029225" expanded="true" signature="8185:8194" ph="..." />
+            <marker date="1563206029225" expanded="true" signature="8969:8978" ph="..." />
+            <marker date="1563206029225" expanded="true" signature="9239:9248" ph="..." />
           </folding>
         </state>
       </provider>
@@ -979,27 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thermodynamics/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/ostwaldtriangle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/datetime.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -1009,10 +1079,98 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+        <state relative-caret-position="269">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/ostwaldtriangle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="16" column="41" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/858574757/builtins.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="5275" column="8" selection-start-line="5275" selection-start-column="8" selection-end-line="5275" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/OswaldTriangle-FxN0XhJb/Lib/site-packages/chempy/chemistry.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="218" column="36" selection-start-line="218" selection-start-column="36" selection-end-line="218" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thermodynamics/test_molmass.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="123" column="6" selection-start-line="123" selection-start-column="6" selection-end-line="123" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/unittest/case.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="831" selection-start-line="831" selection-end-line="831" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/OswaldTriangle-FxN0XhJb/Lib/site-packages/molmass/molmass.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="225" selection-start-line="225" selection-end-line="225" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thermodynamics/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thermodynamics/formula_wrapper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="8" column="53" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+          <folding>
+            <marker date="1563319065645" expanded="true" signature="60:61" ph="..." />
+            <marker date="1563319065645" expanded="true" signature="60:65" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="8" selection-end-column="20" />
+          <folding>
+            <marker date="1563314962706" expanded="true" signature="230:961" ph="..." />
+            <marker date="1563314962706" expanded="true" signature="988:989" ph="..." />
+            <marker date="1563314962706" expanded="true" signature="1275:1323" ph="..." />
           </folding>
         </state>
       </provider>

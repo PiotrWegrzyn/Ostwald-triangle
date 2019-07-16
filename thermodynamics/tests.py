@@ -1,82 +1,56 @@
 import unittest
 
-from thermodynamics.oswaldt_calculations import MoleculeMix, Formula, Element, FormulaNode
+from molmass import Formula, FormulaError
+
+from thermodynamics.formula_wrapper import FormulaWrapper
+from thermodynamics.oswaldt_calculations import Fuel, OslwaldtCalculations
 
 
-class TestFormulaClass(unittest.TestCase):
-    def test_nodes(self):
-        h2o=Formula(elements=[Element(1,name="H"),Element(8,name="O")],quantities=[2,1])
-        self.assertEqual(FormulaNode(Element(1,name="H"),2),h2o.formula()[0] )
+class TestMolmass(unittest.TestCase):
+    def test_amount_of_H_atoms(self):
+        f = Formula('(H)20 O10 H20')
+        self.assertEqual(40, f._elements.get("H")[0])
+
+    def test_from_string(self):
+        string = "H2O"
+        f = Formula(string)
+        self.assertEqual("H2O", f.formula)
+
+    def test_not_chemically_correct_formula_mass(self):
+        f = Formula("HHHH")
+        self.assertEqual(4.03176, f.mass)
+
+    def test_float_numbers(self):
+        f = Formula("H0.5")
+        with self.assertRaises(FormulaError):
+            m = f.mass
 
 
-class TestMoleculeMixClass(unittest.TestCase):
-    def test_init_total_atoms(self):
-        molecules = {
-            "H": 2,
-            "O": 1
-        }
-        f = MoleculeMix(molecules)
-        self.assertEqual(3, f.total_atoms)
+class TestFormulaWrapper(unittest.TestCase):
 
-    def test_init_total_mass(self):
-        molecules = {
-            "H": 2,
-            "O": 1
-        }
-        f = MoleculeMix(molecules)
-        self.assertEqual(18, f.total_mass)
+    def test_get_item(self):
+        f = FormulaWrapper("HHHH")
+        self.assertEqual(4, f["H"])
 
-    def test_percentage_atoms(self):
-        molecules = {
-            "H": 2,
-            "O": 1
-        }
-        f = MoleculeMix(molecules)
-        self.assertEqual(1 / 3, f.atoms_percentage("O"))
+    def test_get_mass_percentage(self):
+        f = FormulaWrapper("H2O")
+        self.assertEqual(0.11189834407236524, f.percentage_mass("H"))
 
-    def test_percentage_atoms2(self):
-        molecules = {
-            "H": 0.3,
-            "O": 0.7
-        }
-        f = MoleculeMix(molecules)
-        self.assertEqual(0.7, f.atoms_percentage("O"))
 
-    def test_mass_percentage(self):
-        molecules = {
-            "H": 2,
-            "O": 1
-        }
-        f = MoleculeMix(molecules)
-        self.assertEqual(16 / 18, f.mass_percentage("O"))
+class TestFuelClass(unittest.TestCase):
+    def test_init_with_formula(self):
+        f = FormulaWrapper("(CH4)958 (C2H4)8 (CO)4 (O2)2 (CO2)6 (N2)22")
+        self.assertEqual(44, f["N"])
 
 
 class TestOslwaldtCalculationsClass(unittest.TestCase):
-    pass
-    # def test_calculate_alpha(self):
-    #     molecules = {
-    #         "H": 2,
-    #         "O": 1,
-    #         "C": 1
-    #     }
-    #     f = MoleculeMix(molecules)
-    #     ocal = OslwaldtCalculations(f)
-    #     self.assertEqual(4.4437500000000005, ocal.alpha)
-    #
-    # def test_maxco2(self):
-    #     molecules = {
-    #         "H": 4,
-    #         "C": 1
-    #     }
-    #     f = MoleculeMix(molecules)
-    #     ocal = OslwaldtCalculations(f)
-    #     self.assertEqual(11.7, ocal.max_co2)
 
-    # def test_maxco(self):
-    #     molecules = {
-    #         "H": 4,
-    #         "C": 1
-    #     }
-    #     f = Fuel(molecules)
-    #     ocal = OslwaldtCalculations(f)
-    #     self.assertEqual(4.4437500000000005, ocal.alpha)
+    def test_kmax2(self):
+        f = Fuel(95.8, 0.8, 0.4, 0.2, 0.6, 2.2)
+        ocal = OslwaldtCalculations(f, 6, 2)
+        self.assertEqual(11.7697520802951, ocal.kmax)
+
+    def test_kmax(self):
+        f = Fuel(70, 4.3, 7.5, 1.3, 11.3, 5.6)
+        ocal = OslwaldtCalculations(f, 6, 2)
+        self.assertEqual(11.7697520802951, ocal.kmax)
