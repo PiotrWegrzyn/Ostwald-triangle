@@ -1,6 +1,7 @@
 
 import kivy
 from kivy.app import App
+from kivy.config import Config
 from kivy.core.window import Window
 from kivy.modules import keybinding
 from kivy.uix.floatlayout import FloatLayout
@@ -12,15 +13,11 @@ kivy.require('1.9.0')
 
 
 class OstwaldTriangleVisualization(FloatLayout):
-    ostwald_triangle_graph = OstwaldTriangle(18.9, 21, 29.2)
-    table = Table()
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        Window.clearcolor = (1, 1, 1, 1)
-        Window.size = (1150, 750)
-        Window.top = 75
-        Window.left = 200
+        self.ostwald_triangle_graph = OstwaldTriangle(18.9, 21, 29.2)
+        self.table = Table()
         self.ostwald_triangle_graph.draw(self.canvas)
         self.table.draw(self.canvas)
         self.export_to_png("triangle.png")
@@ -35,4 +32,8 @@ class OstwaldTriangleApp(App):
 
 
 if __name__ == '__main__':
+    Config.set('graphics', 'fullscreen', 'auto')
+    Config.set('graphics', 'window_state', 'maximized')
+    Config.write()
+    Window.clearcolor = (1, 1, 1, 1)
     OstwaldTriangleApp().run()

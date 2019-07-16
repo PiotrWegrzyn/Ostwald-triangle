@@ -1,5 +1,7 @@
 from math import cos, radians, atan, degrees
 
+from kivy.core.window import Window
+
 from drawers.ostwald_triangle_graph_drawer import OstwaldTriangleGraphDrawer
 from geometry.point import Point
 from geometry.series import Series
@@ -10,16 +12,16 @@ from models.line_info import LineInfo
 class OstwaldTriangle:
 
     def __init__(self, maxco2, maxo2, maxco):
-        self.top = 720
-        self.bot = 350
+        self.top = Window.size[1] * 95/100
+        self.bot = Window.size[1] * 48/100
         self.height = self.top - self.bot
-        self.left = 100
-        self.right = 800
+        self.left = Window.size[0] * 5/100
+        self.right = Window.size[0] * 85/100
         self.width = self.right - self.left
 
         self.co2_diagonal_angle = degrees(atan(self.width/self.height))
         self.co_line_angle = self.co2_diagonal_angle
-        self.coefficient_line_angle = 15
+        self.coefficient_line_angle = 20
         coefficient_line_len = self.width * cos(radians(self.coefficient_line_angle))
 
         self.lines = {
@@ -36,7 +38,7 @@ class OstwaldTriangle:
             ),
             "co": LineInfo(
                 Vector(Point(self.right, self.bot), 180 + self.co_line_angle, self.height),
-                series=Series(0, maxco, 2),
+                series=Series(0, maxco, 3),
                 labels={"name": "Tlenek węgla %"}
             ), #todo
             "coefficient": LineInfo(
