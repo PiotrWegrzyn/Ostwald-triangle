@@ -1,12 +1,17 @@
 class Fuel:
 
-    def __init__(self, ch4=0, ch2h4=0, co2=0, co=0, o2=0, n2=0):
-        self.ch4 = ch4
-        self.ch2h4 = ch2h4
-        self.co2 = co2
-        self.co = co
-        self.o2 = o2
-        self.n2 = n2
+    def __init__(self, formula=None, c=None,o=None,n=None,h = None):
+        if formula:
+            self.formula = formula
+            self.c = formula.percentage_mass("C")
+            self.o = formula.percentage_mass("O")
+            self.h = formula.percentage_mass("H")
+            self.n = formula.percentage_mass("N")
+        else:
+            self.c = c
+            self.o = o
+            self.n = n
+            self.h = h
 
 
 class Mollier:
@@ -19,13 +24,13 @@ class Mollier:
         self.nu = self.calculate_nu()
 
     def calculate_ot(self):
-        return self.fuel.ch4 / 100 * 2 + self.fuel.ch2h4 / 100 * 3 + self.fuel.co / 100 * 0.5 + self.fuel.o2/100
+        return 22.42 * ((self.fuel.c/12) + (self.fuel.o/32) + (self.fuel.h/4))
 
     def calculate_vc(self):
-        return (self.fuel.ch4 / 100) + ((self.fuel.ch2h4 / 100) * 2) + (self.fuel.co2 / 100) + (self.fuel.co / 100)
+        return 22.42 * (self.fuel.c/12)
 
     def calculate_vn(self):
-        return self.fuel.n2 / 100
+        return 22.42 * (self.fuel.n/28)
 
     def calculate_sigma(self):
         return self.ot / self.vc

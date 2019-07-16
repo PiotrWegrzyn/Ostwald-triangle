@@ -40,17 +40,19 @@ class TestFormulaWrapper(unittest.TestCase):
 class TestFuelClass(unittest.TestCase):
     def test_init_with_formula(self):
         f = FormulaWrapper("(CH4)958 (C2H4)8 (CO)4 (O2)2 (CO2)6 (N2)22")
-        self.assertEqual(44, f["N"])
+        fuel = Fuel(f)
+        self.assertEqual(0.709843217460471, fuel.c)
 
 
 class TestOslwaldtCalculationsClass(unittest.TestCase):
 
     def test_kmax2(self):
-        f = Fuel(95.8, 0.8, 0.4, 0.2, 0.6, 2.2)
+        form = FormulaWrapper("(CH4)958 (C2H4)8 (CO)4 (O2)2 (CO2)6 (N2)22")
+        f = Fuel(form)
         ocal = OslwaldtCalculations(f, 6, 2)
-        self.assertEqual(11.7697520802951, ocal.kmax)
+        self.assertEqual(11.71, round(ocal.kmax,2))
 
     def test_kmax(self):
-        f = Fuel(70, 4.3, 7.5, 1.3, 11.3, 5.6)
+        f = Fuel(c=0.7, h=0.043, o=0.0075, n=0.013)
         ocal = OslwaldtCalculations(f, 6, 2)
-        self.assertEqual(11.7697520802951, ocal.kmax)
+        self.assertEqual(18.25, round(ocal.kmax, 2))
