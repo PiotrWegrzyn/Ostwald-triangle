@@ -4,8 +4,6 @@
     <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/ostwaldtriangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ostwaldtriangle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/table.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,7 +12,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563306142163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563307186899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestLineClass_test_get_middle.coverage" NAME="Unittests for tests.TestLineClass.test_get_middle Coverage Results" MODIFIED="1562438863994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1563206139617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_in_tests_py__1_.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1563220189208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
@@ -40,41 +38,41 @@
           <entry key="gitignore" value="2" />
           <entry key="jpg" value="1" />
           <entry key="png" value="18" />
-          <entry key="py" value="78" />
+          <entry key="py" value="79" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Image" value="19" />
           <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="78" />
+          <entry key="Python" value="79" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="526" />
+          <entry key="Python Console" value="686" />
           <entry key="dummy" value="75" />
-          <entry key="py" value="23197" />
-          <entry key="txt" value="832" />
+          <entry key="py" value="23307" />
+          <entry key="txt" value="894" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="907" />
-          <entry key="Python" value="23723" />
+          <entry key="PLAIN_TEXT" value="969" />
+          <entry key="Python" value="23993" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
+            <state relative-caret-position="389">
+              <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding>
-                <element signature="e#1#12#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -102,10 +100,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/ostwaldtriangle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
+            <state relative-caret-position="320">
               <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
             </state>
           </provider>
@@ -116,9 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
               <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -200,9 +195,9 @@
         <option value="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" />
         <option value="$PROJECT_DIR$/thermodynamics/tests.py" />
         <option value="$PROJECT_DIR$/thermodynamics/oswaldt_calculations.py" />
+        <option value="$PROJECT_DIR$/models/table.py" />
         <option value="$PROJECT_DIR$/models/ostwaldtriangle.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/models/table.py" />
       </list>
     </option>
   </component>
@@ -235,6 +230,11 @@
               <item name="OswaldTriangle" type="b2602c69:ProjectViewProjectNode" />
               <item name="OswaldTriangle" type="462c0819:PsiDirectoryNode" />
               <item name="drawers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OswaldTriangle" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OswaldTriangle" type="462c0819:PsiDirectoryNode" />
+              <item name="Exports" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OswaldTriangle" type="b2602c69:ProjectViewProjectNode" />
@@ -618,7 +618,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563220168449</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="change to fullscreen and scale with window size">
+      <created>1563306254570</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1563306254570</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -688,7 +695,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change import order" />
     <MESSAGE value="change to linesegment" />
     <MESSAGE value="remove vector and rename line segment to vector" />
     <MESSAGE value="add polygonal chain" />
@@ -713,7 +719,8 @@
     <MESSAGE value="Refactor" />
     <MESSAGE value="Add greek texts" />
     <MESSAGE value="attempt at thermodynamics calculations" />
-    <option name="LAST_COMMIT_MESSAGE" value="attempt at thermodynamics calculations" />
+    <MESSAGE value="change to fullscreen and scale with window size" />
+    <option name="LAST_COMMIT_MESSAGE" value="change to fullscreen and scale with window size" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -979,30 +986,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
-          <folding>
-            <element signature="e#1#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/table.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
           <caret line="15" column="38" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/ostwaldtriangle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
+        <state relative-caret-position="320">
           <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="1487" column="6" selection-start-line="1487" selection-start-column="6" selection-end-line="1487" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="27" column="29" lean-forward="true" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

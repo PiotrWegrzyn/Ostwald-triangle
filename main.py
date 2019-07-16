@@ -1,3 +1,5 @@
+import os
+from datetime import datetime
 
 import kivy
 from kivy.app import App
@@ -20,7 +22,10 @@ class OstwaldTriangleVisualization(FloatLayout):
         self.table = Table()
         self.ostwald_triangle_graph.draw(self.canvas)
         self.table.draw(self.canvas)
-        self.export_to_png("triangle.png")
+
+        photo_name = "Oswald-"+datetime.now().strftime("%y-%m-%d %H-%M-%S-%f")+".png"
+        p = os.path.join("Exports", photo_name)
+        self.export_to_png(p)
 
 
 class OstwaldTriangleApp(App):
