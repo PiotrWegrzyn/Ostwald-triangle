@@ -1,9 +1,9 @@
 import unittest
 
 from molmass import Formula, FormulaError
-from thermodynamics.oswaldt_calculations import Fuel, OslwaldtCalculations, Mollier
 
 from thermodynamics.formula_wrapper import FormulaWrapper
+from thermodynamics.ostwald_calculations import Fuel, OstwaldCalculations, Mollier
 
 
 class TestMolmass(unittest.TestCase):
@@ -66,15 +66,15 @@ class TestOslwaldtCalculationsClass(unittest.TestCase):
     def test_kmax2(self):
         form = FormulaWrapper("(CH4)958 (C2H4)8 (CO)4 (O2)2 (CO2)6 (N2)22")
         f = Fuel(form)
-        ocal = OslwaldtCalculations(f, 6, 2)
+        ocal = OstwaldCalculations(f, 6, 2)
         self.assertEqual(11.71, round(ocal.kmax, 2))
 
     def test_kmax(self):
         f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
-        ocal = OslwaldtCalculations(f, 6, 2)
+        ocal = OstwaldCalculations(f, 6, 2)
         self.assertEqual(18.25, round(ocal.kmax, 2))
 
     def test_maxco(self):
         f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
-        ocal = OslwaldtCalculations(f, 6, 2)
+        ocal = OstwaldCalculations(f, 6, 2)
         self.assertEqual(29.16, round(ocal.max_co, 2))
