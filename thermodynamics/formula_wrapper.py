@@ -1,4 +1,5 @@
 from molmass import Formula
+from molmass.elements import ELEMENTS
 
 
 class FormulaWrapper(Formula):
@@ -6,4 +7,4 @@ class FormulaWrapper(Formula):
         return self._elements[item][0]
 
     def percentage_mass(self, element):
-        return self[element]*Formula(element).mass / self.mass
+        return self[element]*ELEMENTS[element].mass / self.mass

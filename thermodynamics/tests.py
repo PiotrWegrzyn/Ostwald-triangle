@@ -1,9 +1,9 @@
 import unittest
 
 from molmass import Formula, FormulaError
+from thermodynamics.oswaldt_calculations import Fuel, OslwaldtCalculations, Mollier
 
 from thermodynamics.formula_wrapper import FormulaWrapper
-from thermodynamics.oswaldt_calculations import Fuel, OslwaldtCalculations
 
 
 class TestMolmass(unittest.TestCase):
@@ -25,6 +25,16 @@ class TestMolmass(unittest.TestCase):
         with self.assertRaises(FormulaError):
             m = f.mass
 
+    def test_composition_mass(self):
+        f = Formula("H2O")
+        comp = f.composition()
+        self.assertEqual(0.11189834407236524, comp[0][3])
+
+    def test_composition_mass_not_chemically_correct(self):
+        f = Formula("H2OHHO")
+        comp = f.composition()
+        self.assertEqual(0.11189834407236524, comp[0][3])
+
 
 class TestFormulaWrapper(unittest.TestCase):
 
@@ -44,15 +54,27 @@ class TestFuelClass(unittest.TestCase):
         self.assertEqual(0.709843217460471, fuel.c)
 
 
+class TestMollierClass(unittest.TestCase):
+    def test_ot(self):
+        f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
+        m = Mollier(f)
+        self.assertEqual(18.25, round(m.ot, 2))
+
+
 class TestOslwaldtCalculationsClass(unittest.TestCase):
 
     def test_kmax2(self):
         form = FormulaWrapper("(CH4)958 (C2H4)8 (CO)4 (O2)2 (CO2)6 (N2)22")
         f = Fuel(form)
         ocal = OslwaldtCalculations(f, 6, 2)
-        self.assertEqual(11.71, round(ocal.kmax,2))
+        self.assertEqual(11.71, round(ocal.kmax, 2))
 
     def test_kmax(self):
-        f = Fuel(c=0.7, h=0.043, o=0.0075, n=0.013)
+        f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
         ocal = OslwaldtCalculations(f, 6, 2)
         self.assertEqual(18.25, round(ocal.kmax, 2))
+
+    def test_maxco(self):
+        f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
+        ocal = OslwaldtCalculations(f, 6, 2)
+        self.assertEqual(29.16, round(ocal.max_co, 2))

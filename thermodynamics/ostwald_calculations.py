@@ -39,21 +39,25 @@ class Mollier:
         return self.vn / self.vc
 
 
-class OslwaldtCalculations:
+class OstwaldCalculations:
     max_o2 = 21
     max_co2 = None
     max_co = None
 
-    def __init__(self, fuel, co2, o2):
-        self.co2 = co2
-        self.o2 = o2
+    def __init__(self, fuel, read_co2, read_o2):
+        self.read_co2 = read_co2
+        self.read_o2 = read_o2
         self.fuel = fuel
         self.mollier = None
-        self.set_moiller()
+        self.set_mollier()
         self.kmax = self.calculate_kmax()
+        self.max_co = self.calculate_max_co()
 
-    def set_moiller(self):
+    def set_mollier(self):
         self.mollier = Mollier(self.fuel)
 
     def calculate_kmax(self):
         return 100/(((79/21) * self.mollier.sigma) + self.mollier.nu + 1) #percent
+
+    def calculate_max_co(self):
+        return 100/(100 / self.kmax - 79 / 42) #percent

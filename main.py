@@ -25,7 +25,7 @@ class OstwaldTriangleVisualization(FloatLayout):
         self.export_photo()
 
     def export_photo(self):
-        photo_name = "Oswald-"+datetime.now().strftime("%y-%m-%d %H-%M-%S-%f")+".png"
+        photo_name = "Ostwald-"+datetime.now().strftime("%y-%m-%d %H-%M-%S-%f")+".png"
         p = os.path.join("Exports", photo_name)
         self.export_to_png(p)
 
