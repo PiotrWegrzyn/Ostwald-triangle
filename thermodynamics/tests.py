@@ -1,9 +1,37 @@
 import unittest
 
-from molmass import Formula, FormulaError
+from molmass import Formula, FormulaError, ELEMENTS
 
 from thermodynamics.formula_wrapper import FormulaWrapper
-from thermodynamics.ostwald_calculations import Fuel, OstwaldCalculations, Mollier
+from thermodynamics.ostwald_calculations import Composition, OstwaldCalculations, Mollier, CompositionNode
+
+
+class TestCompositionNode(unittest.TestCase):
+    def test_init_raises_value_error_when_wrong_formula_type(self):
+        with self.assertRaises(ValueError):
+            CompositionNode(1, 1)
+
+    def test_init_raises_value_error_when_proportion_is_negative(self):
+        with self.assertRaises(ValueError):
+            CompositionNode(FormulaWrapper("H2O"), -1)
+
+    def test_init_raises_value_error_when_proportion_is_more_than_1(self):
+        with self.assertRaises(ValueError):
+            CompositionNode(FormulaWrapper("H2O"), 1.1)
+
+    def test_amount_of_h_mass_in_watter_with05_proportion(self):
+        proportion = 0.5
+        cn = CompositionNode(FormulaWrapper("H2O"), proportion)
+        self.assertEqual(proportion * (ELEMENTS["H"].mass * 2)/(ELEMENTS["H"].mass *2 + ELEMENTS["O"].mass), cn["H"])
+
+    def test_amount_of_not_existing_element_returns0(self):
+        proportion = 0.5
+        cn = CompositionNode(FormulaWrapper("H2O"), proportion)
+        self.assertEqual(0, cn["C"])
+
+    def test_init_with_str(self):
+        cn = CompositionNode("O", 1)
+        self.assertTrue(cn)
 
 
 class TestMolmass(unittest.TestCase):
@@ -47,34 +75,139 @@ class TestFormulaWrapper(unittest.TestCase):
         self.assertEqual(0.11189834407236524, f.percentage_mass("H"))
 
 
-class TestFuelClass(unittest.TestCase):
-    def test_init_with_formula(self):
-        f = FormulaWrapper("(CH4)958 (C2H4)8 (CO)4 (O2)2 (CO2)6 (N2)22")
-        fuel = Fuel(f)
-        self.assertEqual(0.709843217460471, fuel.c)
+class TestCompositionClass(unittest.TestCase):
+    def test_init_args(self):
+        fuel = Composition(
+            CompositionNode(FormulaWrapper("C"), 0.7),
+            CompositionNode(FormulaWrapper("H"), 0.043)
+        )
+        self.assertEqual(0.7, fuel["C"])
+
+    def test_init_args_as_list(self):
+        args = [
+            CompositionNode(FormulaWrapper("C"), 0.7),
+            CompositionNode(FormulaWrapper("H"), 0.043)
+        ]
+        fuel = Composition(*args)
+        self.assertEqual(0.7, fuel["C"])
+
+    def test_non_existing_element_returns0(self):
+        args = [
+            CompositionNode(FormulaWrapper("C"), 0.7),
+            CompositionNode(FormulaWrapper("H"), 0.043)
+        ]
+        fuel = Composition(*args)
+        self.assertEqual(0, fuel["O"])
+
+    def test_init_throws_value_error_when_arg_not_composition_node(self):
+        with self.assertRaises(ValueError):
+            Composition("")
+
+    def test_init_with_empty_list_returns0(self):
+        fuel = Composition()
+        self.assertEqual(0, fuel["O"])
+
+    def test_creates_composition_nodes_from_tuples_on_init(self):
+        fuel = Composition(
+            ("H", 1)
+        )
+        self.assertEqual(1, fuel["H"])
 
 
 class TestMollierClass(unittest.TestCase):
     def test_ot(self):
-        f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
+        f = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
         m = Mollier(f)
-        self.assertEqual(18.25, round(m.ot, 2))
+        self.assertEqual(1.496, round(m.ot, 3))
+
+    def test_vc(self):
+        f = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
+
+        m = Mollier(f)
+        self.assertEqual(1.308, round(m.vc, 3))
+
+    def test_vn(self):
+        f = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
+
+        m = Mollier(f)
+        self.assertEqual(0.01, round(m.vn, 2))
+
+    def test_ot_formula(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertEqual(1.94, round(m.ot, 2))
+
+    def test_vc_formula(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertEqual(0.984, round(m.vc, 3))
+
+    def test_vn_formula(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertEqual(0.022, round(m.vn, 3))
+
+    def test_ot_79(self):
+        f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
+        m = Mollier(f)
+        self.assertEqual(1.253, round(m.ot, 3))
+
+    def test_vc_s79(self):
+        f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
+        m = Mollier(f)
+        self.assertEqual(1.121, round(m.vc, 3))
+
+    def test_vn_s79(self):
+        f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
+        m = Mollier(f)
+        self.assertEqual(4.772, round(m.vn, 3))
+
+    def test_ot_s82(self):
+        f = Composition(("C", 0.874), ("H", 0.112), ("S", 0.005), ("O", 0.009))
+        m = Mollier(f)
+        self.assertEqual(2.261, round(m.ot, 3))
+
+    def test_vc_s82(self):
+        f = Composition(("C", 0.874), ("H", 0.112), ("S", 0.005), ("O", 0.009))
+        m = Mollier(f)
+        self.assertEqual(1.638, round(m.vc, 3))
+
+    def test_vn_s82(self):
+        f = Composition(("C", 0.874), ("H", 0.112), ("S", 0.005), ("O", 0.009))
+        m = Mollier(f)
+        self.assertEqual(0, round(m.vn, 3))
+
+    def test_vs_s82(self):
+        f = Composition(("C", 0.874), ("H", 0.112), ("S", 0.005), ("O", 0.009))
+        m = Mollier(f)
+        self.assertEqual(0, round(m.vn, 3))
 
 
 class TestOslwaldtCalculationsClass(unittest.TestCase):
-
     def test_kmax2(self):
-        form = FormulaWrapper("(CH4)958 (C2H4)8 (CO)4 (O2)2 (CO2)6 (N2)22")
-        f = Fuel(form)
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
         ocal = OstwaldCalculations(f, 6, 2)
-        self.assertEqual(11.71, round(ocal.kmax, 2))
+        self.assertEqual(11.85, round(ocal.kmax, 2))
+
+    def test_maxco2(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        ocal = OstwaldCalculations(f, 6, 2)
+        self.assertEqual(15.25, round(ocal.max_co, 2))
 
     def test_kmax(self):
-        f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
+        f = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
+
         ocal = OstwaldCalculations(f, 6, 2)
-        self.assertEqual(18.25, round(ocal.kmax, 2))
+        self.assertEqual(18.83, round(ocal.kmax, 2))
 
     def test_maxco(self):
-        f = Fuel(c=0.7, h=0.043, o=0.075, n=0.013)
+        f = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
+
         ocal = OstwaldCalculations(f, 6, 2)
         self.assertEqual(29.16, round(ocal.max_co, 2))
+
+    def test_kmaxs79(self):
+        f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
+        ocal = OstwaldCalculations(f, 6, 2)
+        self.assertEqual(19.18, round(ocal.kmax, 2))
+

@@ -10,6 +10,7 @@ from kivy.uix.floatlayout import FloatLayout
 
 from models.ostwaldtriangle import OstwaldTriangle
 from models.table import Table
+from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
 
 kivy.require('1.9.0')
 
@@ -18,7 +19,13 @@ class OstwaldTriangleVisualization(FloatLayout):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.ostwald_triangle_graph = OstwaldTriangle(18.9, 21, 29.2)
+        fuels84 = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        fuels79 = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
+        fuels75 = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
+
+        fuel = fuels79
+        osw_calc = OstwaldCalculations(fuel, 6, 2)
+        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co)
         self.table = Table()
         self.ostwald_triangle_graph.draw(self.canvas)
         self.table.draw(self.canvas)
