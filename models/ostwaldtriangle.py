@@ -39,7 +39,7 @@ class OstwaldTriangle:
                 labels={"name": "Dwutlenek węgla %"}
             ),
             "co": LineInfo(
-                Vector(Point(self.right, self.bot), 180 + self.co_line_angle, self.height),
+                Vector(Point(self.right, self.bot), 180 + self.co_line_angle, self.width*cos(radians(self.co2_diagonal_angle))),
                 series=Series(0, maxco, 3),
                 labels={"name": "Tlenek węgla %"}
             ),
