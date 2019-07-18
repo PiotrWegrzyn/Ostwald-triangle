@@ -6,17 +6,19 @@ from models.line_info import LineInfo
 
 
 class Table:
-    def __init__(self):
+    def __init__(self, x, y):
         self.top = 650
         self.bot = 300
         self.left = 850
         self.right = 950
 
-        self.top = Window.size[1] * 95/100
-        self.bot = Window.size[1] * 40/100
+        height_p = 45
+        self.top = Window.size[1] * y/100
+        self.bot = Window.size[1] * (y-height_p)/100
         self.height = self.top - self.bot
-        self.left = Window.size[0] * 88/100
-        self.right = Window.size[0] * 95/100
+        width_p = 7
+        self.left = Window.size[0] * x/100
+        self.right = Window.size[0] * (x + width_p)/100
         self.width = self.right - self.left
 
         self.columns = 2
