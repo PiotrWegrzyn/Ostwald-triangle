@@ -25,7 +25,7 @@ class OstwaldTriangleVisualization(FloatLayout):
 
         fuel = fuels79
         osw_calc = OstwaldCalculations(fuel, 6, 2)
-        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co)
+        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co, 8)
         self.table = Table()
         self.ostwald_triangle_graph.draw(self.canvas)
         self.table.draw(self.canvas)
