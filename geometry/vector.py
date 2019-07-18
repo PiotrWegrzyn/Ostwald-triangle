@@ -5,8 +5,12 @@ from geometry.point import Point
 
 
 class Vector(LineInterface):
-    start = None
-    end = None
+    _start = None
+    _end = None
+    dx = 0
+    dy = 0
+    slope = None
+    angle = 0
 
     def __init__(self, *args):
         if len(args) is 2:
@@ -18,18 +22,37 @@ class Vector(LineInterface):
         else:
             raise ValueError("Requires 2 Points or 4 Integers or Point, angle, length as arguments.")
 
-        self.dx = self.end.x - self.start.x
-        self.dy = self.end.y - self.start.y
-        self.length = Point.distance(self.start, self.end)
-        self.angle = degrees(atan2(self.dy, self.dx))
+        self.calculate_properties()
 
     def __eq__(self, other):
         return self.start == other.start and self.end == other.end
 
+    @property
+    def start(self):
+        return self._start
+
+    @start.setter
+    def start(self, point):
+        if not isinstance(point, Point):
+            raise ValueError("Start has to be a Point.")
+        self._start = point
+        self.calculate_properties()
+
+    @property
+    def end(self):
+        return self._end
+
+    @end.setter
+    def end(self, point):
+        if not isinstance(point, Point):
+            raise ValueError("Start has to be a Point.")
+        self._end = point
+        self.calculate_properties()
+
     def __init_from_2_points(self, args):
         if isinstance(args[0], Point) and isinstance(args[1], Point):
-            self.start = args[0]
-            self.end = args[1]
+            self._start = args[0]
+            self._end = args[1]
         else:
             raise ValueError("Requires 2 Points as arguments.")
 
@@ -40,15 +63,15 @@ class Vector(LineInterface):
             raise ValueError("Requires the 2nd argument to be a number.")
         if not isinstance(args[2], (int, float)):
             raise ValueError("Requires the 3rd argument to be a number.")
-        self.start = args[0]
+        self._start = args[0]
         self.angle = args[1]
         self.rad = radians(args[1])
         length = args[2]
-        self.end = Point(self.start.x + length * cos(self.rad), self.start.y + length * sin(self.rad))
+        self._end = Point(self.start.x + length * cos(self.rad), self.start.y + length * sin(self.rad))
 
     def __init_from_4_numbers(self, args):
-        self.start = Point(args[0], args[1])
-        self.end = Point(args[2], args[3])
+        self._start = Point(args[0], args[1])
+        self._end = Point(args[2], args[3])
 
     def get_split_points(self, number_of_points, proportions=None):
         if number_of_points < 2 and not proportions:
