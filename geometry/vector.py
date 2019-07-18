@@ -1,6 +1,7 @@
+from math import cos, sin, radians, atan2, degrees, acos
+
 from geometry.lineinferface import LineInterface
 from geometry.point import Point
-from math import cos, sin, radians, atan2, degrees
 
 
 class Vector(LineInterface):
@@ -84,7 +85,8 @@ class Vector(LineInterface):
     def reversed(self):
         return Vector(self.end, self.start)
 
-    def _convert_to_point_proportions(self, proportions):
+    @staticmethod
+    def _convert_to_point_proportions(proportions):
         point_proportions = [0]
         total = sum(proportions)
         pivot = 0
@@ -92,4 +94,22 @@ class Vector(LineInterface):
             pivot += prop
             point_proportions.append(pivot / total)
         return point_proportions
+
+    @staticmethod
+    def dot_product(v1, v2):
+        return (v1.dx * v2.dx) + (v1.dy * v2.dy)
+
+    @staticmethod
+    def angle_between(v1, v2):
+        return degrees(acos(Vector.dot_product(v1, v2) / (v1.length * v2.length)))
+
+    def calculate_properties(self):
+        self.dx = self.end.x - self.start.x
+        self.dy = self.end.y - self.start.y
+        try:
+            self.slope = self.dy/self.dx
+        except ZeroDivisionError:
+            self.slope = None
+        self.angle = degrees(atan2(self.dy, self.dx))
+        self.length = Point.distance(self.start, self.end)
 

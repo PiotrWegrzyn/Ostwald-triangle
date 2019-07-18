@@ -182,6 +182,47 @@ class TestVectorClass(unittest.TestCase):
         vector = Vector(a, b)
         self.assertEqual(180, vector.angle)
 
+    def test_slope_none_when_dx0(self):
+        a = Point(0, 0)
+        b = Point(0, 10)
+        vector = Vector(a, b)
+        self.assertEqual(None, vector.slope)
+
+    def test_slope_0_when_horizontal(self):
+        a = Point(0, 0)
+        b = Point(10, 0)
+        vector = Vector(a, b)
+        self.assertEqual(0, vector.slope)
+
+    def test_slope(self):
+        a = Point(0, 0)
+        b = Point(1, 1)
+        vector = Vector(a, b)
+        self.assertEqual(1, vector.slope)
+
+    def test_dot_product(self):
+        a = Point(0, 0)
+        b = Point(3, 4)
+        v1 = Vector(a, b)
+        v2 = Vector(a, b)
+        self.assertEqual(25, Vector.dot_product(v1, v2))
+
+    def test_angle_between_vertical_line(self):
+        a = Point(0, 0)
+        b = Point(0, 10)
+        c = Point(10, 10)
+        v1 = Vector(a, b)
+        v2 = Vector(a, c)
+        self.assertEqual(45, round(Vector.angle_between(v1, v2), 4))
+
+    def test_angle_between_horizontal_line(self):
+        a = Point(0, 0)
+        b = Point(3, 0)
+        c = Point(3, 4)
+        v1 = Vector(a, b)
+        v2 = Vector(a, c)
+        self.assertEqual(53.1301, round(Vector.angle_between(v1, v2), 4))
+
 
 class TestPolygonalChainClass(unittest.TestCase):
     def test_init_start_point(self):
