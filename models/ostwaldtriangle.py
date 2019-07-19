@@ -19,6 +19,9 @@ class OstwaldTriangle:
 
         self.set_width(margin_left=17, triangle_width=50)
         self.set_height(margin_top=5, triangle_width=50)
+        self.A = Point(self.left, self.top)
+        self.B = Point(self.right, self.bot)
+        self.C = Point(self.left + ((pointC / maxo2) * (self.right - self.left)), self.bot)
 
         self.co2_diagonal_angle = degrees(atan(self.width/self.height))
         self.co_line_angle = self.co2_diagonal_angle
@@ -56,12 +59,8 @@ class OstwaldTriangle:
         OstwaldTriangleGraphDrawer(canvas, self).draw()
 
     def calculate_coeff_line_angle(self, pointC, maxo2):
-        pointCscale = pointC / maxo2
-        A = Point(self.left,self.top)
-        B = Point(self.right,self.bot)
-        C = Point(self.left+(pointCscale*(self.right-self.left)),self.bot)
-        AC = Vector(A,C)
-        AB = Vector(A,B)
+        AC = Vector(self.A, self.C)
+        AB = Vector(self.A, self.B)
         alpha = Vector.angle_between(AB, AC)
         return 90 - alpha - self.bot_diagonal_angle
 
