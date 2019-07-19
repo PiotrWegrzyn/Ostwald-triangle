@@ -5,9 +5,10 @@ import kivy
 from kivy.app import App
 from kivy.config import Config
 from kivy.core.window import Window
+from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.scatter import Scatter
 
-from kivy_gui.dragable_label import DragLabel
 from models.ostwaldtriangle import OstwaldTriangle
 from models.table import Table
 from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
@@ -15,7 +16,7 @@ from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
 kivy.require('1.9.0')
 
 
-class OstwaldTriangleVisualization(DragLabel):
+class OstwaldTriangleVisualization(FloatLayout):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -27,9 +28,6 @@ class OstwaldTriangleVisualization(DragLabel):
         osw_calc = OstwaldCalculations(fuel, 6, 2)
         self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co, osw_calc.pointc.o2)
         self.ostwald_triangle_graph.draw(self.canvas)
-        table_relative_position = 100*self.ostwald_triangle_graph.right/Window.size[0]+5
-        self.table = Table(table_relative_position, 95)
-        self.table.draw(self.canvas)
         self.export_photo()
 
     def export_photo(self):
@@ -38,17 +36,23 @@ class OstwaldTriangleVisualization(DragLabel):
         self.export_to_png(p)
 
 
+class TableVisuallization(FloatLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.table = Table(5, 95)
+        self.table.draw(self.canvas)
+
+
 class OstwaldTriangleApp(App):
     def build(self):
-        root = FloatLayout()
-        main_widget = root
-        ows = OstwaldTriangleVisualization(size=(Window.size[0], Window.size[1]))
-        root.add_widget(ows)
-        label = DragLabel(
-            text='Drag me',
-            color=(0, 1, 1, 1)
-        )
-        return main_widget
+        box_layout = BoxLayout(orientation="horizontal")
+        triangle=Scatter(do_rotation=False)
+        triangle.add_widget(OstwaldTriangleVisualization())
+        box_layout.add_widget(TableVisuallization(size_hint=(0.1,1)))
+        box_layout.add_widget(triangle)
+
+        return box_layout
 
 
 if __name__ == '__main__':
