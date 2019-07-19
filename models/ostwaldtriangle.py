@@ -17,8 +17,8 @@ class OstwaldTriangle:
         self.maxco = maxco
         self.maxo2 = maxo2
 
-        self.set_width(margin_left=5, triangle_width=30)
-        self.set_height(margin_top=5, triangle_width=30)
+        self.set_width(margin_left=5, triangle_width=35)
+        self.set_height(margin_top=5, triangle_width=35)
 
         self.co2_diagonal_angle = degrees(atan(self.width/self.height))
         self.co_line_angle = self.co2_diagonal_angle

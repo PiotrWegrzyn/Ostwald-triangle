@@ -23,7 +23,7 @@ class Table:
 
         self.columns = 2
         self.rows = 16
-        self.data = [["Phi", "Lambda"]]+[[i*0.1, 1/(i*0.1)] for i in range(3, 3+self.rows-1)]
+        self.data = [["Phi", "Lambda"]]+[[i*0.1, 1/(i*0.1)] for i in range(1, 1+self.rows-1)]
 
         self.lines = {
             "top": LineInfo(Vector(self.left, self.top, self.right, self.top)),

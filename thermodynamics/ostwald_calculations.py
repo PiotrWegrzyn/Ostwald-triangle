@@ -60,7 +60,14 @@ class Mollier:
         self.vs = self.calculate_vs()
         self.sigma = self.calculate_sigma()
         self.nu = self.calculate_nu()
+        self.vocoh2o = self.calculate_vocov2ho()
+        self.v0 = self.calculate_v0() # 7.121
+        self.vco = self.calculate_vco()
+        self.vn2 = self.calculate_vn2()
+        self.vo2 = self.calculate_vo2()
+        self.v0s = self.calculate_v0s()
 
+    # tlen teoretyczny
     def calculate_ot(self):
         return 22.42 * ((self.fuel["C"]/12) + (self.fuel["H"]/4) + (self.fuel["S"]/32) - (self.fuel["O"]/32))
 
@@ -79,6 +86,25 @@ class Mollier:
     def calculate_nu(self):
         return self.vn / self.vc
 
+    def calculate_vocov2ho(self):
+        return 22.42 * ((self.fuel["C"]/24) + (self.fuel["H"]/4) - (self.fuel["O"]/32))
+
+    def calculate_v0s(self):
+        return self.vco + self.vn2 + self.vo2
+
+    def calculate_vco(self):
+        return 22.42 * (self.fuel["C"] / 12)
+
+    def calculate_vn2(self):
+        return 22.42 * (self.fuel["N"] / 28) + (0.79 * self.v0)
+
+    # powietrze teoretyczne
+    def calculate_v0(self):
+        return 4.76 * self.ot
+
+    def calculate_vo2(self):
+        return self.ot - self.vocoh2o
+
 
 class OstwaldCalculations:
 
@@ -92,6 +118,7 @@ class OstwaldCalculations:
         self.max_o2 = 21
         self.max_co = self.calculate_max_co()
         self.max_co2 = self.kmax
+        self.pointc = self.calculate_point_c()  # amount of theoretical dry exhaust
 
     def set_mollier(self):
         self.mollier = Mollier(self.fuel)
@@ -101,3 +128,15 @@ class OstwaldCalculations:
 
     def calculate_max_co(self):
         return round(100/(100 / self.kmax - 79 / 42), 2) # percent
+
+    def calculate_point_c(self):
+        co2 = 0
+        co = 100 * self.mollier.vco/self.mollier.v0s  # 17.2
+        o2 = 100*self.mollier.vo2/self.mollier.v0s   #8.6
+        return OstwaldCalculations.Point(co2, co, o2)
+
+    class Point:
+        def __init__(self, co2, co, o2):
+            self.co = co
+            self.co2 = co2
+            self.o2 = o2

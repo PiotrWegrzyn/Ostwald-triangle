@@ -23,9 +23,9 @@ class OstwaldTriangleVisualization(FloatLayout):
         fuels79 = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
         fuels75 = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
 
-        fuel = fuels84
+        fuel = fuels75
         osw_calc = OstwaldCalculations(fuel, 6, 2)
-        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co, 8)
+        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co, osw_calc.pointc.o2)
         self.ostwald_triangle_graph.draw(self.canvas)
         table_relative_position = 100*self.ostwald_triangle_graph.right/Window.size[0]+5
         self.table = Table(table_relative_position, 95)
