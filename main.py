@@ -28,12 +28,6 @@ class OstwaldTriangleVisualization(FloatLayout):
         osw_calc = OstwaldCalculations(fuel, 6, 2)
         self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co, osw_calc.pointc.o2)
         self.ostwald_triangle_graph.draw(self.canvas)
-        self.export_photo()
-
-    def export_photo(self):
-        photo_name = "Ostwald-"+datetime.now().strftime("%y-%m-%d %H-%M-%S-%f")+".png"
-        p = os.path.join("Exports", photo_name)
-        self.export_to_png(p)
 
 
 class TableVisuallization(FloatLayout):
@@ -46,14 +40,21 @@ class TableVisuallization(FloatLayout):
 
 class OstwaldTriangleApp(App):
     def build(self):
-        box_layout = BoxLayout(orientation="horizontal")
+        box_layout = BoxLayout(orientation="horizontal",size = (Window.size[0], Window.size[1]))
         triangle=Scatter(do_rotation=False)
         triangle.add_widget(OstwaldTriangleVisualization())
         box_layout.add_widget(TableVisuallization(size_hint=(0.1,1)))
         box_layout.add_widget(triangle)
 
+        self.export_photo(box_layout)
+
         return box_layout
 
+    @staticmethod
+    def export_photo(widget):
+        photo_name = "Ostwald-"+datetime.now().strftime("%y-%m-%d %H-%M-%S-%f")+".png"
+        p = os.path.join("Exports", photo_name)
+        widget.export_to_png(p)
 
 if __name__ == '__main__':
     Config.set('graphics', 'fullscreen', 'auto')
