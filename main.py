@@ -5,9 +5,9 @@ import kivy
 from kivy.app import App
 from kivy.config import Config
 from kivy.core.window import Window
-from kivy.modules import keybinding
 from kivy.uix.floatlayout import FloatLayout
 
+from kivy_gui.dragable_label import DragLabel
 from models.ostwaldtriangle import OstwaldTriangle
 from models.table import Table
 from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
@@ -15,7 +15,7 @@ from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
 kivy.require('1.9.0')
 
 
-class OstwaldTriangleVisualization(FloatLayout):
+class OstwaldTriangleVisualization(DragLabel):
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
@@ -40,9 +40,14 @@ class OstwaldTriangleVisualization(FloatLayout):
 
 class OstwaldTriangleApp(App):
     def build(self):
-        main_widget = OstwaldTriangleVisualization(size=(Window.size[0]+200, Window.size[1]))
-        keybinding.start(Window, main_widget)
-
+        root = FloatLayout()
+        main_widget = root
+        ows = OstwaldTriangleVisualization(size=(Window.size[0], Window.size[1]))
+        root.add_widget(ows)
+        label = DragLabel(
+            text='Drag me',
+            color=(0, 1, 1, 1)
+        )
         return main_widget
 
 
