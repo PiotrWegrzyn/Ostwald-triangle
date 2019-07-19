@@ -40,7 +40,7 @@ class TableVisuallization(FloatLayout):
 
 class OstwaldTriangleApp(App):
     def build(self):
-        box_layout = BoxLayout(orientation="horizontal",size = (Window.size[0], Window.size[1]))
+        box_layout = BoxLayout(orientation="horizontal",size =(Window.size[0], Window.size[1]))
         triangle=Scatter(do_rotation=False)
         triangle.add_widget(OstwaldTriangleVisualization())
         box_layout.add_widget(TableVisuallization(size_hint=(0.1,1)))
@@ -55,6 +55,7 @@ class OstwaldTriangleApp(App):
         photo_name = "Ostwald-"+datetime.now().strftime("%y-%m-%d %H-%M-%S-%f")+".png"
         p = os.path.join("Exports", photo_name)
         widget.export_to_png(p)
+
 
 if __name__ == '__main__':
     Config.set('graphics', 'fullscreen', 'auto')
