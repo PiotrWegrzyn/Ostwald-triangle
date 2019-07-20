@@ -1,3 +1,4 @@
+import math
 from math import cos, sin, radians, atan2, degrees, acos
 
 from geometry.lineinferface import LineInterface
@@ -135,4 +136,31 @@ class Vector(LineInterface):
             self.slope = None
         self.angle = degrees(atan2(self.dy, self.dx))
         self.length = Point.distance(self.start, self.end)
+
+    @staticmethod
+    def contains_point(vector, point):
+        return math.isclose(
+            vector.length,
+            Vector(vector.start, point).length + Vector(vector.end, point).length,
+            rel_tol=1e-5
+        )
+
+    @staticmethod
+    def intersection(v1, v2):
+        part1 = v1.start.x * v1.end.y - v1.start.y * v1.end.x
+        part2 = v2.start.x * v2.end.y - v2.start.y * v2.end.x
+        divisor = v1.dx * v2.dy - v1.dy * v2.dx
+
+        def formula(dv1, dv2):
+            return (part1 * dv2 - dv1 * part2) / divisor
+        try:
+            x = formula(-v1.dx, -v2.dx)
+            y = formula(-v1.dy, -v2.dy)
+            p = Point(x, y)
+            if Vector.contains_point(v1, p):
+                return p
+            else:
+                return None
+        except ZeroDivisionError:
+            return None
 

@@ -223,6 +223,81 @@ class TestVectorClass(unittest.TestCase):
         v2 = Vector(a, c)
         self.assertEqual(53.1301, round(Vector.angle_between(v1, v2), 4))
 
+    def test_intersection_common_point(self):
+        a = Point(0, 0)
+        b = Point(3, 0)
+        c = Point(3, 4)
+        v1 = Vector(a, b)
+        v2 = Vector(a, c)
+        self.assertEqual(Point(0, 0), Vector.intersection(v1, v2))
+
+    def test_intersection_edge(self):
+        a = Point(0, 0)
+        b = Point(3, 0)
+        c = Point(3, -1)
+        d = Point(3, 1)
+        v1 = Vector(a, b)
+        v2 = Vector(c, d)
+        self.assertEqual(Point(3, 0), Vector.intersection(v1, v2))
+
+    def test_intersection_angle(self):
+        a = Point(0, 0)
+        b = Point(2, 2)
+        c = Point(0, 2)
+        d = Point(2, 0)
+        v1 = Vector(a, b)
+        v2 = Vector(c, d)
+        self.assertEqual(Point(1, 1), Vector.intersection(v1, v2))
+
+    def test_no_intersection(self):
+        a = Point(0, 0)
+        b = Point(0, 2)
+        c = Point(3, 0)
+        d = Point(3, 3)
+        v1 = Vector(a, b)
+        v2 = Vector(c, d)
+        p = Vector.intersection(v1, v2)
+        self.assertEqual(None, Vector.intersection(v1, v2))
+
+    def test_outside_of_vector(self):
+        a = Point(0, 0)
+        b = Point(2, 2)
+        c = Point(3, 0)
+        d = Point(3, 3)
+        v1 = Vector(a, b)
+        v2 = Vector(c, d)
+        self.assertEqual(None, Vector.intersection(v1, v2))
+
+    def test_contains_point_inside(self):
+        a = Point(0, 0)
+        b = Point(2, 2)
+        c = Point(1, 1)
+        v1 = Vector(a, b)
+        self.assertEqual(True, Vector.contains_point(v1, c))
+
+    def test_contains_point_inside_that_is_vector_start_point(self):
+        a = Point(0, 0)
+        b = Point(2, 2)
+        v1 = Vector(a, b)
+        self.assertEqual(True, Vector.contains_point(v1, v1.start))
+
+    def test_doesnt_contain_point(self):
+        a = Point(0, 0)
+        b = Point(2, 2)
+        c = Point(0, 1)
+        v1 = Vector(a, b)
+        self.assertEqual(False, Vector.contains_point(v1, c))
+
+    def test_intersection1(self):
+        a = Point(638.5244160186169, -690.6187771400942)
+        b = Point(174.0952380952381, 325.61)
+        c = Point(205, 60)
+        d = Point(536, 211)
+        v1 = Vector(b, a)
+        v2 = Vector(d, c)
+        ip = Vector.intersection(v1, v2)
+        self.assertEqual(Point(279.8724486895196, 94.1563134505059), ip)
+
 
 class TestPolygonalChainClass(unittest.TestCase):
     def test_init_start_point(self):
