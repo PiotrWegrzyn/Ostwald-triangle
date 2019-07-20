@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="update requirements.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geometry/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/geometry/tests.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/geometry/vector.py" beforeDir="false" afterPath="$PROJECT_DIR$/geometry/vector.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/ostwaldtriangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ostwaldtriangle.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thermodynamics/ostwald_calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/ostwald_calculations.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thermodynamics/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +13,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestMolmass.coverage" NAME="Unittests for tests.TestMolmass Coverage Results" MODIFIED="1563369491658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
-    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563655827256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563661292079" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestVectorClass_test_intersection.coverage" NAME="Unittests for tests.TestVectorClass.test_intersection Coverage Results" MODIFIED="1563623001880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestLineClass_test_get_middle.coverage" NAME="Unittests for tests.TestLineClass.test_get_middle Coverage Results" MODIFIED="1562438863994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$test_chempy.coverage" NAME="test_chempy Coverage Results" MODIFIED="1563316955176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
@@ -48,90 +42,52 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Pipfile" value="2" />
+          <entry key="Pipfile" value="3" />
           <entry key="gitignore" value="3" />
           <entry key="jpg" value="1" />
           <entry key="md" value="1" />
-          <entry key="png" value="62" />
-          <entry key="py" value="138" />
+          <entry key="png" value="76" />
+          <entry key="py" value="145" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="63" />
+          <entry key="Image" value="77" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="6" />
-          <entry key="Python" value="138" />
+          <entry key="PLAIN_TEXT" value="7" />
+          <entry key="Python" value="145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="Python Console" value="804" />
+          <entry key="Python Console" value="816" />
           <entry key="dummy" value="116" />
           <entry key="md" value="111" />
-          <entry key="py" value="37284" />
-          <entry key="txt" value="1578" />
+          <entry key="py" value="38075" />
+          <entry key="txt" value="1630" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="111" />
-          <entry key="PLAIN_TEXT" value="1694" />
-          <entry key="Python" value="38088" />
+          <entry key="PLAIN_TEXT" value="1746" />
+          <entry key="Python" value="38891" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
+            <state relative-caret-position="245">
+              <caret line="39" selection-start-line="39" selection-end-line="39" />
               <folding>
-                <marker date="1563553216685" expanded="true" signature="1122:1266" ph="..." />
-                <marker date="1563553216685" expanded="true" signature="1156:1165" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/ostwaldtriangle.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
-              <folding>
-                <element signature="e#0#49#0" expanded="true" />
-                <marker date="1563655827249" expanded="true" signature="2655:2664" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/geometry/vector.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-                <marker date="1563655874089" expanded="true" signature="780:785" ph="..." />
-                <marker date="1563655874089" expanded="true" signature="4723:4902" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1717">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
+                <marker date="1563661025577" expanded="true" signature="1538:1683" ph="..." />
+                <marker date="1563661025577" expanded="true" signature="1572:1581" ph="..." />
               </folding>
             </state>
           </provider>
@@ -140,46 +96,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/thermodynamics/ostwald_calculations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="129" column="31" lean-forward="true" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
+            <state relative-caret-position="25">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
-                <marker date="1563652329771" expanded="true" signature="82:1062" ph="..." />
-                <marker date="1563652329771" expanded="true" signature="879:965" ph="..." />
-                <marker date="1563652329771" expanded="true" signature="2038:2040" ph="..." />
-                <marker date="1563652329771" expanded="true" signature="2054:3661" ph="..." />
-                <marker date="1563652329771" expanded="true" signature="2887:2895" ph="..." />
-                <marker date="1563652329771" expanded="true" signature="3687:3688" ph="..." />
-                <marker date="1563652329771" expanded="true" signature="4233:4281" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/drawers/drawer.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="62" column="21" selection-start-line="62" selection-start-column="21" selection-end-line="62" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/geometry/point.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/table.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1563656781171" expanded="true" signature="82:1062" ph="..." />
+                <marker date="1563656781171" expanded="true" signature="879:965" ph="..." />
+                <marker date="1563656781171" expanded="true" signature="2038:2040" ph="..." />
+                <marker date="1563656781171" expanded="true" signature="2054:3661" ph="..." />
+                <marker date="1563656781171" expanded="true" signature="2887:2895" ph="..." />
+                <marker date="1563656781171" expanded="true" signature="3687:3688" ph="..." />
+                <marker date="1563656781171" expanded="true" signature="4233:4281" ph="..." />
               </folding>
             </state>
           </provider>
@@ -280,13 +206,13 @@
         <option value="$PROJECT_DIR$/kivy_gui/dragable_label.py" />
         <option value="$PROJECT_DIR$/scatter_test.py" />
         <option value="$PROJECT_DIR$/models/table.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/geometry/point.py" />
-        <option value="$PROJECT_DIR$/thermodynamics/ostwald_calculations.py" />
         <option value="$PROJECT_DIR$/geometry/tests.py" />
         <option value="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" />
         <option value="$PROJECT_DIR$/models/ostwaldtriangle.py" />
         <option value="$PROJECT_DIR$/geometry/vector.py" />
+        <option value="$PROJECT_DIR$/thermodynamics/ostwald_calculations.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -523,27 +449,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560810288557</updated>
-    </task>
-    <task id="LOCAL-00006" summary="add split method and reversed">
-      <created>1562488631793</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1562488631793</updated>
-    </task>
-    <task id="LOCAL-00007" summary="add 1 method for distance">
-      <created>1562488939779</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1562488939779</updated>
-    </task>
-    <task id="LOCAL-00008" summary="change import order">
-      <created>1562489145589</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1562489145589</updated>
     </task>
     <task id="LOCAL-00009" summary="change to linesegment">
       <created>1562490143935</created>
@@ -867,7 +772,28 @@
       <option name="project" value="LOCAL" />
       <updated>1563548582562</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="add draw results">
+      <created>1563655920793</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1563655920795</updated>
+    </task>
+    <task id="LOCAL-00056" summary="add intersection and contains_point">
+      <created>1563655946317</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1563655946317</updated>
+    </task>
+    <task id="LOCAL-00057" summary="add draw results">
+      <created>1563656160725</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1563656160725</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -904,15 +830,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24161074" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32340425" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39716312" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32340425" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39716312" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -937,8 +862,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add all annotations" />
-    <MESSAGE value="fill table" />
     <MESSAGE value="fix annotations and co line angle" />
     <MESSAGE value="add series to geometry" />
     <MESSAGE value="change annotations to be based on Series" />
@@ -962,7 +885,9 @@
     <MESSAGE value="Make the graph scalable" />
     <MESSAGE value="fix export to png" />
     <MESSAGE value="update requirements.txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="update requirements.txt" />
+    <MESSAGE value="add intersection and contains_point" />
+    <MESSAGE value="add draw results" />
+    <option name="LAST_COMMIT_MESSAGE" value="add draw results" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -978,6 +903,26 @@
           <line>298</line>
           <option name="timeStamp" value="33" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/thermodynamics/ostwald_calculations.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/thermodynamics/ostwald_calculations.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/thermodynamics/ostwald_calculations.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -991,25 +936,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/858574757/math.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="72" column="4" selection-start-line="72" selection-start-column="4" selection-end-line="72" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/thermodynamics/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="252" column="28" selection-start-line="252" selection-start-column="27" selection-end-line="252" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 01-47-20-298196.png" />
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 01-42-58-057761.png" />
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 01-36-57-363794.png" />
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 01-49-17-851276.png" />
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 01-51-26-730921.png" />
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-17 15-21-31-577354.png" />
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 01-09-57-807537.png" />
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 01-06-22-762318.png" />
@@ -1020,9 +946,6 @@
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 13-29-58-091746.png" />
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 13-39-29-945036.png" />
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 13-45-17-556217.png" />
-    <entry file="file://$PROJECT_DIR$/Exports/triangle.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/kivy_gui/dragable_label.py" />
     <entry file="file://$PROJECT_DIR$/scatter_test.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1037,9 +960,6 @@
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 15-24-28-134446.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Oswald-19-07-16 21-59-47-653079.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 15-26-40-993241.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1047,12 +967,6 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 15-15-04-878830.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 13-12-36-965505.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Oswald-19-07-16 21-56-56-391818.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 15-35-12-696300.png">
@@ -1120,16 +1034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/table.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="19" column="34" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/geometry/point.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1147,40 +1051,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/thermodynamics/ostwald_calculations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="129" column="31" lean-forward="true" selection-start-line="129" selection-start-column="31" selection-end-line="129" selection-end-column="31" />
-          <folding>
-            <marker date="1563652329771" expanded="true" signature="82:1062" ph="..." />
-            <marker date="1563652329771" expanded="true" signature="879:965" ph="..." />
-            <marker date="1563652329771" expanded="true" signature="2038:2040" ph="..." />
-            <marker date="1563652329771" expanded="true" signature="2054:3661" ph="..." />
-            <marker date="1563652329771" expanded="true" signature="2887:2895" ph="..." />
-            <marker date="1563652329771" expanded="true" signature="3687:3688" ph="..." />
-            <marker date="1563652329771" expanded="true" signature="4233:4281" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1717">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="61" column="51" selection-start-line="61" selection-start-column="51" selection-end-line="61" selection-end-column="51" />
-          <folding>
-            <marker date="1563553216685" expanded="true" signature="1122:1266" ph="..." />
-            <marker date="1563553216685" expanded="true" signature="1156:1165" ph="..." />
-          </folding>
+          <caret line="19" column="41" selection-start-line="19" selection-start-column="41" selection-end-line="19" selection-end-column="41" />
         </state>
       </provider>
     </entry>
@@ -1189,20 +1063,97 @@
         <state relative-caret-position="163">
           <caret line="26" column="78" selection-start-line="26" selection-start-column="78" selection-end-line="26" selection-end-column="78" />
           <folding>
-            <element signature="e#0#49#0" expanded="true" />
-            <marker date="1563655827249" expanded="true" signature="2655:2664" ph="..." />
+            <marker date="1563655920142" expanded="true" signature="2650:2659" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/triangle.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/geometry/vector.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="138" lean-forward="true" selection-start-line="138" selection-end-line="138" />
+        <state relative-caret-position="-2351">
+          <caret selection-end-line="1" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
             <marker date="1563655874089" expanded="true" signature="780:785" ph="..." />
             <marker date="1563655874089" expanded="true" signature="4723:4902" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/OswaldTriangle-FxN0XhJb/Lib/site-packages/kivy/uix/boxlayout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="143" column="8" selection-start-line="143" selection-start-column="8" selection-end-line="143" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/OswaldTriangle-FxN0XhJb/Lib/site-packages/kivy/uix/scatter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="389" column="8" selection-start-line="389" selection-start-column="8" selection-end-line="389" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/table.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="8" column="8" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Oswald-19-07-16 21-59-47-653079.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 00-02-10-644637.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 00-01-50-687031.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 00-01-34-017810.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 13-12-36-965505.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-20 22-54-33-698495.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Oswald-19-07-16 21-56-56-391818.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Pipfile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/thermodynamics/ostwald_calculations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <marker date="1563656781171" expanded="true" signature="82:1062" ph="..." />
+            <marker date="1563656781171" expanded="true" signature="879:965" ph="..." />
+            <marker date="1563656781171" expanded="true" signature="2038:2040" ph="..." />
+            <marker date="1563656781171" expanded="true" signature="2054:3661" ph="..." />
+            <marker date="1563656781171" expanded="true" signature="2887:2895" ph="..." />
+            <marker date="1563656781171" expanded="true" signature="3687:3688" ph="..." />
+            <marker date="1563656781171" expanded="true" signature="4233:4281" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1563661025577" expanded="true" signature="1538:1683" ph="..." />
+            <marker date="1563661025577" expanded="true" signature="1572:1581" ph="..." />
           </folding>
         </state>
       </provider>
