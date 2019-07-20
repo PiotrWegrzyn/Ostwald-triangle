@@ -17,7 +17,7 @@ class OstwaldTriangle:
         self.maxco = calculations.max_co
         self.maxo2 = calculations.max_o2
 
-        self.set_width(margin_left=17, triangle_width=50)
+        self.set_width(margin_left=25, triangle_width=50)
         self.set_height(margin_top=5, triangle_width=50)
         self.A = Point(self.left, self.top)
         self.B = Point(self.right, self.bot)

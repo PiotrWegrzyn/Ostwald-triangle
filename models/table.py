@@ -16,7 +16,7 @@ class Table:
         self.top = Window.size[1] * y/100
         self.bot = Window.size[1] * (y-height_p)/100
         self.height = self.top - self.bot
-        width_p = 7
+        width_p = 10
         self.left = Window.size[0] * x/100
         self.right = Window.size[0] * (x + width_p)/100
         self.width = self.right - self.left
