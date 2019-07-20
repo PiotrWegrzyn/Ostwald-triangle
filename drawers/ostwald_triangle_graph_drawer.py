@@ -1,5 +1,8 @@
 from math import sin, radians
 
+from kivy.graphics.context_instructions import Color
+from kivy.graphics.vertex_instructions import Ellipse
+
 from drawers.drawer import Drawer
 from geometry.series import Series
 from models.line_info import LineInfo
@@ -15,8 +18,8 @@ class OstwaldTriangleGraphDrawer(Drawer):
             self.triangle = triangle
         self.draw_graph_base()
         self.draw_lines_and_annotations()
-
         self.annotate_line_names()
+        self.draw_results()
 
     def draw_graph_base(self):
         self.draw_line(self.triangle.lines["co2"].line, 2)
@@ -121,3 +124,16 @@ class OstwaldTriangleGraphDrawer(Drawer):
         line1_series = Series(main_series.start, 1, main_series.scale)
         line2_series = Series(1, 1 / altitude_drop_ratio, main_series.scale)
         return line1_series, line2_series
+
+    def draw_point(self, point, color=(0, 0, 0)):
+        with self.canvas:
+            self.create_color(color)
+            Ellipse(pos=(point.x-5, point.y-5), size=(10,10))
+            Color(0, 0, 0, 1)
+
+    def draw_results(self):
+        self.draw_line(self.triangle.lines["P-co"].line, 2, color=(1, 0, 0))
+        self.draw_line(self.triangle.lines["P-o2"].line, 1.5, color=(1, 0, 0))
+        self.draw_line(self.triangle.lines["P-co2"].line, 1.5, color=(1, 0, 0))
+        self.draw_point(self.triangle.P, color=(1, 0, 0))
+        self.draw_point(self.triangle.C, color=(0, 0, 1))

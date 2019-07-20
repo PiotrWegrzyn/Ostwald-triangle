@@ -12,47 +12,53 @@ from models.line_info import LineInfo
 class OstwaldTriangle:
     top = bot = left = right = height = width = 0
 
-    def __init__(self, maxco2, maxo2, maxco, pointC):
-        self.maxco2 = maxco2
-        self.maxco = maxco
-        self.maxo2 = maxo2
+    def __init__(self, calculations):
+        self.maxco2 = calculations.max_co2
+        self.maxco = calculations.max_co
+        self.maxo2 = calculations.max_o2
 
         self.set_width(margin_left=17, triangle_width=50)
         self.set_height(margin_top=5, triangle_width=50)
         self.A = Point(self.left, self.top)
         self.B = Point(self.right, self.bot)
-        self.C = Point(self.left + ((pointC / maxo2) * (self.right - self.left)), self.bot)
-
+        self.C = self.get_position_from_scale(calculations.C.o2, calculations.C.co2)
+        self.P = self.get_position_from_scale(calculations.P.o2, calculations.P.co2)
+        self.Pco2 = self.get_position_from_scale(0, calculations.P.co2)
+        self.Po2 = self.get_position_from_scale(calculations.P.o2, self.maxco2)
         self.co2_diagonal_angle = degrees(atan(self.width/self.height))
         self.co_line_angle = self.co2_diagonal_angle
         self.bot_diagonal_angle = 90 - self.co2_diagonal_angle
 
-        self.coefficient_line_angle = self.calculate_coeff_line_angle(pointC, maxo2)
-        coefficient_line_len = self.width * cos(radians(self.coefficient_line_angle))
-        self.lines = {
-            "o2": LineInfo(
-                Vector(self.left, self.top, self.right, self.top),
-                points=maxo2 + 1,
-                labels={"name": "Tlen %"},
-                series=Series(0, maxo2, 2),
-            ),
-            "co2": LineInfo(
-                Vector(self.left, self.bot, self.left, self.top),
-                series=Series(0, maxco2, 2),
-                labels={"name": "Dwutlenek węgla %"}
-            ),
-            "co": LineInfo(
-                Vector(Point(self.right, self.bot), 180 + self.co_line_angle, self.width*cos(radians(self.co2_diagonal_angle))),
-                series=Series(0, maxco, 3),
-                labels={"name": "Tlenek węgla %"}
-            ),
-            "coefficient": LineInfo(
-                Vector(Point(self.right, self.bot), 180+self.coefficient_line_angle, coefficient_line_len),
-                series=Series(0, 1.6, 0.1),
-                labels={"name": "Współczynnik Phi"} #todo coeff latin smbol
-            ),
-            "bot": LineInfo(Vector(self.left, self.bot, self.right, self.bot)),
-            "diagonal": LineInfo(Vector(self.left, self.top, self.right, self.bot))
+        self.coefficient_line_angle = self.calculate_coeff_line_angle(calculations.C.o2, self.maxo2)
+        self.lines = {"o2": LineInfo(
+            Vector(self.left, self.top, self.right, self.top),
+            points=self.maxo2 + 1,
+            labels={"name": "Tlen %"},
+            series=Series(0, self.maxo2, 2),
+        ), "co2": LineInfo(
+            Vector(self.left, self.bot, self.left, self.top),
+            series=Series(0, self.maxco2, 2),
+            labels={"name": "Dwutlenek węgla %"}
+        ), "co": LineInfo(
+            Vector(Point(self.right, self.bot), 180 + self.co_line_angle,
+                   self.width * cos(radians(self.co2_diagonal_angle))),
+            series=Series(0, self.maxco, 3),
+            labels={"name": "Tlenek węgla %"}
+        ), "coefficient": LineInfo(
+            self.create_coefficient_line(),
+            series=Series(0, 1.6, 0.1),
+            labels={"name": "Współczynnik Phi"}  # todo coeff latin smbol
+        ), "bot": LineInfo(
+            Vector(self.left, self.bot, self.right, self.bot)
+        ), "diagonal": LineInfo(
+            Vector(self.left, self.top, self.right, self.bot)
+        ), "P-co": LineInfo(
+            self.create_p_co_line()
+        ), "P-o2": LineInfo(
+            self.create_p_o2_line()
+        ), "P-co2": LineInfo(
+            self.create_p_co2_line()
+        )
         }
 
     def draw(self, canvas):
@@ -73,6 +79,29 @@ class OstwaldTriangle:
         self.left = Window.size[0] * margin_left/100
         self.right = Window.size[0] * (margin_left + triangle_width)/100
         self.width = self.right - self.left
+
+    def create_coefficient_line(self):
+        coefficient_line_len = self.width * cos(radians(self.coefficient_line_angle))
+        return Vector(Point(self.right, self.bot), 180 + self.coefficient_line_angle, coefficient_line_len)
+
+    def create_p_co_line(self):
+        line_from_p_with_angle = Vector(self.P, 180 + 90 + self.coefficient_line_angle, self.height*2+self.width)
+        coefficient_line = self.create_coefficient_line()
+        point_of_intersection = Vector.intersection(line_from_p_with_angle, coefficient_line)
+        return Vector(self.P, point_of_intersection)
+
+    def create_p_o2_line(self):
+        return Vector(self.Pco2, self.P)
+
+    def create_p_co2_line(self):
+        return Vector(self.Po2, self.P)
+
+    def get_position_from_scale(self, o2, co2):
+        return Point(
+            self.left + ((o2 / self.maxo2) * (self.right - self.left)),
+            self.bot + ((co2 / self.maxco2) * (self.top - self.bot))
+        )
+
 
 
 

@@ -244,13 +244,13 @@ class TestOslwaldtCalculationsClass(unittest.TestCase):
         f = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
 
         ocal = OstwaldCalculations(f, 6, 2)
-        self.assertEqual(17.2, round(ocal.pointc.co, 1))
+        self.assertEqual(17.2, round(ocal.C.co, 1))
 
     def test_maxco_pointc_o2(self):
         f = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
 
         ocal = OstwaldCalculations(f, 6, 2)
-        self.assertEqual(8.6, round(ocal.pointc.o2, 1))
+        self.assertEqual(8.6, round(ocal.C.o2, 1))
 
     def test_kmax_s79(self):
         f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))

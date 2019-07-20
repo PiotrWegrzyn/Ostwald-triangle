@@ -26,7 +26,7 @@ class OstwaldTriangleVisualization(FloatLayout):
 
         fuel = fuels75
         osw_calc = OstwaldCalculations(fuel, 6, 2)
-        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc.max_co2, osw_calc.max_o2, osw_calc.max_co, osw_calc.pointc.o2)
+        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc)
         self.ostwald_triangle_graph.draw(self.canvas)
 
 
@@ -58,8 +58,8 @@ class OstwaldTriangleApp(App):
 
 
 if __name__ == '__main__':
-    Config.set('graphics', 'fullscreen', 'auto')
-    Config.set('graphics', 'window_state', 'maximized')
+    Config.set('graphics', 'fullscreen', 'False')            # "False"
+    Config.set('graphics', 'window_state', 'visible')     # 'visible'
     Config.write()
     Window.clearcolor = (1, 1, 1, 1)
     OstwaldTriangleApp().run()
