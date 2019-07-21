@@ -1,4 +1,6 @@
 from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.label import Label
+from kivy.uix.popup import Popup
 
 from models.ostwaldtriangle import OstwaldTriangle
 from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
@@ -13,18 +15,22 @@ class OstwaldTriangleVisualization(FloatLayout):
         fuels79 = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
         fuels75 = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
         if fuel:
-            try:
-                fuel = self.create_composition(fuel)
-            except:
-                fuel = fuels75
-
+            fuel = Composition(*fuel)
         else:
             fuel = fuels75
-        osw_calc = OstwaldCalculations(fuel, 6, 2)
-        self.ostwald_triangle_graph = OstwaldTriangle(osw_calc)
-        self.ostwald_triangle_graph.draw(self.canvas)
+        try:
+            osw_calc = OstwaldCalculations(fuel, 6, 2)
+            self.ostwald_triangle_graph = OstwaldTriangle(osw_calc)
+            self.ostwald_triangle_graph.draw(self.canvas)
+        except:
+           self.show_error_popup()
 
-    def create_composition(self, text):
-        split_text = text.split(" ")
-        res = [(split_text[i], float(split_text[i + 1]) / 100) for i in range(0, len(split_text), 2)]
-        return Composition(*res)
+    def show_error_popup(self):
+        popup = Popup(
+            title='Error',
+            content=Label(
+                text='Please ensure that all chemicals are in'
+                     '\n capital letters and are chemically valid.'
+            ),
+            size_hint=(None, None), size=(400, 400))
+        popup.open()

@@ -6,6 +6,7 @@ from kivy.uix.screenmanager import Screen
 
 from gui.ostwald_triangle_visualization import OstwaldTriangleVisualization
 from gui.table_visualization import TableVisuallization
+from gui.transition_button import TransitionButton
 
 
 class DrawingScreen(Screen):
@@ -20,7 +21,7 @@ class DrawingScreen(Screen):
 
         self.drawing_layout_menu = BoxLayout(orientation="vertical", size_hint=(0.1, 1))
 
-        self.back_button = Button(text="Back", size_hint=(1, 0.7))
+        self.back_button = TransitionButton(text="Back", size_hint=(1, 0.7), transition_method="down")
 
         self.drawing_layout.add_widget(TableVisuallization(size_hint=(0.001, 1)))
         self.drawing_layout.add_widget(self.scatter_triangle)
