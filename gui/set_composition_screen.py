@@ -14,8 +14,8 @@ class SetCompositionScreen(Screen):
 
         self.input_widget = InputWidget(cols=2, cols_proportions=[0.8, 0.2])
 
-        self.menu_layout.add_widget(self.input_widget)
         self.menu_layout.add_widget(self.back_button)
+        self.menu_layout.add_widget(self.input_widget)
         self.add_widget(self.menu_layout)
 
 

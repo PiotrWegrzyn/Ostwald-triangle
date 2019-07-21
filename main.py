@@ -8,9 +8,11 @@ from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 
 from gui.drawing_screen import DrawingScreen
+from gui.measured_composition_screen import SetMeasuredScreen
 from gui.menu_screen import MainMenuScreen
 from gui.ostwald_triangle_visualization import OstwaldTriangleVisualization
 from gui.set_composition_screen import SetCompositionScreen
+from gui.show_popup import show_popup
 
 kivy.require('1.9.0')
 
@@ -18,28 +20,38 @@ kivy.require('1.9.0')
 class OstwaldTriangleApp(App):
     def build(self):
         self.menu = MainMenuScreen(name='menu')
-        self.menu.draw_button.bind(on_press=self.draw_triangle)
+        self.menu.draw_button.bind(on_press=self.draw_callback)
         self.menu.set_fuel_button.bind(on_press=self.show_set_fuel_composition_menu)
         self.menu.set_measured_button.bind(on_press=self.show_set_measured_composition_menu)
+
+        self.menu_fuel_composition = SetCompositionScreen(name='set_fuel_composition')
+        self.menu_fuel_composition.back_button.bind(on_press=self.show_menu)
+
+        self.menu_measured_composition = SetMeasuredScreen(name='set_measured_composition')
+        self.menu_measured_composition.back_button.bind(on_press=self.show_menu)
 
         self.drawing = DrawingScreen(name='drawing')
         self.drawing.export_button.bind(on_press=self.callback_export)
         self.drawing.back_button.bind(on_press=self.show_menu)
-
-        self.menu_fuel_composition = SetCompositionScreen(name='set_fuel_composition')
-        self.menu_fuel_composition.back_button.bind(on_press=self.show_menu)
+        self.draw_triangle()
 
         self.sm = ScreenManager()
         self.sm.add_widget(self.menu)
         self.sm.add_widget(self.drawing)
         return self.sm
 
-    def draw_triangle(self, btn):
-        f = self.parse_input_to_composition()
-        self.triangle = OstwaldTriangleVisualization(fuel=f)
+    def draw_callback(self, btn):
+        self.draw_triangle()
+        self.sm.switch_to(self.drawing, direction="up")
+
+    def draw_triangle(self):
+        self.triangle = OstwaldTriangleVisualization(
+            fuel=self.parse_input_to_composition(),
+            measured_co2=self.get_measured_co2(),
+            measured_o2=self.get_measured_o2()
+        )
         self.drawing.scatter_triangle.clear_widgets()
         self.drawing.scatter_triangle.add_widget(self.triangle)
-        self.sm.switch_to(self.drawing, direction="up")
 
     def callback_export(self, btn):
         self.export_photo(self.drawing.drawing_layout)
@@ -51,7 +63,7 @@ class OstwaldTriangleApp(App):
         self.sm.switch_to(self.menu_fuel_composition, direction=btn.transition_method)
 
     def show_set_measured_composition_menu(self, btn):
-        self.sm.switch_to(self.menu, direction=btn.transition_method)
+        self.sm.switch_to(self.menu_measured_composition, direction=btn.transition_method)
 
     @staticmethod
     def export_photo(widget):
@@ -71,6 +83,22 @@ class OstwaldTriangleApp(App):
             if chemical is not "":
                 composition.append((chemical, proportion))
         return composition
+
+    def get_measured_co2(self):
+        given_co2 = self.menu_measured_composition.co2_input.text
+        try:
+            return float(given_co2)
+        except:
+            show_popup("Error", 'There was a problem reading measured CO2.')
+            return 0
+
+    def get_measured_o2(self):
+        given_co2 = self.menu_measured_composition.o2_input.text
+        try:
+            return float(given_co2)
+        except:
+            show_popup("Error", 'There was a problem reading measured O2.')
+            return 0
 
 
 if __name__ == '__main__':
