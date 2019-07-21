@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="add set fuel composition panel">
-      <change afterPath="$PROJECT_DIR$/gui/measured_composition_screen.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gui/show_popup.py" afterDir="false" />
+    <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/gui/colors.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/drawing_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing_screen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/ostwald_triangle_visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/ostwald_triangle_visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/input_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/input_widget.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/measured_composition_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/measured_composition_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/menu_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/menu_screen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/set_composition_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/set_composition_screen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
@@ -18,7 +19,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestMolmass.coverage" NAME="Unittests for tests.TestMolmass Coverage Results" MODIFIED="1563369491658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
-    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563737295368" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563738355773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestVectorClass_test_intersection.coverage" NAME="Unittests for tests.TestVectorClass.test_intersection Coverage Results" MODIFIED="1563623001880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestLineClass_test_get_middle.coverage" NAME="Unittests for tests.TestLineClass.test_get_middle Coverage Results" MODIFIED="1562438863994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$test_chempy.coverage" NAME="test_chempy Coverage Results" MODIFIED="1563316955176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
@@ -52,7 +53,7 @@
           <entry key="jpg" value="1" />
           <entry key="md" value="1" />
           <entry key="png" value="119" />
-          <entry key="py" value="182" />
+          <entry key="py" value="189" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -61,7 +62,7 @@
           <entry key="Image" value="120" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="182" />
+          <entry key="Python" value="189" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -69,44 +70,65 @@
           <entry key="Python Console" value="887" />
           <entry key="dummy" value="162" />
           <entry key="md" value="111" />
-          <entry key="py" value="43882" />
-          <entry key="txt" value="1806" />
+          <entry key="py" value="44095" />
+          <entry key="txt" value="1837" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="111" />
-          <entry key="PLAIN_TEXT" value="1968" />
-          <entry key="Python" value="44769" />
+          <entry key="PLAIN_TEXT" value="1999" />
+          <entry key="Python" value="44982" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="649">
-              <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
+            <state relative-caret-position="269">
+              <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1563737075775" expanded="true" signature="1679:1770" ph="..." />
-                <marker date="1563737075775" expanded="true" signature="2162:2171" ph="..." />
-                <marker date="1563737075775" expanded="true" signature="2218:2223" ph="..." />
-                <marker date="1563737075775" expanded="true" signature="2248:2610" ph="..." />
+                <marker date="1563738239006" expanded="true" signature="1613:1704" ph="..." />
+                <marker date="1563738239006" expanded="true" signature="2096:2105" ph="..." />
+                <marker date="1563738239006" expanded="true" signature="2152:2157" ph="..." />
+                <marker date="1563738239006" expanded="true" signature="2182:2544" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/show_popup.py">
+        <entry file="file://$PROJECT_DIR$/gui/menu_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="-11">
+              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#0#40#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gui/ostwald_triangle_visualization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,32 +137,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/drawing_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gui/ostwald_triangle_visualization.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/measured_composition_screen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="289">
+              <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="37" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -148,35 +146,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/set_composition_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="260">
+              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
+        <entry file="file://$PROJECT_DIR$/gui/measured_composition_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="149">
+              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="20" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/input_scroll_layout.py">
+        <entry file="file://$PROJECT_DIR$/gui/colors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="30" column="44" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#42#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -220,6 +209,7 @@
       <find>self.start</find>
       <find>self.end</find>
       <find>try</find>
+      <find>back_bu</find>
     </findStrings>
     <replaceStrings>
       <replace>self.drawer</replace>
@@ -239,7 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/geometry/linesegment.py" />
         <option value="$PROJECT_DIR$/poligonalchain.py" />
         <option value="$PROJECT_DIR$/geometry/__init__.py" />
         <option value="$PROJECT_DIR$/geometry/lineinferface.py" />
@@ -281,15 +270,16 @@
         <option value="$PROJECT_DIR$/gui/colored_label.py" />
         <option value="$PROJECT_DIR$/gui/set_composition_menu.py" />
         <option value="$PROJECT_DIR$/gui/back_button.py" />
-        <option value="$PROJECT_DIR$/gui/menu_screen.py" />
-        <option value="$PROJECT_DIR$/gui/input_widget.py" />
         <option value="$PROJECT_DIR$/gui/input_scroll_layout.py" />
-        <option value="$PROJECT_DIR$/gui/set_composition_screen.py" />
-        <option value="$PROJECT_DIR$/gui/measured_composition_screen.py" />
         <option value="$PROJECT_DIR$/gui/show_popup.py" />
-        <option value="$PROJECT_DIR$/gui/drawing_screen.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/gui/ostwald_triangle_visualization.py" />
+        <option value="$PROJECT_DIR$/gui/menu_screen.py" />
+        <option value="$PROJECT_DIR$/gui/colors.py" />
+        <option value="$PROJECT_DIR$/gui/measured_composition_screen.py" />
+        <option value="$PROJECT_DIR$/gui/input_widget.py" />
+        <option value="$PROJECT_DIR$/gui/drawing_screen.py" />
+        <option value="$PROJECT_DIR$/gui/set_composition_screen.py" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -541,13 +531,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560810288557</updated>
-    </task>
-    <task id="LOCAL-00013" summary="add split points poligonalchain">
-      <created>1562541575409</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1562541575409</updated>
     </task>
     <task id="LOCAL-00014" summary="add LineInterface">
       <created>1562541604314</created>
@@ -885,7 +868,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563733576560</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="add set measured values panel">
+      <created>1563737334662</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1563737334662</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -955,7 +945,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Refactor" />
     <MESSAGE value="Add greek texts" />
     <MESSAGE value="attempt at thermodynamics calculations" />
     <MESSAGE value="change to fullscreen and scale with window size" />
@@ -980,7 +969,8 @@
     <MESSAGE value="add screen manager" />
     <MESSAGE value="change main screen menu and split main to different files" />
     <MESSAGE value="add set fuel composition panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="add set fuel composition panel" />
+    <MESSAGE value="add set measured values panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="add set measured values panel" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1009,9 +999,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Exports/Oswald-19-07-16 21-59-47-653079.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 00-02-10-644637.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1162,16 +1149,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/menu_screen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gui/transition_button.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1215,50 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="49" column="41" selection-start-line="49" selection-start-column="41" selection-end-line="49" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1563737075775" expanded="true" signature="1679:1770" ph="..." />
-            <marker date="1563737075775" expanded="true" signature="2162:2171" ph="..." />
-            <marker date="1563737075775" expanded="true" signature="2218:2223" ph="..." />
-            <marker date="1563737075775" expanded="true" signature="2248:2610" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/set_composition_screen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="14" column="36" lean-forward="true" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/drawing_screen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gui/show_popup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1269,10 +1202,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/gui/colors.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gui/measured_composition_screen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="149">
+          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="20" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/menu_screen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-11">
+          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -1281,8 +1235,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gui/ostwald_triangle_visualization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="31" lean-forward="true" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="558">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/drawing_screen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="37" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/set_composition_screen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+            <marker date="1563738239006" expanded="true" signature="1613:1704" ph="..." />
+            <marker date="1563738239006" expanded="true" signature="2096:2105" ph="..." />
+            <marker date="1563738239006" expanded="true" signature="2152:2157" ph="..." />
+            <marker date="1563738239006" expanded="true" signature="2182:2544" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

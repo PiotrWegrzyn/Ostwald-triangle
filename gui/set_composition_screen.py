@@ -1,6 +1,7 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
 
+from gui.colors import COLORS
 from gui.input_widget import InputWidget
 from gui.transition_button import TransitionButton
 
@@ -10,7 +11,13 @@ class SetCompositionScreen(Screen):
         super().__init__(**kw)
         self.menu_layout = BoxLayout(orientation="horizontal")
 
-        self.back_button = TransitionButton(text="Back", transition_method="left", size_hint=(0.1, 1))
+        self.back_button = TransitionButton(
+            text="Back",
+            transition_method="left",
+            size_hint=(0.1, 1),
+            background_normal='',
+            background_color=COLORS["blue"],
+        )
 
         self.input_widget = InputWidget(cols=2, cols_proportions=[0.8, 0.2])
 

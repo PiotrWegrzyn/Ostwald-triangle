@@ -1,6 +1,7 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 
+from gui.colors import COLORS
 from gui.input_scroll_layout import InputScrollGrid
 
 
@@ -13,7 +14,12 @@ class InputWidget(BoxLayout):
         super().__init__(orientation="vertical", **kwargs)
         self.input_scroll = InputScrollGrid(initial=self.initial, cols=self.cols, cols_proportions=self.cols_proportions)
 
-        self.more_button = Button(text="More", size_hint=(1, 0.1))
+        self.more_button = Button(
+            text="More",
+            size_hint=(1, 0.1),
+            background_normal='',
+            background_color=COLORS["green"],
+        )
         self.more_button.bind(on_press=self.add_more_rows)
 
         self.add_widget(self.input_scroll)
