@@ -19,6 +19,7 @@ class SetMeasuredScreen(Screen):
             size_hint=(0.1, 1),
             background_normal='',
             background_color=COLORS["blue"],
+            font_size='20sp'
         )
 
         self.input_grid = GridLayout(

@@ -17,12 +17,17 @@ class SetCompositionScreen(Screen):
             size_hint=(0.1, 1),
             background_normal='',
             background_color=COLORS["blue"],
+            font_size='20sp'
         )
 
-        self.input_widget = InputWidget(cols=2, cols_proportions=[0.8, 0.2])
+        self.input_widget = InputWidget(
+            cols=2,
+            cols_proportions=[0.8, 0.2],
+            labels=["Chemical composition", "Proportion"]
+        )
 
-        self.menu_layout.add_widget(self.back_button)
         self.menu_layout.add_widget(self.input_widget)
+        self.menu_layout.add_widget(self.back_button)
         self.add_widget(self.menu_layout)
 
 

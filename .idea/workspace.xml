@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/gui/colors.py" afterDir="false" />
+    <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="change colors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/drawing_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/input_scroll_layout.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/input_scroll_layout.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/input_widget.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/input_widget.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/measured_composition_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/measured_composition_screen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/menu_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/menu_screen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/set_composition_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/set_composition_screen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +17,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestMolmass.coverage" NAME="Unittests for tests.TestMolmass Coverage Results" MODIFIED="1563369491658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
-    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563738355773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/OswaldTriangle$main.coverage" NAME="main Coverage Results" MODIFIED="1563744513339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestVectorClass_test_intersection.coverage" NAME="Unittests for tests.TestVectorClass.test_intersection Coverage Results" MODIFIED="1563623001880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestLineClass_test_get_middle.coverage" NAME="Unittests for tests.TestLineClass.test_get_middle Coverage Results" MODIFIED="1562438863994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$test_chempy.coverage" NAME="test_chempy Coverage Results" MODIFIED="1563316955176" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
@@ -30,6 +28,20 @@
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestVectorClass.coverage" NAME="Unittests for tests.TestVectorClass Coverage Results" MODIFIED="1563653564724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_in_tests_py__1_.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1563490023090" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/geometry" />
     <SUITE FILE_PATH="coverage/OswaldTriangle$Unittests_for_tests_TestMollierClass_test_v0.coverage" NAME="Unittests for tests.TestMollierClass.test_v0 Coverage Results" MODIFIED="1563534110853" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1517809466">
@@ -52,17 +64,17 @@
           <entry key="gitignore" value="3" />
           <entry key="jpg" value="1" />
           <entry key="md" value="1" />
-          <entry key="png" value="119" />
-          <entry key="py" value="189" />
+          <entry key="png" value="122" />
+          <entry key="py" value="201" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Image" value="120" />
+          <entry key="Image" value="123" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="189" />
+          <entry key="Python" value="201" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -70,32 +82,31 @@
           <entry key="Python Console" value="887" />
           <entry key="dummy" value="162" />
           <entry key="md" value="111" />
-          <entry key="py" value="44095" />
-          <entry key="txt" value="1837" />
+          <entry key="py" value="44617" />
+          <entry key="txt" value="1850" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="111" />
-          <entry key="PLAIN_TEXT" value="1999" />
-          <entry key="Python" value="44982" />
+          <entry key="PLAIN_TEXT" value="2012" />
+          <entry key="Python" value="45504" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+            <state relative-caret-position="249">
+              <caret line="108" column="18" lean-forward="true" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
               <folding>
-                <element signature="e#0#9#0" expanded="true" />
-                <marker date="1563738239006" expanded="true" signature="1613:1704" ph="..." />
-                <marker date="1563738239006" expanded="true" signature="2096:2105" ph="..." />
-                <marker date="1563738239006" expanded="true" signature="2152:2157" ph="..." />
-                <marker date="1563738239006" expanded="true" signature="2182:2544" ph="..." />
+                <marker date="1563744317055" expanded="true" signature="1613:1704" ph="..." />
+                <marker date="1563744317055" expanded="true" signature="2096:2105" ph="..." />
+                <marker date="1563744317055" expanded="true" signature="2152:2157" ph="..." />
+                <marker date="1563744317055" expanded="true" signature="2182:2544" ph="..." />
               </folding>
             </state>
           </provider>
@@ -104,50 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/menu_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-11">
-              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/ostwald_triangle_visualization.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="558">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="e#0#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/drawing_screen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="37" selection-end-column="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/set_composition_screen.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+            <state relative-caret-position="40">
+              <caret line="19" selection-start-line="19" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -155,17 +124,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gui/measured_composition_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="20" selection-end-column="44" />
+            <state relative-caret-position="100">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gui/colors.py">
+        <entry file="file://$PROJECT_DIR$/gui/set_composition_screen.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="41" selection-start-line="3" selection-start-column="41" selection-end-line="3" selection-end-column="41" />
+            <state relative-caret-position="360">
+              <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="209">
+              <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -181,7 +159,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>points</find>
       <find>points2</find>
       <find>alpha</find>
       <find>radians</find>
@@ -210,6 +187,8 @@
       <find>self.end</find>
       <find>try</find>
       <find>back_bu</find>
+      <find>pos_hint</find>
+      <find>40s</find>
     </findStrings>
     <replaceStrings>
       <replace>self.drawer</replace>
@@ -270,16 +249,16 @@
         <option value="$PROJECT_DIR$/gui/colored_label.py" />
         <option value="$PROJECT_DIR$/gui/set_composition_menu.py" />
         <option value="$PROJECT_DIR$/gui/back_button.py" />
-        <option value="$PROJECT_DIR$/gui/input_scroll_layout.py" />
         <option value="$PROJECT_DIR$/gui/show_popup.py" />
         <option value="$PROJECT_DIR$/gui/ostwald_triangle_visualization.py" />
         <option value="$PROJECT_DIR$/gui/menu_screen.py" />
         <option value="$PROJECT_DIR$/gui/colors.py" />
-        <option value="$PROJECT_DIR$/gui/measured_composition_screen.py" />
-        <option value="$PROJECT_DIR$/gui/input_widget.py" />
         <option value="$PROJECT_DIR$/gui/drawing_screen.py" />
+        <option value="$PROJECT_DIR$/gui/measured_composition_screen.py" />
         <option value="$PROJECT_DIR$/gui/set_composition_screen.py" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/gui/input_scroll_layout.py" />
+        <option value="$PROJECT_DIR$/gui/input_widget.py" />
       </list>
     </option>
   </component>
@@ -531,13 +510,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1560810288557</updated>
-    </task>
-    <task id="LOCAL-00014" summary="add LineInterface">
-      <created>1562541604314</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1562541604314</updated>
     </task>
     <task id="LOCAL-00015" summary="add LineInfo">
       <created>1562541627435</created>
@@ -875,7 +847,14 @@
       <option name="project" value="LOCAL" />
       <updated>1563737334662</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="change colors">
+      <created>1563738390568</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1563738390568</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -935,7 +914,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" weight="0.3295302" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3295302" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -945,7 +924,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add greek texts" />
     <MESSAGE value="attempt at thermodynamics calculations" />
     <MESSAGE value="change to fullscreen and scale with window size" />
     <MESSAGE value="change image generation path" />
@@ -970,7 +948,8 @@
     <MESSAGE value="change main screen menu and split main to different files" />
     <MESSAGE value="add set fuel composition panel" />
     <MESSAGE value="add set measured values panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="add set measured values panel" />
+    <MESSAGE value="change colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="change colors" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -999,24 +978,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 00-02-10-644637.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 00-01-50-687031.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 00-01-34-017810.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-19 13-12-36-965505.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-20 22-54-33-698495.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Exports/Oswald-19-07-16 21-56-56-391818.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/table.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1182,16 +1143,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/input_scroll_layout.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="30" column="44" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gui/show_popup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -1209,30 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gui/measured_composition_screen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="20" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/menu_screen.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-11">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="20" column="42" selection-start-line="20" selection-start-column="42" selection-end-line="20" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gui/ostwald_triangle_visualization.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -1243,31 +1170,92 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/OswaldTriangle-FxN0XhJb/Lib/site-packages/kivy/uix/boxlayout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-988">
+          <caret line="267" column="24" selection-start-line="267" selection-start-column="20" selection-end-line="267" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 21-54-37-202825.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 21-54-15-082785.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Exports/Ostwald-19-07-21 21-50-30-221297.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/gui/drawing_screen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="35" column="31" lean-forward="true" selection-start-line="35" selection-start-column="31" selection-end-line="37" selection-end-column="46" />
+        <state relative-caret-position="89">
+          <caret line="28" column="28" lean-forward="true" selection-start-line="28" selection-end-line="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/menu_screen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="19" selection-start-line="19" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.virtualenvs/OswaldTriangle-FxN0XhJb/Lib/site-packages/kivy/uix/widget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="349" selection-start-line="349" selection-end-line="349" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/measured_composition_screen.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gui/set_composition_screen.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="18" column="41" selection-start-line="18" selection-start-column="41" selection-end-line="18" selection-end-column="41" />
+        <state relative-caret-position="360">
+          <caret line="26" column="8" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37-32/Lib/turtledemo/nim.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="109" column="27" selection-start-line="109" selection-start-column="27" selection-end-line="109" selection-end-column="27" />
+        <state relative-caret-position="249">
+          <caret line="108" column="18" lean-forward="true" selection-start-line="108" selection-start-column="18" selection-end-line="108" selection-end-column="18" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <marker date="1563738239006" expanded="true" signature="1613:1704" ph="..." />
-            <marker date="1563738239006" expanded="true" signature="2096:2105" ph="..." />
-            <marker date="1563738239006" expanded="true" signature="2152:2157" ph="..." />
-            <marker date="1563738239006" expanded="true" signature="2182:2544" ph="..." />
+            <marker date="1563744317055" expanded="true" signature="1613:1704" ph="..." />
+            <marker date="1563744317055" expanded="true" signature="2096:2105" ph="..." />
+            <marker date="1563744317055" expanded="true" signature="2152:2157" ph="..." />
+            <marker date="1563744317055" expanded="true" signature="2182:2544" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/input_scroll_layout.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="23" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="23" />
+          <folding>
+            <element signature="e#1#43#0" expanded="true" />
+            <marker date="1563744513333" expanded="true" signature="1336:1345" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gui/input_widget.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="16" column="21" lean-forward="true" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="25" />
         </state>
       </provider>
     </entry>
