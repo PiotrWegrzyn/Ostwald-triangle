@@ -5,6 +5,7 @@ from kivy.graphics.vertex_instructions import Ellipse
 
 from drawers.drawer import Drawer
 from geometry.series import Series
+from gui.colors import COLORS
 from models.line_info import LineInfo
 
 
@@ -17,8 +18,9 @@ class OstwaldTriangleGraphDrawer(Drawer):
         if triangle:
             self.triangle = triangle
         self.draw_graph_base()
-        self.draw_lines_and_annotations()
+        self.draw_lines_and_scales()
         self.annotate_line_names()
+        self.add_title()
         self.draw_results()
 
     def draw_graph_base(self):
@@ -33,14 +35,14 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.annotate_line(
             self.triangle.lines["o2"].labels["name"],
             self.triangle.lines["o2"].line,
-            offset_y=22,
-            scale=1.5
+            offset_y=24,
+            scale=1.3
         )
         self.annotate_line(
             self.triangle.lines["co2"].labels["name"],
             self.triangle.lines["co2"].line,
-            offset_y=48,
-            scale=1.5,
+            offset_y=40,
+            scale=1.3,
             angle=self.triangle.lines["co2"].line.angle
         )
         self.annotate_line(
@@ -58,7 +60,7 @@ class OstwaldTriangleGraphDrawer(Drawer):
             angle=self.triangle.lines["coefficient"].line.reversed().angle
         )
 
-    def draw_lines_and_annotations(self):
+    def draw_lines_and_scales(self):
         self.draw_lines_and_annotate(
             self.triangle.lines['co2'],
             self.triangle.lines["diagonal"].line.reversed(),
@@ -132,8 +134,17 @@ class OstwaldTriangleGraphDrawer(Drawer):
             Color(0, 0, 0, 1)
 
     def draw_results(self):
-        self.draw_line(self.triangle.lines["P-co"].line, 2, color=(1, 0, 0))
-        self.draw_line(self.triangle.lines["P-o2"].line, 1.5, color=(1, 0, 0))
-        self.draw_line(self.triangle.lines["P-co2"].line, 1.5, color=(1, 0, 0))
-        self.draw_point(self.triangle.P, color=(1, 0, 0))
-        self.draw_point(self.triangle.C, color=(0, 0, 1))
+        self.draw_line(self.triangle.lines["P-co"].line, 2, color=COLORS["red"])
+        self.draw_line(self.triangle.lines["P-o2"].line, 1.5, color=COLORS["red"])
+        self.draw_line(self.triangle.lines["P-co2"].line, 1.5, color=COLORS["red"])
+        self.draw_point(self.triangle.P, color=COLORS["red"])
+        self.draw_point(self.triangle.C, color=COLORS["blue"])
+
+    def add_title(self):
+        self.annotate_line(
+            self.triangle.title,
+            self.triangle.lines['o2'].line,
+            offset_y=48,
+            scale=1.8
+        )
+

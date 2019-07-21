@@ -1,6 +1,5 @@
 from kivy.uix.floatlayout import FloatLayout
 
-from gui.show_popup import show_popup
 from models.ostwaldtriangle import OstwaldTriangle
 from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
 
@@ -19,11 +18,11 @@ class OstwaldTriangleVisualization(FloatLayout):
             fuel = Composition(*fuel)
         else:
             fuel = fuels75
-        try:
+        # try:
             osw_calc = OstwaldCalculations(fuel, measured_co2, measured_o2)
             self.ostwald_triangle_graph = OstwaldTriangle(osw_calc)
             self.ostwald_triangle_graph.draw(self.canvas)
-        except:
-            show_popup("Error", 'Please ensure that all chemicals are in'
-                                '\n capital letters and are chemically valid.')
+        # except:
+        #     show_popup("Error", 'Please ensure that all chemicals are in'
+        #                         '\n capital letters and are chemically valid.')
 

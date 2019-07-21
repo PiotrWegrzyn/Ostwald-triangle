@@ -13,12 +13,13 @@ class OstwaldTriangle:
     top = bot = left = right = height = width = 0
 
     def __init__(self, calculations):
+        self.title = "The Ostwald Triangle"
         self.maxco2 = calculations.max_co2
         self.maxco = calculations.max_co
         self.maxo2 = calculations.max_o2
 
-        self.set_width(margin_left=25, triangle_width=50)
-        self.set_height(margin_top=5, triangle_width=50)
+        self.set_width(margin_left=10, triangle_width=50)
+        self.set_height(margin_top=10, triangle_width=50)
         self.A = Point(self.left, self.top)
         self.B = Point(self.right, self.bot)
         self.C = self.get_position_from_scale(calculations.C.o2, calculations.C.co2)
@@ -33,21 +34,21 @@ class OstwaldTriangle:
         self.lines = {"o2": LineInfo(
             Vector(self.left, self.top, self.right, self.top),
             points=self.maxo2 + 1,
-            labels={"name": "Tlen %"},
+            labels={"name": "Oxygen %"},
             series=Series(0, self.maxo2, 2),
         ), "co2": LineInfo(
             Vector(self.left, self.bot, self.left, self.top),
             series=Series(0, self.maxco2, 2),
-            labels={"name": "Dwutlenek węgla %"}
+            labels={"name": "Carbon dioxide %"}
         ), "co": LineInfo(
             Vector(Point(self.right, self.bot), 180 + self.co_line_angle,
                    self.width * cos(radians(self.co2_diagonal_angle))),
             series=Series(0, self.maxco, 3),
-            labels={"name": "Tlenek węgla %"}
+            labels={"name": "Carbon monoxide %"}
         ), "coefficient": LineInfo(
             self.create_coefficient_line(),
             series=Series(0, 1.6, 0.1),
-            labels={"name": "Współczynnik Phi"}  # todo coeff latin smbol
+            labels={"name": "Phi coefficient"}  # todo coeff latin smbol
         ), "bot": LineInfo(
             Vector(self.left, self.bot, self.right, self.bot)
         ), "diagonal": LineInfo(
