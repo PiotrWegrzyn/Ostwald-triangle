@@ -109,10 +109,10 @@ class OstwaldTriangleApp(App):
 
 
 if __name__ == '__main__':
-    # Config.set('graphics', 'fullscreen', 'auto')
-    Config.set('graphics', 'fullscreen', 'False')
-    # Config.set('graphics', 'window_state', 'maximize')
-    Config.set('graphics', 'window_state', 'visible')
+    Config.set('graphics', 'fullscreen', 'auto')
+    # Config.set('graphics', 'fullscreen', 'False')
+    Config.set('graphics', 'window_state', 'maximize')
+    # Config.set('graphics', 'window_state', 'visible')
     Config.write()
     Window.clearcolor = (194/255, 194/255, 214/255, .69)
     OstwaldTriangleApp().run()
