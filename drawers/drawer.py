@@ -3,7 +3,7 @@ from kivy.graphics.instructions import InstructionGroup
 from kivy.graphics.vertex_instructions import Line
 
 from geometry import Point, Vector
-from models.annotation import Annotation
+from gui.components.annotation import Annotation
 
 
 class Drawer:

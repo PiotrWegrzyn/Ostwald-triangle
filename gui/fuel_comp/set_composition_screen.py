@@ -2,8 +2,8 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.screenmanager import Screen
 
 from gui.colors import COLORS
-from gui.input_widget import InputWidget
-from gui.transition_button import TransitionButton
+from gui.components.input_widget import InputWidget
+from gui.components.transition_button import TransitionButton
 
 
 class SetCompositionScreen(Screen):

@@ -3,9 +3,9 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.screenmanager import Screen
 from kivy.uix.textinput import TextInput
 
-from gui.colored_label import ColoredLabel
 from gui.colors import COLORS
-from gui.transition_button import TransitionButton
+from gui.components.colored_label import ColoredLabel
+from gui.components.transition_button import TransitionButton
 
 
 class SetMeasuredScreen(Screen):

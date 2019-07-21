@@ -6,8 +6,8 @@ from kivy.uix.scatter import Scatter
 from kivy.uix.screenmanager import Screen
 
 from gui.colors import COLORS
-from gui.table_visualization import TableVisuallization
-from gui.transition_button import TransitionButton
+from gui.components.transition_button import TransitionButton
+from gui.drawing.table_visualization import TableVisuallization
 
 
 class DrawingScreen(Screen):

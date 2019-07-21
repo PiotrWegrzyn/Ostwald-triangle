@@ -7,11 +7,11 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 
-from gui.drawing_screen import DrawingScreen
-from gui.measured_composition_screen import SetMeasuredScreen
-from gui.menu_screen import MainMenuScreen
-from gui.ostwald_triangle_visualization import OstwaldTriangleVisualization
-from gui.set_composition_screen import SetCompositionScreen
+from gui.drawing.drawing_screen import DrawingScreen
+from gui.drawing.ostwald_triangle_visualization import OstwaldTriangleVisualization
+from gui.fuel_comp.set_composition_screen import SetCompositionScreen
+from gui.main_menu.menu_screen import MainMenuScreen
+from gui.measured_comp.measured_composition_screen import SetMeasuredScreen
 from gui.show_popup import show_popup
 
 kivy.require('1.9.0')

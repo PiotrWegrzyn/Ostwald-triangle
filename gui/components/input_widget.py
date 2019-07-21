@@ -2,7 +2,7 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 
 from gui.colors import COLORS
-from gui.input_scroll_layout import InputScrollGrid
+from gui.components.input_scroll_layout import InputScrollGrid
 
 
 class InputWidget(BoxLayout):
