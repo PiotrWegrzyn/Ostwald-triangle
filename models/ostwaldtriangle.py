@@ -30,7 +30,7 @@ class OstwaldTriangle:
         self.co_line_angle = self.co2_diagonal_angle
         self.bot_diagonal_angle = 90 - self.co2_diagonal_angle
 
-        self.coefficient_line_angle = self.calculate_coeff_line_angle(calculations.C.o2, self.maxo2)
+        self.coefficient_line_angle = self.calculate_coeff_line_angle()
         self.lines = {"o2": LineInfo(
             Vector(self.left, self.top, self.right, self.top),
             points=self.maxo2 + 1,
@@ -43,11 +43,11 @@ class OstwaldTriangle:
         ), "co": LineInfo(
             Vector(Point(self.right, self.bot), 180 + self.co_line_angle,
                    self.width * cos(radians(self.co2_diagonal_angle))),
-            series=Series(0, self.maxco, 3),
+            series=Series(0, self.maxco, 5),
             labels={"name": "Carbon monoxide %"}
         ), "coefficient": LineInfo(
             self.create_coefficient_line(),
-            series=Series(0, 1.6, 0.1),
+            series=Series(0, 1.6, 0.2),
             labels={"name": "Phi coefficient"}  # todo coeff latin smbol
         ), "bot": LineInfo(
             Vector(self.left, self.bot, self.right, self.bot)
@@ -65,7 +65,7 @@ class OstwaldTriangle:
     def draw(self, canvas):
         OstwaldTriangleGraphDrawer(canvas, self).draw()
 
-    def calculate_coeff_line_angle(self, pointC, maxo2):
+    def calculate_coeff_line_angle(self):
         AC = Vector(self.A, self.C)
         AB = Vector(self.A, self.B)
         alpha = Vector.angle_between(AB, AC)
