@@ -7,6 +7,7 @@ from kivy.config import Config
 from kivy.core.window import Window
 from kivy.uix.screenmanager import ScreenManager
 
+from gui.About.about_screen import AboutScreen
 from gui.drawing.drawing_screen import DrawingScreen
 from gui.drawing.ostwald_triangle_visualization import OstwaldTriangleVisualization
 from gui.fuel_comp.set_composition_screen import SetCompositionScreen
@@ -20,9 +21,13 @@ kivy.require('1.9.0')
 class OstwaldTriangleApp(App):
     def build(self):
         self.menu = MainMenuScreen(name='menu')
+        self.menu.about_button.bind(on_press=self.show_about)
         self.menu.draw_button.bind(on_press=self.draw_callback)
         self.menu.set_fuel_button.bind(on_press=self.show_set_fuel_composition_menu)
         self.menu.set_measured_button.bind(on_press=self.show_set_measured_composition_menu)
+
+        self.about = AboutScreen(name='about')
+        self.about.back_button.bind(on_press=self.show_menu)
 
         self.menu_fuel_composition = SetCompositionScreen(name='set_fuel_composition')
         self.menu_fuel_composition.back_button.bind(on_press=self.show_menu)
@@ -37,8 +42,10 @@ class OstwaldTriangleApp(App):
 
         self.sm = ScreenManager()
         self.sm.add_widget(self.menu)
-        self.sm.add_widget(self.drawing)
         return self.sm
+
+    def show_about(self, btn):
+        self.sm.switch_to(self.about, direction=btn.transition_method)
 
     def draw_callback(self, btn):
         self.draw_triangle()

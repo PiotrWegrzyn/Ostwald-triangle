@@ -16,9 +16,9 @@ class DrawingScreen(Screen):
         self.drawing_layout = FloatLayout(size=(Window.size[0], Window.size[1]))
         self.add_widget(self.drawing_layout)
 
-        self.scatter_triangle = Scatter(do_rotation=False)
+        self.scatter_triangle = Scatter(do_rotation=False, size_hint=(0.6, 1.1))
 
-        self.drawing_layout_menu = BoxLayout(orientation="vertical", pos_hint={'x': 0.9}, size_hint=(0.1,1))
+        self.drawing_layout_menu = BoxLayout(orientation="vertical", pos_hint={'x': 0.9}, size_hint=(0.1, 1))
 
         self.back_button = TransitionButton(
             text="Back",
@@ -29,7 +29,7 @@ class DrawingScreen(Screen):
             font_size='20sp'
         )
 
-        self.drawing_layout.add_widget(TableVisuallization(size_hint=(0.001, 1)))
+        self.drawing_layout.add_widget(TableVisuallization(size_hint=(0.1, 1)))
         self.drawing_layout.add_widget(self.scatter_triangle)
         self.drawing_layout.add_widget(self.drawing_layout_menu)
 

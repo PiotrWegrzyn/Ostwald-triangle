@@ -9,10 +9,11 @@ from gui.colors import COLORS
 
 class InputScrollGrid(ScrollView):
     def __init__(self, **kwargs):
-        self.initial = kwargs.pop("initial", 5)
+        self.initial_rows = kwargs.pop("initial_rows", 1)
         self.cols = kwargs.pop("cols", 1)
         self.cols_proportions = kwargs.pop("cols_proportions", None)
         self.labels = kwargs.pop("labels", None)
+        self.initial_data = kwargs.pop("initial_data", None)
         if self.labels:
             if len(self.labels) is not self.cols:
                 raise ValueError("Amount of labels is different than amount of columns.")
@@ -32,7 +33,7 @@ class InputScrollGrid(ScrollView):
 
         if self.labels:
             self.add_labels()
-        for i in range(self.initial):
+        for i in range(self.initial_rows):
             self.add_row()
         self.add_widget(self.input_grid)
 
@@ -48,7 +49,11 @@ class InputScrollGrid(ScrollView):
     def add_row(self):
         row = []
         for i in range(self.cols):
-            row.append(TextInput(size_hint_x=self.cols_proportions[i]))
+            try:
+                data = self.initial_data.pop(0).__str__()
+            except IndexError:
+                data = ""
+            row.append(TextInput(text=data, size_hint_x=self.cols_proportions[i]))
         for input in row:
             self.input_grid.add_widget(input)
         self.rows.append(row)

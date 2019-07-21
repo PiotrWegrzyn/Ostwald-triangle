@@ -23,7 +23,9 @@ class SetCompositionScreen(Screen):
         self.input_widget = InputWidget(
             cols=2,
             cols_proportions=[0.8, 0.2],
-            labels=["Chemical composition", "Proportion"]
+            labels=["Chemical composition", "Proportion"],
+            initial_rows=5,
+            initial_data=["C", 70, "H", 4.3, "O", 7.5, "N", 1.3]
         )
 
         self.menu_layout.add_widget(self.input_widget)

@@ -1,5 +1,7 @@
+import molmass
 from kivy.uix.floatlayout import FloatLayout
 
+from gui.show_popup import show_popup
 from models.ostwaldtriangle import OstwaldTriangle
 from thermodynamics.ostwald_calculations import OstwaldCalculations, Composition
 
@@ -15,14 +17,18 @@ class OstwaldTriangleVisualization(FloatLayout):
         fuels79 = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
         fuels75 = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
         if fuel:
-            fuel = Composition(*fuel)
+            try:
+                fuel = Composition(*fuel)
+            except ValueError:
+                show_popup("Error", 'Please ensure that the sum of proportions is 100%')
+                fuel = fuels75
         else:
             fuel = fuels75
-        # try:
+        try:
             osw_calc = OstwaldCalculations(fuel, measured_co2, measured_o2)
             self.ostwald_triangle_graph = OstwaldTriangle(osw_calc)
             self.ostwald_triangle_graph.draw(self.canvas)
-        # except:
-        #     show_popup("Error", 'Please ensure that all chemicals are in'
-        #                         '\n capital letters and are chemically valid.')
+        except molmass.molmass.FormulaError:
+            show_popup("Error", 'Please ensure that all chemicals are in'
+                                '\n capital letters and are chemically valid.')
 
