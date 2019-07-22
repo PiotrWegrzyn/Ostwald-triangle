@@ -64,10 +64,13 @@ class Drawer:
 
     def add_annotation(self, text, position, **kwargs):
         angle = kwargs.get("angle", 0)
-        self.canvas.add(Rotate(angle=angle))
-        position = self.rotate_position(position, angle)
-        self.canvas.add(Annotation(text, position, **kwargs))
-        self.canvas.add(Rotate(angle=-angle))
+        with self.canvas:
+            Rotate(angle=angle)
+            self.create_color(kwargs.get("color", (0, 0, 0, 1)))
+            position = self.rotate_position(position, angle)
+            Annotation(text, position, **kwargs)
+            Color(0, 0, 0, 1)
+            Rotate(angle=-angle)
 
     def rotate_position(self, position, angle):
         rotated_point = Point.rotate(position, -angle)

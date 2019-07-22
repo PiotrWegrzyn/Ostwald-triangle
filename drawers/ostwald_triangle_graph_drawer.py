@@ -4,6 +4,7 @@ from kivy.graphics.context_instructions import Color
 from kivy.graphics.vertex_instructions import Ellipse
 
 from drawers.drawer import Drawer
+from geometry import Vector
 from geometry.series import Series
 from gui.colors import COLORS
 from models.line_info import LineInfo
@@ -96,13 +97,13 @@ class OstwaldTriangleGraphDrawer(Drawer):
             self.triangle.lines['coefficient'].series,
             altitude_drop_ratio
         )
-        coeff_line_split = self.triangle.lines['coefficient'].line.split(
+        self.coefficient_line_split_by_altitude_drop = self.triangle.lines['coefficient'].line.split(
             number_of_lines=2,
             proportions=[altitude_drop_ratio, 1 - altitude_drop_ratio]
         )
 
         self.draw_lines_and_annotate(
-            LineInfo(coeff_line_split[0], series=line1_series),
+            LineInfo(self.coefficient_line_split_by_altitude_drop[0], series=line1_series),
             self.triangle.lines['diagonal'].line.reversed(),
             offset_y=-8,
             angle=self.triangle.lines["coefficient"].line.reversed().angle,
@@ -110,7 +111,7 @@ class OstwaldTriangleGraphDrawer(Drawer):
         )
 
         self.draw_lines_and_annotate(
-            LineInfo(coeff_line_split[1], series=line2_series),
+            LineInfo(self.coefficient_line_split_by_altitude_drop[1], series=line2_series),
             self.triangle.lines["co2"].line.reversed(),
             offset_y=-8,
             angle=self.triangle.lines["coefficient"].line.reversed().angle,
@@ -139,6 +140,18 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.draw_line(self.triangle.lines["P-co2"].line, 1.5, color=COLORS["red"])
         self.draw_point(self.triangle.P, color=COLORS["red"])
         self.draw_point(self.triangle.C, color=COLORS["blue"])
+        self.add_annotation(
+            self.calculate_result_co(),
+            self.triangle.lines["P-co"].line.end,
+            angle=self.triangle.lines["coefficient"].line.reversed().angle,
+            offset_y=-8,
+            color=COLORS["red"]
+        )
+
+    def calculate_result_co(self):
+        line_from_res_to_co_start = Vector(self.triangle.lines["P-co"].line.end, self.triangle.lines["co"].line.start)
+        res = line_from_res_to_co_start.length/self.coefficient_line_split_by_altitude_drop[0].length
+        return round(res, 2)
 
     def add_title(self):
         self.annotate_line(
@@ -147,4 +160,5 @@ class OstwaldTriangleGraphDrawer(Drawer):
             offset_y=48,
             scale=1.8
         )
+
 
