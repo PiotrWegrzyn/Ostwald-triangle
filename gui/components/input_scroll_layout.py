@@ -60,3 +60,9 @@ class InputScrollGrid(ScrollView):
 
     def get_inputs(self):
         return self.rows
+
+    def get_input(self, label):
+        for input in self.get_inputs():
+            if input[0].text == label:
+                return input
+        return None

@@ -39,3 +39,6 @@ class InputWidget(BoxLayout):
 
     def get_inputs(self):
         return self.input_layout.get_inputs()
+
+    def get_input(self, label):
+        return self.input_layout.get_input(label)

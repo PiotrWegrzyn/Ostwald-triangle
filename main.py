@@ -94,18 +94,32 @@ class OstwaldTriangleApp(App):
     def get_measured_co2(self):
         given_co2 = self.menu_measured_composition.co2_input.text
         try:
-            return float(given_co2)
-        except:
-            show_popup("Error", 'There was a problem reading measured CO2.')
+            given_co2 = float(given_co2)
+        except ValueError:
+            show_popup("Error", 'Measured CO2 needs to be a number.')
             return 0
+        if self.is_measured_co2_greater_than_composition():
+            show_popup("Error", 'Measured CO2 cannot be greater than O2 in fuel composition')
+            return 0
+        return given_co2
 
     def get_measured_o2(self):
-        given_co2 = self.menu_measured_composition.o2_input.text
+        given_o2 = self.menu_measured_composition.o2_input.text
         try:
-            return float(given_co2)
-        except:
-            show_popup("Error", 'There was a problem reading measured O2.')
+            given_o2 = float(given_o2)
+        except ValueError:
+            show_popup("Error", 'Measured O2 needs to be a number.')
             return 0
+        if self.is_measured_o2_too_big():
+            show_popup("Error", 'Measured O2 cannot be greater than 21%')
+            return 0
+        return given_o2
+
+    def is_measured_o2_too_big(self):
+        return float(self.menu_measured_composition.o2_input.text) > 21 #float(self.menu_fuel_composition.input_widget.get_input("O")[1].text)*2
+
+    def is_measured_co2_greater_than_composition(self):
+        return float(self.menu_measured_composition.co2_input.text) > 21 # todo !important make it calculate co2 in the fuel composition and compare.
 
 
 if __name__ == '__main__':
