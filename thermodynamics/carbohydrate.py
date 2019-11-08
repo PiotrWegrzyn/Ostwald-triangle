@@ -8,6 +8,7 @@ class Carbohydrate:
             raise ValueError("C and H need to be positive numbers")
         self.c = c
         self.h = h
+        self.type = self.get_type(c,h)
         self.name = self.get_name(c, h)
         self.formula = FormulaWrapper(self.name)
 
@@ -28,4 +29,13 @@ class Carbohydrate:
             carbs.append(cls(c, 2*c))
             carbs.append(cls(c, 2*c - 2))
         return carbs
+
+    @staticmethod
+    def get_type(c, h):
+        if c * 2  == h:
+            return "Alken"
+        elif c *2 + 2 == h:
+            return "Alkan"
+        elif c *2 - 2  == h:
+            return "Alkin"
 

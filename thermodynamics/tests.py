@@ -232,58 +232,56 @@ class TestMollierClass(unittest.TestCase):
         self.assertEqual(0.654, round(m.vo2, 3))
 
     # data from page 84
-    # #wrong
-    # def test_ot_formula(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(1.94, round(m.Ot, 2))
-    #
-    # #wrong
-    # def test_vc_formula(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(0.984, round(m.vc, 3))
-    #
-    # # wrong
-    # def test_vn_formula(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(0.022, round(m.vn, 3))
-    #
-    # def test_vocoh2o(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(1.451, round(m.Ocoh2o, 3))  # the book says 8.843 but it should be 0.842
-    #
-    # #wrong
-    # def test_v0(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(round(m.Ot*4.76, 3), round(m.vo, 3))
-    #
-    # #wrong
-    # def test_vco(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(0.978, round(m.vco, 3))
-    #
-    # #wrong
-    # def test_n2(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(7.317, round(m.vn2, 3))
-    #
-    # # worng
-    # def test_vo0s(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(8.8, round(m.v0s, 1))
-    #
-    # #worng
-    # def test_vo2(self):
-    #     f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
-    #     m = Mollier(f)
-    #     self.assertEqual(0.489, round(m.vo2, 3))
+    def test_ot_formula_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(1.94, m.Ot, delta=0.01)
+
+    #wrong
+    def test_vc_formula_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(0.984, m.vc, delta=0.01)
+
+    def test_vn_formula_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(0.022, m.vn, delta=0.01)
+
+    #wrong
+    def test_vocoh2o_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(1.451, m.Ocoh2o, delta=0.01)  # the book says 8.843 but it should be 0.842
+
+    def test_v0_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(m.Ot*4.76, m.vo, delta=0.01)
+
+    #wrong
+    def test_vco_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(0.978, m.vco, delta=0.01)
+
+
+    def test_n2_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(7.317, m.vn2, delta=0.01)
+
+    # worng
+    def test_vo0s_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(8.8, m.v0s, delta=0.01)
+
+    #worng
+    def test_vo2_84(self):
+        f = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        m = Mollier(f)
+        self.assertAlmostEqual(0.489, m.vo2, delta=0.01)
 
     def test_ot_79(self):
         f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
@@ -293,13 +291,12 @@ class TestMollierClass(unittest.TestCase):
     def test_vc_s79(self):
         f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
         m = Mollier(f)
-        self.assertEqual(1.121, round(m.vc, 3))
-        self.assertAlmostEqual(4.772, m.vn2, delta=0.01)
+        self.assertAlmostEqual(1.121, m.vc, delta=0.01)
 
     def test_vn2_s79(self):
         f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
         m = Mollier(f)
-        self.assertAlmostEqual(4.772, m.vn2, delta=0.01)
+        self.assertAlmostEqual(4.722, m.vn2, delta=0.01)
 
     def test_v0_s79(self):
         f = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
