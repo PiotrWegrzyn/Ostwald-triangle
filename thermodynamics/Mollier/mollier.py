@@ -1,5 +1,5 @@
-from thermodynamics.mollier_gas_state_calculator import MollierGasStateCalculator
-from thermodynamics.mollier_solid_state_calculator import MollierSolidStateCalculator
+from thermodynamics.Mollier.mollier_gas_state_calculator import MollierGasStateCalculator
+from thermodynamics.Mollier.mollier_solid_state_calculator import MollierSolidStateCalculator
 
 
 class Mollier:

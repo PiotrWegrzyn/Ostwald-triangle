@@ -1,4 +1,4 @@
-from thermodynamics.formula_wrapper import FormulaWrapper
+from thermodynamics.Utlis.formula_wrapper import FormulaWrapper
 
 
 class Carbohydrate:

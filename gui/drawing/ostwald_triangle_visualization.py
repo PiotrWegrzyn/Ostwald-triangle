@@ -3,7 +3,7 @@ from kivy.uix.floatlayout import FloatLayout
 
 from gui.show_popup import show_popup
 from models.ostwaldtriangle import OstwaldTriangle
-from thermodynamics.composition import Composition
+from thermodynamics.Utlis.composition import Composition
 from thermodynamics.ostwald_calculations import OstwaldCalculations
 
 

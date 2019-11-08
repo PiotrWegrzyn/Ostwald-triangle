@@ -2,10 +2,10 @@ import unittest
 
 from molmass import Formula, FormulaError, ELEMENTS
 
+from thermodynamics.Mollier.mollier import Mollier
+from thermodynamics.Utlis.composition import CompositionNode, Composition
+from thermodynamics.Utlis.formula_wrapper import FormulaWrapper
 from thermodynamics.carbohydrate import Carbohydrate
-from thermodynamics.composition import CompositionNode, Composition
-from thermodynamics.formula_wrapper import FormulaWrapper
-from thermodynamics.mollier import Mollier
 from thermodynamics.ostwald_calculations import OstwaldCalculations
 
 

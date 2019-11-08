@@ -1,5 +1,5 @@
+from thermodynamics.Mollier.mollier_calculator_interface import MoillerCalculatorInterface
 from thermodynamics.carbohydrate import Carbohydrate
-from thermodynamics.mollier_calculator_interface import MoillerCalculatorInterface
 
 
 class MollierGasStateCalculator(MoillerCalculatorInterface):

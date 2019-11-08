@@ -1,4 +1,4 @@
-from thermodynamics.mollier_calculator_interface import MoillerCalculatorInterface
+from thermodynamics.Mollier.mollier_calculator_interface import MoillerCalculatorInterface
 
 
 class MollierSolidStateCalculator(MoillerCalculatorInterface):

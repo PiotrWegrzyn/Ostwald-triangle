@@ -1,4 +1,4 @@
-from thermodynamics.mollier import Mollier
+from thermodynamics.Mollier.mollier import Mollier
 
 
 class OstwaldCalculations:

@@ -1,5 +1,5 @@
+from thermodynamics.Utlis.formula_wrapper import FormulaWrapper
 from thermodynamics.carbohydrate import Carbohydrate
-from thermodynamics.formula_wrapper import FormulaWrapper
 
 
 class CompositionNode:
