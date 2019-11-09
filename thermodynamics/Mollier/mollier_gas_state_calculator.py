@@ -13,23 +13,23 @@ class MollierGasStateCalculator(MoillerCalculatorInterface):
         return ot
 
     def calculate_oco2ho(self):
-        oco2ho = 0
+        Oco2ho = 0
+        Oco2ho += self.fuel.proportion_of_formula("H2")
+        Oco2ho -= self.fuel.proportion_of_formula("02")
         for carbohydrate in Carbohydrate.get_all():
             proportion = self.fuel.proportion_of_formula(carbohydrate.name)
             if proportion > 0:
-                if carbohydrate.type == "Alkan":
-                    stehio = carbohydrate.c + 0.5
-                elif carbohydrate.type == "Alken":
-                    stehio = carbohydrate.c
+                if carbohydrate.type == Carbohydrate.ALKAN:
+                    stoichiometric_factor = carbohydrate.c + 0.5
+                elif carbohydrate.type == Carbohydrate.ALKEN:
+                    stoichiometric_factor = carbohydrate.c
                 else:
-                    stehio = carbohydrate.c - 0.5
-                oco2ho += proportion * stehio
-        oco2ho -= self.fuel.proportion_of_formula("02")
-        return oco2ho
+                    stoichiometric_factor = carbohydrate.c - 0.5
+                Oco2ho += proportion * stoichiometric_factor
+        return Oco2ho
 
     def calculate_vo2(self):
         return self.Ot - self.Ocoh2o
-
 
     def calculate_vc(self):
         return 22.42 * ((self.fuel["C"]/12) + (self.fuel["S"] /32))
@@ -47,7 +47,13 @@ class MollierGasStateCalculator(MoillerCalculatorInterface):
         return self.vn / self.vc
 
     def calculate_vco(self):
-        return 22.42 * (self.fuel["C"] / 12)
+        Vco = 0
+        Vco += self.fuel.proportion_of_formula("CO")
+        for carbohydrate in Carbohydrate.get_all():
+            proportion = self.fuel.proportion_of_formula(carbohydrate.name)
+            if proportion > 0:
+                Vco += proportion * carbohydrate.c
+        return Vco
 
     def calculate_vn2(self):
         return 22.42 * (self.fuel["N"] / 28) + (0.79 * self.vo)
@@ -59,3 +65,9 @@ class MollierGasStateCalculator(MoillerCalculatorInterface):
     def calculate_v0s(self):
         vco = self.vco / 2
         return self.vn2 + self.vo2 + vco + self.fuel.proportion_of_formula("CO2")
+
+    def calculate_vco2(self):
+        return 22.42 * (self.fuel["C"] / 12)
+
+    def calculate_vso2(self):
+        return self.fuel.proportion_of_formula("SO2")
