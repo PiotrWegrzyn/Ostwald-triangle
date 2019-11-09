@@ -61,7 +61,7 @@ class OstwaldTriangleApp(App):
         self.drawing.scatter_triangle.add_widget(self.triangle)
 
     def callback_export(self, btn):
-        self.export_photo(self.drawing.drawing_layout)
+        self.export_photo(self.drawing)
 
     def show_menu(self, btn):
         self.sm.switch_to(self.menu, direction=btn.transition_method)
@@ -77,6 +77,8 @@ class OstwaldTriangleApp(App):
         photo_name = "Ostwald-"+datetime.now().strftime("%y-%m-%d %H-%M-%S-%f")+".png"
         p = os.path.join("Exports", photo_name)
         widget.export_to_png(p)
+        Window.screenshot(p)
+        show_popup("Exported!", "Photo saved to Exports folder.", (0.4, 0.2))
 
     def parse_input_to_composition(self):
         inputs = self.menu_fuel_composition.input_widget.get_inputs()

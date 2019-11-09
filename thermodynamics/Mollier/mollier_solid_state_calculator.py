@@ -36,7 +36,6 @@ class MollierSolidStateCalculator(MoillerCalculatorInterface):
     def calculate_vn2(self):
         return 22.42 * (self.fuel["N"] / 28) + (0.79 * self.vo)
 
-    # ilość tlenu potrzebna do spalenia zupełnego
     def calculate_vo(self):
         return 4.76 * self.Ot
 
