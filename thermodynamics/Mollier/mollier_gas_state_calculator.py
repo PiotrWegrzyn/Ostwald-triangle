@@ -9,7 +9,7 @@ class MollierGasStateCalculator(MoillerCalculatorInterface):
             "H2") * 0.5 + self.fuel.proportion_of_formula("H2S") * 1.5
         ot -= self.fuel.proportion_of_formula("02")
         for carbohydrate in Carbohydrate.get_all():
-            ot += self.fuel.proportion_of_formula(carbohydrate.name) * (carbohydrate.c + (carbohydrate.h / 4))
+            ot += self.fuel.proportion_of_formula(carbohydrate.name) * (carbohydrate.carbon + (carbohydrate.hydrogen / 4))
         return ot
 
     def calculate_oco2ho(self):
@@ -20,11 +20,11 @@ class MollierGasStateCalculator(MoillerCalculatorInterface):
             proportion = self.fuel.proportion_of_formula(carbohydrate.name)
             if proportion > 0:
                 if carbohydrate.type == Carbohydrate.ALKAN:
-                    stoichiometric_factor = carbohydrate.c + 0.5
+                    stoichiometric_factor = carbohydrate.carbon + 0.5
                 elif carbohydrate.type == Carbohydrate.ALKEN:
-                    stoichiometric_factor = carbohydrate.c
+                    stoichiometric_factor = carbohydrate.carbon
                 else:
-                    stoichiometric_factor = carbohydrate.c - 0.5
+                    stoichiometric_factor = carbohydrate.carbon - 0.5
                 Oco2ho += proportion * stoichiometric_factor
         return Oco2ho
 
@@ -32,7 +32,14 @@ class MollierGasStateCalculator(MoillerCalculatorInterface):
         return self.Ot - self.Ocoh2o
 
     def calculate_vc(self):
-        return 22.42 * ((self.fuel["C"]/12) + (self.fuel["S"] /32))
+        Vc = 0
+        Vc += self.fuel.proportion_of_formula("CO")
+        Vc += self.fuel.proportion_of_formula("CO2")
+        for carbohydrate in Carbohydrate.get_all():
+            proportion = self.fuel.proportion_of_formula(carbohydrate.name)
+            if proportion > 0:
+                Vc += proportion * carbohydrate.carbon
+        return Vc
 
     def calculate_vs(self):
         return 22.42 * (self.fuel["S"]/28) + 0.79
@@ -52,22 +59,21 @@ class MollierGasStateCalculator(MoillerCalculatorInterface):
         for carbohydrate in Carbohydrate.get_all():
             proportion = self.fuel.proportion_of_formula(carbohydrate.name)
             if proportion > 0:
-                Vco += proportion * carbohydrate.c
+                Vco += proportion * carbohydrate.carbon
         return Vco
 
     def calculate_vn2(self):
-        return 22.42 * (self.fuel["N"] / 28) + (0.79 * self.vo)
+        return self.fuel.proportion_of_formula("N2") + (0.79 * self.vo)
 
     # ilość tlenu potrzebna do spalenia zupełnego
     def calculate_vo(self):
         return 4.76 * self.Ot
 
     def calculate_v0s(self):
-        vco = self.vco / 2
-        return self.vn2 + self.vo2 + vco + self.fuel.proportion_of_formula("CO2")
+        return self.vo2 + self.vn2 + self.vco2 + self.vco
 
     def calculate_vco2(self):
-        return 22.42 * (self.fuel["C"] / 12)
+        return self.fuel.proportion_of_formula("CO2")
 
     def calculate_vso2(self):
         return self.fuel.proportion_of_formula("SO2")
