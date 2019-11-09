@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/thermodynamics/mollier_calculator_interface.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thermodynamics/mollier_gas_state_calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/thermodynamics/mollier_solid_state_calculator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/Mollier/mollier_calculator_interface.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/Mollier/mollier_calculator_interface.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/Mollier/mollier_gas_state_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/Mollier/mollier_gas_state_calculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/Mollier/mollier_solid_state_calculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/Mollier/mollier_solid_state_calculator.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/thermodynamics/carbohydrate.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/carbohydrate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thermodynamics/mollier.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/mollier.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/thermodynamics/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/tests.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,15 +62,15 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/thermodynamics/Utlis" />
+      <recent name="$PROJECT_DIR$/thermodynamics/Mollier" />
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\gui\components" />
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\gui\fuel_comp" />
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\gui\drawing" />
-      <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\gui\measured_comp" />
-      <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\gui\main_menu" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -250,21 +248,7 @@
       <workItem from="1571172783200" duration="7280000" />
       <workItem from="1572371358767" duration="3477000" />
       <workItem from="1572474036537" duration="26423000" />
-      <workItem from="1573245495772" duration="386000" />
-    </task>
-    <task id="LOCAL-00026" summary="add all annotations">
-      <created>1563139773959</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1563139773959</updated>
-    </task>
-    <task id="LOCAL-00027" summary="fill table">
-      <created>1563141131078</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1563141131078</updated>
+      <workItem from="1573245495772" duration="4438000" />
     </task>
     <task id="LOCAL-00028" summary="fix annotations and co line angle">
       <created>1563148097315</created>
@@ -595,7 +579,21 @@
       <option name="project" value="LOCAL" />
       <updated>1573169887678</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="Make Mollier become a composition using one of 2 Moiller Calculators - solid state of gas state">
+      <created>1573245950943</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1573245950943</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Refactor: split into different folders">
+      <created>1573246061295</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1573246061295</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -615,8 +613,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="make graph X axis scale properly with Y axis, make coef line go through C" />
-    <MESSAGE value="make co lines be always at 90degrees" />
     <MESSAGE value="make table move relatively to graph" />
     <MESSAGE value="point c calcualtions" />
     <MESSAGE value="Make the graph scalable" />
@@ -640,7 +636,9 @@
     <MESSAGE value="Add beta data validation for measured proportions" />
     <MESSAGE value="Refactor" />
     <MESSAGE value="Add Carbohydrates to change Ot calculaltion in gas fuels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Carbohydrates to change Ot calculaltion in gas fuels" />
+    <MESSAGE value="Make Mollier become a composition using one of 2 Moiller Calculators - solid state of gas state" />
+    <MESSAGE value="Refactor: split into different folders" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor: split into different folders" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -666,7 +664,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Ostwald_triangle$main.coverage" NAME="main Coverage Results" MODIFIED="1573166761379" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Ostwald_triangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1573245861072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
+    <SUITE FILE_PATH="coverage/Ostwald_triangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1573259415883" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">

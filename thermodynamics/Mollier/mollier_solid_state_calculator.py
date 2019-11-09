@@ -18,6 +18,9 @@ class MollierSolidStateCalculator(MoillerCalculatorInterface):
     def calculate_vs(self):
         return 22.42 * (self.fuel["S"]/28) + 0.79
 
+    def calculate_vso2(self):
+        return 22.42 * (self.fuel["S"]/32)
+
     def calculate_vn(self):
         return 22.42 * (self.fuel["N"]/28)
 
@@ -38,4 +41,7 @@ class MollierSolidStateCalculator(MoillerCalculatorInterface):
         return 4.76 * self.Ot
 
     def calculate_v0s(self):
-        return self.vn2 + self.vo2 + self.vco + self.fuel.proportion_of_formula("CO2")
+        return self.vn2 + self.vo2 + self.vso2 + self.fuel.proportion_of_formula("CO2") + self.vco
+
+    def calculate_vco2(self):
+        return 22.42 * (self.fuel["C"] / 12)

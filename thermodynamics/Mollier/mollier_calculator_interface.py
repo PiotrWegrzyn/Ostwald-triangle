@@ -11,6 +11,8 @@ class MoillerCalculatorInterface:
         self.Ocoh2o = self.calculate_oco2ho()
         self.vo = self.calculate_vo()
         self.vco = self.calculate_vco()
+        self.vco2 = self.calculate_vco2()
+        self.vso2 = self.calculate_vso2()
         self.vn2 = self.calculate_vn2()
         self.vo2 = self.calculate_vo2()
         self.v0s = self.calculate_v0s()
@@ -48,7 +50,10 @@ class MoillerCalculatorInterface:
     def calculate_vn2(self):
         raise NotImplementedError()
 
-    def calculate_vo2(self):
+    def calculate_vso2(self):
+        raise NotImplementedError()
+
+    def calculate_vco2(self):
         raise NotImplementedError()
 
     def calculate_v0s(self):
