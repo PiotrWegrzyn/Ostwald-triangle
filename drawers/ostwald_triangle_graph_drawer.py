@@ -65,8 +65,9 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.draw_lines_and_annotate(
             self.triangle.lines['co2'],
             self.triangle.lines["diagonal"].line.reversed(),
-            offset_x=-20,
-            line_width=1.5
+            offset_x=-24,
+            line_width=1.5,
+            scale=1
         )
 
         self.lines_between_2_lines(
@@ -86,7 +87,8 @@ class OstwaldTriangleGraphDrawer(Drawer):
             self.triangle.lines["co"],
             self.triangle.lines["co2"].line.reversed(),
             offset_y=-8,
-            angle=self.triangle.lines["co"].line.reversed().angle
+            angle=self.triangle.lines["co"].line.reversed().angle,
+            scale=0.8
         )
 
         self.coefficient_lines_and_annotations()

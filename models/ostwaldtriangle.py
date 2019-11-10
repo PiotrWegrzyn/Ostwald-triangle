@@ -73,7 +73,7 @@ class OstwaldTriangle:
 
     def set_height(self, margin_top, triangle_width):
         self.top = Window.size[1] * (100-margin_top)/100
-        self.bot = Window.size[1] * (100-margin_top)/100 - Window.size[0]*((self.maxco2*triangle_width/self.maxo2)/100)
+        self.bot = Window.size[1] * (100-margin_top)/100 - Window.size[0]*((self.maxco2*triangle_width/self.maxo2)/100) + (Window.size[1] * 0.2)
         self.height = self.top - self.bot
 
     def set_width(self, margin_left, triangle_width):
@@ -102,6 +102,8 @@ class OstwaldTriangle:
             self.left + ((o2 / self.maxo2) * (self.right - self.left)),
             self.bot + ((co2 / self.maxco2) * (self.top - self.bot))
         )
+
+
 
 
 
