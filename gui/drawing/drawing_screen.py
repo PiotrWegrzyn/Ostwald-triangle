@@ -29,7 +29,9 @@ class DrawingScreen(Screen):
             font_size='20sp'
         )
 
-        self.drawing_layout.add_widget(TableVisuallization(size_hint=(0.1, 1)))
+        phi_data = [["Phi", "Lambda"]]+[[i*0.1, 1/(i*0.1)] for i in range(1, 1+self.rows-1)]
+        self.drawing_layout.add_widget(TableVisuallization(75, 95, phi_data, size_hint=(0.1, 1)))
+        self.drawing_layout.add_widget(TableVisuallization(75, 47, size_hint=(0.1, 1)))
         self.drawing_layout.add_widget(self.scatter_triangle)
         self.drawing_layout.add_widget(self.drawing_layout_menu)
 

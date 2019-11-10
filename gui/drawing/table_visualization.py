@@ -4,8 +4,8 @@ from models.table import Table
 
 
 class TableVisuallization(FloatLayout):
-    def __init__(self, **kwargs):
+    def __init__(self, x, y, data, **kwargs):
         super().__init__(**kwargs)
 
-        self.table = Table(75, 95)
+        self.table = Table(x, y, data)
         self.table.draw(self.canvas)

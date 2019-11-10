@@ -6,11 +6,13 @@ from models.line_info import LineInfo
 
 
 class Table:
-    def __init__(self, x, y):
+    def __init__(self, x, y, data):
         self.top = 650
         self.bot = 300
         self.left = 850
         self.right = 950
+
+        self.data = data
 
         height_p = 45
         self.top = Window.size[1] * y/100
@@ -23,7 +25,6 @@ class Table:
 
         self.columns = 2
         self.rows = 16
-        self.data = [["Phi", "Lambda"]]+[[i*0.1, 1/(i*0.1)] for i in range(1, 1+self.rows-1)]
 
         self.lines = {
             "top": LineInfo(Vector(self.left, self.top, self.right, self.top)),

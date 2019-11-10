@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exports/Ostwald-19-07-19 13-12-36-965505.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exports/Ostwald-19-07-20 22-54-33-698495.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exports/Oswald-19-07-16 21-56-56-391818.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Exports/Oswald-19-07-16 21-59-47-653079.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/ostwaldtriangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ostwaldtriangle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/drawing/drawing_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing/drawing_screen.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/drawing/table_visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing/table_visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/table.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -255,14 +252,7 @@
       <workItem from="1571172783200" duration="7280000" />
       <workItem from="1572371358767" duration="3477000" />
       <workItem from="1572474036537" duration="26423000" />
-      <workItem from="1573245495772" duration="17585000" />
-    </task>
-    <task id="LOCAL-00032" summary="Refactor">
-      <created>1563212323433</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1563212323433</updated>
+      <workItem from="1573245495772" duration="18534000" />
     </task>
     <task id="LOCAL-00033" summary="Add greek texts">
       <created>1563212339783</created>
@@ -600,7 +590,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573320441191</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="Fix graph moving out of area by default">
+      <created>1573348705649</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1573348705649</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,7 +617,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update requirements.txt" />
     <MESSAGE value="add intersection and contains_point" />
     <MESSAGE value="add draw results" />
     <MESSAGE value="primitive menu" />
@@ -645,7 +641,8 @@
     <MESSAGE value="add more Mollier parameters" />
     <MESSAGE value="fix some mollier gas crap and all tests pass" />
     <MESSAGE value="Fix screenshots on Mac OS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix screenshots on Mac OS" />
+    <MESSAGE value="Fix graph moving out of area by default" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix graph moving out of area by default" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -670,7 +667,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Ostwald_triangle$main.coverage" NAME="main Coverage Results" MODIFIED="1573348614509" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ostwald_triangle$main.coverage" NAME="main Coverage Results" MODIFIED="1573349189878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Ostwald_triangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1573261422709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
   </component>
   <component name="debuggerHistoryManager">
