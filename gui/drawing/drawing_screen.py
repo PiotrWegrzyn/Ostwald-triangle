@@ -7,7 +7,7 @@ from kivy.uix.screenmanager import Screen
 
 from gui.colors import COLORS
 from gui.components.transition_button import TransitionButton
-from gui.drawing.table_visualization import TableVisuallization
+from gui.drawing.phi_table_visualization import PhiTableVisualization
 
 
 class DrawingScreen(Screen):
@@ -29,11 +29,11 @@ class DrawingScreen(Screen):
             font_size='20sp'
         )
 
-        phi_data = [["Phi", "Lambda"]]+[[i*0.1, 1/(i*0.1)] for i in range(1, 1+self.rows-1)]
-        self.drawing_layout.add_widget(TableVisuallization(75, 95, phi_data, size_hint=(0.1, 1)))
-        self.drawing_layout.add_widget(TableVisuallization(75, 47, size_hint=(0.1, 1)))
-        self.drawing_layout.add_widget(self.scatter_triangle)
         self.drawing_layout.add_widget(self.drawing_layout_menu)
+        self.drawing_layout.add_widget(self.scatter_triangle)
+        self.drawing_layout.add_widget(PhiTableVisualization(size_hint=(0.1, 1)))
+        self.result_table_placeholder = FloatLayout(size_hint=(0.1, 1))
+        self.drawing_layout.add_widget(self.result_table_placeholder)
 
         self.export_button = Button(
             size_hint=(1, 0.7),

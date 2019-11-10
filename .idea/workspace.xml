@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
+    <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="change data passing to table8">
+      <change afterPath="$PROJECT_DIR$/gui/drawing/result_table_visualization.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" beforeDir="false" afterPath="$PROJECT_DIR$/drawers/ostwald_triangle_graph_drawer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/drawing/drawing_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing/drawing_screen.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui/drawing/table_visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing/table_visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/drawing/ostwald_triangle_visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing/ostwald_triangle_visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/drawing/table_visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing/phi_table_visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ostwaldtriangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ostwaldtriangle.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/table.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/table.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/Mollier/mollier.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/Mollier/mollier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/Utlis/composition.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/Utlis/composition.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +67,7 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MWCellAutomaton" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gui/drawing" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -74,6 +81,7 @@
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle\gui\drawing" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/gui/drawing" />
       <recent name="C:\Users\Peter\Desktop\Code\Python\OswaldTriangle" />
     </key>
   </component>
@@ -252,14 +260,7 @@
       <workItem from="1571172783200" duration="7280000" />
       <workItem from="1572371358767" duration="3477000" />
       <workItem from="1572474036537" duration="26423000" />
-      <workItem from="1573245495772" duration="18534000" />
-    </task>
-    <task id="LOCAL-00033" summary="Add greek texts">
-      <created>1563212339783</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1563212339783</updated>
+      <workItem from="1573245495772" duration="28738000" />
     </task>
     <task id="LOCAL-00034" summary="attempt at thermodynamics calculations">
       <created>1563220168449</created>
@@ -597,7 +598,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573348705649</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="change data passing to table8">
+      <created>1573349620322</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1573349620322</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -617,7 +625,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add intersection and contains_point" />
     <MESSAGE value="add draw results" />
     <MESSAGE value="primitive menu" />
     <MESSAGE value="add screen manager" />
@@ -642,7 +649,8 @@
     <MESSAGE value="fix some mollier gas crap and all tests pass" />
     <MESSAGE value="Fix screenshots on Mac OS" />
     <MESSAGE value="Fix graph moving out of area by default" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix graph moving out of area by default" />
+    <MESSAGE value="change data passing to table8" />
+    <option name="LAST_COMMIT_MESSAGE" value="change data passing to table8" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -663,11 +671,26 @@
           <line>190</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/thermodynamics/Mollier/mollier.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gui/drawing/ostwald_triangle_visualization.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gui/drawing/ostwald_triangle_visualization.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Ostwald_triangle$main.coverage" NAME="main Coverage Results" MODIFIED="1573349189878" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ostwald_triangle$main.coverage" NAME="main Coverage Results" MODIFIED="1573408490813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Ostwald_triangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1573261422709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
   </component>
   <component name="debuggerHistoryManager">

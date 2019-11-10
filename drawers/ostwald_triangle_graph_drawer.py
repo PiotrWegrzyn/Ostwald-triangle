@@ -143,14 +143,14 @@ class OstwaldTriangleGraphDrawer(Drawer):
         self.draw_point(self.triangle.P, color=COLORS["red"])
         self.draw_point(self.triangle.C, color=COLORS["blue"])
         self.add_annotation(
-            self.calculate_result_co(),
+            self.calculate_result_phi(),
             self.triangle.lines["P-co"].line.end,
             angle=self.triangle.lines["coefficient"].line.reversed().angle,
             offset_y=-8,
             color=COLORS["red"]
         )
 
-    def calculate_result_co(self):
+    def calculate_result_phi(self):
         line_from_res_to_co_start = Vector(self.triangle.lines["P-co"].line.end, self.triangle.lines["co"].line.start)
         res = line_from_res_to_co_start.length/self.coefficient_line_split_by_altitude_drop[0].length
         return round(res, 2)

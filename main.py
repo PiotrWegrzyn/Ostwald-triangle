@@ -10,6 +10,7 @@ from kivy.uix.screenmanager import ScreenManager
 from gui.About.about_screen import AboutScreen
 from gui.drawing.drawing_screen import DrawingScreen
 from gui.drawing.ostwald_triangle_visualization import OstwaldTriangleVisualization
+from gui.drawing.result_table_visualization import ResultTableVisualization
 from gui.fuel_comp.set_composition_screen import SetCompositionScreen
 from gui.main_menu.menu_screen import MainMenuScreen
 from gui.measured_comp.measured_composition_screen import SetMeasuredScreen
@@ -57,8 +58,18 @@ class OstwaldTriangleApp(App):
             measured_co2=self.get_measured_co2(),
             measured_o2=self.get_measured_o2()
         )
-        self.drawing.scatter_triangle.clear_widgets()
+        try:
+            self.drawing.result_table_placeholder.clear_widgets()
+            self.drawing.result_table_placeholder.add_widget(ResultTableVisualization(
+                self.triangle.osw_calculations,
+                self.triangle.ostwald_triangle_graph.get_result_phi(),
+                size_hint=(0.1, 1))
+            )
+            self.drawing.scatter_triangle.clear_widgets()
+        except AttributeError:
+            print("Triangle failed to create.")
         self.drawing.scatter_triangle.add_widget(self.triangle)
+
 
     def callback_export(self, btn):
         self.export_photo(self.drawing)

@@ -4,6 +4,9 @@ from thermodynamics.carbohydrate import Carbohydrate
 
 class CompositionNode:
     def __init__(self, *args):
+        self.formula = FormulaWrapper("")
+        self.proportion = 0.0
+
         if len(args) is 1:
             if not isinstance(args[0], (tuple, list)):
                 raise ValueError("Can create only from list or tuple.")
@@ -32,7 +35,7 @@ class Composition:
     def __init__(self, *args):
         self.composition_nodes = list(args)
         for i, cn in enumerate(self.composition_nodes):
-            if isinstance(cn, tuple):
+            if isinstance(cn, (tuple, list)):
                 self.composition_nodes[i] = CompositionNode(cn)
             elif not isinstance(cn, CompositionNode):
                 raise ValueError("arguments should only contain CompositionNodes")

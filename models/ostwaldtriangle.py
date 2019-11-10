@@ -63,7 +63,8 @@ class OstwaldTriangle:
         }
 
     def draw(self, canvas):
-        OstwaldTriangleGraphDrawer(canvas, self).draw()
+        self.drawer = OstwaldTriangleGraphDrawer(canvas, self)
+        self.drawer.draw()
 
     def calculate_coeff_line_angle(self):
         AC = Vector(self.A, self.C)
@@ -103,6 +104,8 @@ class OstwaldTriangle:
             self.bot + ((co2 / self.maxco2) * (self.top - self.bot))
         )
 
+    def get_result_phi(self):
+        return self.drawer.calculate_result_phi()
 
 
 

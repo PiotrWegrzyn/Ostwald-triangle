@@ -23,10 +23,12 @@ class OstwaldTriangleVisualization(FloatLayout):
             except ValueError:
                 show_popup("Error", 'Please ensure that the sum of proportions is 100%')
         try:
-            osw_calc = OstwaldCalculations(fuel, measured_co2, measured_o2)
-            self.ostwald_triangle_graph = OstwaldTriangle(osw_calc)
+            self.osw_calculations = OstwaldCalculations(fuel, measured_co2, measured_o2)
+            self.ostwald_triangle_graph = OstwaldTriangle(self.osw_calculations)
             self.ostwald_triangle_graph.draw(self.canvas)
-        except molmass.molmass.FormulaError:
-            show_popup("Error", 'Please ensure that all chemicals are in'
-                                '\n capital letters and are chemically valid.')
-
+        except (molmass.molmass.FormulaError, ZeroDivisionError) as e:
+            if isinstance(e, molmass.molmass.FormulaError):
+                show_popup("Error", 'Please ensure that all chemicals are in'
+                                    '\n capital letters and are chemically valid.')
+            else:
+                show_popup("Error", 'Please ensure that all proportions are numbers.')
