@@ -8,7 +8,7 @@ class ResultTableVisualization(FloatLayout):
         super().__init__(**kwargs)
 
         phi_data = [["Variable", "Value"]]
-        phi_data.append(["Lambda:", lambda_result])
+        phi_data.append(["Phi:", lambda_result])
         phi_data.append(["Max CO:", oswald_calculations.max_co])
         phi_data.append(["Max CO2:", oswald_calculations.max_co2])
         phi_data.append(["Fuel:", ""])
