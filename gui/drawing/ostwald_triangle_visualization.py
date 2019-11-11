@@ -14,6 +14,7 @@ class OstwaldTriangleVisualization(FloatLayout):
         fuels79 = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
         fuels75 = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
         fuel = kwargs.pop("fuel", fuels84)
+        # fuel = fuels84
         measured_co2 = kwargs.pop("measured_co2", 0)
         measured_o2 = kwargs.pop("measured_o2", 0)
         super().__init__(**kwargs)
