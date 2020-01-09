@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3234a39e-1937-40a8-99a5-e213321063b1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gui/components/annotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/components/annotation.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui/drawing/ostwald_triangle_visualization.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui/drawing/ostwald_triangle_visualization.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/ostwaldtriangle.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/ostwaldtriangle.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/thermodynamics/ostwald_calculations.py" beforeDir="false" afterPath="$PROJECT_DIR$/thermodynamics/ostwald_calculations.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -251,14 +255,13 @@
       <workItem from="1571172783200" duration="7280000" />
       <workItem from="1572371358767" duration="3477000" />
       <workItem from="1572474036537" duration="26423000" />
-      <workItem from="1573245495772" duration="29473000" />
-    </task>
-    <task id="LOCAL-00037" summary="drop my own work with chemistry and use chempy">
-      <created>1563310690549</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1563310690549</updated>
+      <workItem from="1573245495772" duration="29597000" />
+      <workItem from="1574121652517" duration="3000" />
+      <workItem from="1574121760679" duration="52000" />
+      <workItem from="1576505820575" duration="657000" />
+      <workItem from="1577376718861" duration="9754000" />
+      <workItem from="1578094923660" duration="2146000" />
+      <workItem from="1578528483453" duration="1499000" />
     </task>
     <task id="LOCAL-00038" summary="use molmass lib">
       <created>1563319424305</created>
@@ -596,7 +599,14 @@
       <option name="project" value="LOCAL" />
       <updated>1573408613839</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Finished version.">
+      <created>1573506917918</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1573506917919</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -616,7 +626,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change main screen menu and split main to different files" />
     <MESSAGE value="add set fuel composition panel" />
     <MESSAGE value="add set measured values panel" />
     <MESSAGE value="change colors" />
@@ -641,7 +650,8 @@
     <MESSAGE value="Add result table" />
     <MESSAGE value="Change lambda to phi" />
     <MESSAGE value="Add lambda to results" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add lambda to results" />
+    <MESSAGE value="Finished version." />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished version." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -663,16 +673,31 @@
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/thermodynamics/Mollier/mollier.py</url>
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>104</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gui/drawing/ostwald_triangle_visualization.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/thermodynamics/ostwald_calculations.py</url>
           <line>9</line>
-          <option name="timeStamp" value="60" />
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/gui/drawing/result_table_visualization.py</url>
+          <line>16</line>
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Ostwald_triangle$main.coverage" NAME="main Coverage Results" MODIFIED="1573506875937" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Ostwald_triangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1573261422709" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
+    <SUITE FILE_PATH="coverage/Ostwald_triangle$main.coverage" NAME="main Coverage Results" MODIFIED="1578529756726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ostwald_triangle$Unittests_in_tests_py.coverage" NAME="Unittests in tests.py Coverage Results" MODIFIED="1577398027114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/thermodynamics" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">

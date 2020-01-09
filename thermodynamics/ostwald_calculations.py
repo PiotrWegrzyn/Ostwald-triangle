@@ -26,7 +26,7 @@ class OstwaldCalculations:
         return round(100/(100 / self.kmax - 79 / 42), 2) # percent
 
     def calculate_point_c(self):
-        co2 = 0
+        co2 = 0 #100 * self.mollier.vco2/self.mollier.v0s  # 17.2
         co = 100 * self.mollier.vco/self.mollier.v0s  # 17.2
         o2 = 100 * self.mollier.vo2/self.mollier.v0s   # 8.6
         return OstwaldCalculations.Point(co2, o2, co)

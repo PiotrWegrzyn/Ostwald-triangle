@@ -17,7 +17,8 @@ class OstwaldTriangle:
         self.maxco2 = calculations.max_co2
         self.maxco = calculations.max_co
         self.maxo2 = calculations.max_o2
-
+        self.O2_SERIES_SCALE = 2
+        self.CO2_SERIES_SCALE = 2
         self.set_width(margin_left=10, triangle_width=50)
         self.set_height(margin_top=10, triangle_width=50)
         self.A = Point(self.left, self.top)
@@ -31,14 +32,15 @@ class OstwaldTriangle:
         self.bot_diagonal_angle = 90 - self.co2_diagonal_angle
 
         self.coefficient_line_angle = self.calculate_coeff_line_angle()
+
         self.lines = {"o2": LineInfo(
             Vector(self.left, self.top, self.right, self.top),
             points=self.maxo2 + 1,
             labels={"name": "Oxygen %"},
-            series=Series(0, self.maxo2, 2),
+            series=Series(0, self.maxo2, self.O2_SERIES_SCALE),
         ), "co2": LineInfo(
             Vector(self.left, self.bot, self.left, self.top),
-            series=Series(0, self.maxco2, 2),
+            series=Series(0, self.maxco2, self.CO2_SERIES_SCALE),
             labels={"name": "Carbon dioxide %"}
         ), "co": LineInfo(
             Vector(Point(self.right, self.bot), 180 + self.co_line_angle,
@@ -73,8 +75,9 @@ class OstwaldTriangle:
         return 90 - alpha - self.bot_diagonal_angle
 
     def set_height(self, margin_top, triangle_width):
+        width = Window.size[0] * (triangle_width)/100
         self.top = Window.size[1] * (100-margin_top)/100
-        self.bot = Window.size[1] * (100-margin_top)/100 - Window.size[0]*((self.maxco2*triangle_width/self.maxo2)/100) + (Window.size[1] * 0.2)
+        self.bot = Window.size[1] * (100-margin_top)/100 - width * (self.maxco2 / self.maxo2) # Window.size[0]*((self.maxco2*triangle_width/self.maxo2)/100) + (Window.size[1] * 0.2)
         self.height = self.top - self.bot
 
     def set_width(self, margin_left, triangle_width):

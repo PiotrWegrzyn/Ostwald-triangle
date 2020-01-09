@@ -141,5 +141,6 @@ if __name__ == '__main__':
     Config.set('graphics', 'window_state', 'maximize')
     # Config.set('graphics', 'window_state', 'visible')
     Config.write()
-    Window.clearcolor = (194/255, 194/255, 214/255, .69)
+    Window.clearcolor = (255, 255, 255, 1)
+    # Window.clearcolor = (194/255, 194/255, 214/255, .69)
     OstwaldTriangleApp().run()

@@ -42,4 +42,4 @@ class Annotation(Rectangle):
 
     @classmethod
     def limit_to_percision2(cls, fnumber):
-        return float("{0:.2f}".format(fnumber))
+        return float("{0:.3f}".format(fnumber))

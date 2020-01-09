@@ -10,7 +10,7 @@ from thermodynamics.ostwald_calculations import OstwaldCalculations
 class OstwaldTriangleVisualization(FloatLayout):
 
     def __init__(self, **kwargs):
-        fuels84 = Composition(("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022))
+        fuels84 = [("CH4", 0.958), ("C2H4", 0.008), ("CO", 0.004), ("O2", 0.002), ("CO2", 0.006), ("N2", 0.022)]
         fuels79 = Composition(("C", 0.5921), ("H", 0.0377), ("S", 0.0211), ("O", 0.112), ("N", 0.0128))
         fuels75 = Composition(("C", 0.7), ("H", 0.043), ("O", 0.075), ("N", 0.013))
         fuel = kwargs.pop("fuel", fuels84)
