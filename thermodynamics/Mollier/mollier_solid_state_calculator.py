@@ -43,4 +43,4 @@ class MollierSolidStateCalculator(MoillerCalculatorInterface):
         return self.vn2 + self.vo2 + self.vso2 + self.fuel.proportion_of_formula("CO2") + self.vco
 
     def calculate_vco2(self):
-        return 22.42 * (self.fuel["C"] / 12)
+        return self.fuel.proportion_of_formula("CO2")
